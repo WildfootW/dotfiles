@@ -86,8 +86,15 @@ plugins=(git history-substring-search zsh-syntax-highlighting tmux colored-man u
 #alias
 
 alias grep="grep --color=auto"
-alias python="python3"
+
 alias gs="git status"
+
+alias python2=python2.7
+alias python=python3
+
+alias v=vim
+
+
 
 # apt-get
 if [ -x "`which apt-get`" ]; then
