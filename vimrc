@@ -46,8 +46,6 @@ Plugin 'vim-scripts/HTML5-Syntax-File'
 Plugin 'tpope/vim-surround'
 "Class/Module browser
 Plugin 'scrooloose/nerdcommenter' 
-" Python and other languages code checker
-Plugin 'scrooloose/syntastic'
 
 Plugin 'majutsushi/tagbar'
 " Auto complete tag pair
@@ -68,23 +66,7 @@ if iCanHazVundle == 0
     :PluginInstall
 endif
 
-" Syntastic ------------------------------
-
-" show list of errors and warnings on the current file
-nmap <leader>e :Errors<CR>
-" check also when just opened the file
-let g:syntastic_check_on_open = 1
-" don't put icons on the sign column (it hides the vcs status icons of
-" signify)
-let g:syntastic_enable_signs = 0
-" custom icons (enable them if you use a patched font, and enable the previous 
-" setting)
-let g:syntastic_error_symbol = '✗'
-"let g:syntastic_warning_symbol = '⚠'
-let g:syntastic_style_error_symbol = '!'
-"let g:syntastic_style_warning_symbol = '⚠'")
-
-"Pydiction plugin settings
+"Pydiction plugin settings----------------
 filetype plugin on
 let g:pydiction_location = '~/.vim/bundle/pydiction/complete-dict'
 let g:pydiction_menu_height = 3
