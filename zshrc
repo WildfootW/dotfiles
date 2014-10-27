@@ -94,7 +94,7 @@ alias python=python3
 
 alias v=vim
 
-
+alias rm="rm -r"
 
 # apt-get
 if [ -x "`which apt-get`" ]; then
