@@ -1,5 +1,0 @@
-let g:netrw_dirhistmax  =10
-let g:netrw_dirhist_cnt =3
-let g:netrw_dirhist_1='/Users/kuroneko/Documents/facebook-miner'
-let g:netrw_dirhist_2='/Users/kuroneko/Documents/facebook-miner/facebook-sdk/facebook'
-let g:netrw_dirhist_3='/Users/kuroneko/Applications'
