@@ -65,6 +65,8 @@ Plugin 'scrooloose/nerdtree'
 
 "Plugin 'matchit.zip'
 
+Plugin 'emmet.vim'
+
 
 
 if iCanHazVundle == 0
