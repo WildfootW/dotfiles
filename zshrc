@@ -86,6 +86,7 @@ plugins=(git history-substring-search zsh-syntax-highlighting tmux colored-man u
 #alias
 
 alias grep="grep --color=auto"
+alias less="less -R"
 
 alias gs="git status"
 alias gl="git log --oneline "
