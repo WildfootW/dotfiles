@@ -98,6 +98,7 @@ alias v=vim
 
 alias rm="rm -r"
 
+alias ta ="tmux attach -t"
 # apt-get
 if [ -x "`which apt-get`" ]; then
 	alias apt-uu='sudo apt-get update; sudo apt-get upgrade'
