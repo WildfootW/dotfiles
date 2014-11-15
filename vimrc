@@ -74,6 +74,9 @@ if iCanHazVundle == 0
     :PluginInstall
 endif
 
+" Emmet
+let g:user_emmet_expandabbr_key = '<c-y>'
+
 " Syntastic ------------------------------
 
 " show list of errors and warnings on the current file
