@@ -6,6 +6,7 @@ set number
 set autoindent
 set smartindent
 set t_Co=256
+set ignorecase
 
 syntax on
 
@@ -116,7 +117,6 @@ nnoremap @=((foldclosed(line('.')) < 0) ? 'zc' : 'zo')
 autocmd filetype c   nnoremap <F8> :w <bar> exec '!gcc '.shellescape('%').' -O2 && ./a.out'<CR>
 autocmd filetype cpp nnoremap <F8> :w <bar> exec '!g++ '.shellescape('%').' -std=c++11 -O2 && ./a.out'<CR>
 autocmd BufRead *.py nmap <F8> :w !python3 % <CR>
-autocmd FileType html set 
 
 autocmd FileType python setlocal et sta sw=4 sts=4
 
