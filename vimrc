@@ -72,7 +72,6 @@ Plugin 'emmet.vim'
 Plugin 'fisadev/fisa-vim-colorscheme'
 
 
-
 if iCanHazVundle == 0
     echo "Installing Plugins..."
     :PluginInstall
@@ -139,11 +138,16 @@ autocmd BufRead *.py nmap <F8> :w !python3 % <CR>
 
 autocmd FileType python setlocal et sta sw=4 sts=4
 
-"Tagbar
-nmap <F4> :Tagbar<CR>
-nmap <F5> :NERDTree<CR>
-nmap <F9> :set paste<CR>
-nmap <F10> :set nopaste<CR>
+" Tagbar
+nmap <F4> :TagbarToggle<CR>
+" nerdtree
+nmap <F5> :NERDTreeToggle<CR>
+
+" paste
+set pastetoggle=<F9>
+nnoremap <F9> :set invpaste paste?<CR>
+set pastetoggle=<F9>
+set showmode
 
 "Key Mapping
 cab Q q
