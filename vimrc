@@ -129,7 +129,6 @@ let g:pydiction_menu_height = 3
 set foldenable 
 set foldmethod=syntax 
 set foldcolumn=0 
-nnoremap @=((foldclosed(line('.')) < 0) ? 'zc' : 'zo')
 
 "Run files
 autocmd filetype c   nnoremap <F8> :w <bar> exec '!gcc '.shellescape('%').' -O2 && ./a.out'<CR>
@@ -138,16 +137,27 @@ autocmd BufRead *.py nmap <F8> :w !python3 % <CR>
 
 autocmd FileType python setlocal et sta sw=4 sts=4
 
-" Tagbar
+"nerdtree
+let NERDTreeQuitOnOpen=1
+
+"key binding
+nmap <Tab> gt
+nmap <S-Tab> gT
+nmap <F3> :tabnew<CR>
 nmap <F4> :TagbarToggle<CR>
-" nerdtree
 nmap <F5> :NERDTreeToggle<CR>
 
-" paste
 set pastetoggle=<F9>
 nnoremap <F9> :set invpaste paste?<CR>
 set pastetoggle=<F9>
 set showmode
+
+nmap h <C-W>h
+nmap j <C-W>j
+nmap k <C-W>k
+nmap l <C-W>l
+
+cmap w!! w !sudo tee > /dev/null %
 
 "Key Mapping
 cab Q q
