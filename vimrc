@@ -7,6 +7,7 @@ set autoindent
 set smartindent
 set t_Co=256
 set ignorecase
+set backspace=indent,eol,start
 
 syntax on
 
@@ -37,7 +38,7 @@ filetype plugin indent on     " required
 
 "Plugin (Bundles)
 Plugin 'Auto-pairs'
-
+"Run file
 Plugin 'SingleCompile'
 
 Plugin 'Pydiction'
@@ -51,21 +52,21 @@ Plugin 'tpope/vim-surround'
 Plugin 'scrooloose/nerdcommenter' 
 " Python and other languages code checker
 Plugin 'scrooloose/syntastic'
-
+"tag bar
 Plugin 'majutsushi/tagbar'
 " Auto complete tag pair
 Plugin 'othree/xml.vim'
 "Auto Complete
+Plugin 'tomtom/tlib_vim'
+Plugin 'MarcWeber/vim-addon-mw-utils'
 Plugin 'garbas/vim-snipmate'
+Plugin 'honza/vim-snippets'
 
-Bundle "MarcWeber/vim-addon-mw-utils"
-Bundle "tomtom/tlib_vim"
-Bundle 'honza/vim-snippets'
-
+" File tree
 Plugin 'scrooloose/nerdtree'
 
 "Plugin 'matchit.zip'
-
+"Zen coding
 Plugin 'emmet.vim'
 
 " Color schema
@@ -131,18 +132,21 @@ set foldmethod=syntax
 set foldcolumn=0 
 
 "Run files
-autocmd filetype c   nnoremap <F8> :w <bar> exec '!gcc '.shellescape('%').' -O2 && ./a.out'<CR>
-autocmd filetype cpp nnoremap <F8> :w <bar> exec '!g++ '.shellescape('%').' -std=c++11 -O2 && ./a.out'<CR>
-autocmd BufRead *.py nmap <F8> :w !python3 % <CR>
 
-autocmd FileType python setlocal et sta sw=4 sts=4
+"autocmd filetype c   nnoremap <F8> :w <bar> exec '!gcc '.shellescape('%').' -O2 && ./a.out'<CR>
+"autocmd filetype cpp nnoremap <F8> :w <bar> exec '!g++ '.shellescape('%').' -std=c++11 -O2 && ./a.out'<CR>
+"autocmd BufRead *.py nmap <F8> :w !python3 % <CR>
+
+"autocmd FileType python setlocal et sta sw=4 sts=4
+"nmap <F8> :SCCompile<cr>
+nmap <F8> :SCCompileRun<cr>
 
 "nerdtree
 let NERDTreeQuitOnOpen=1
 
 "key binding
-nmap <Tab> gt
-nmap <S-Tab> gT
+"nmap <Tab> gt
+"nmap <S-Tab> gT
 nmap <F3> :tabnew<CR>
 nmap <F4> :TagbarToggle<CR>
 nmap <F5> :NERDTreeToggle<CR>
