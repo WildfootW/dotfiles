@@ -156,11 +156,6 @@ nnoremap <F9> :set invpaste paste?<CR>
 set pastetoggle=<F9>
 set showmode
 
-nmap h <C-W>h
-nmap j <C-W>j
-nmap k <C-W>k
-nmap l <C-W>l
-
 cmap w!! w !sudo tee > /dev/null %
 
 "Key Mapping

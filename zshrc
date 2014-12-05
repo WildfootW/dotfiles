@@ -83,6 +83,8 @@ export PATH="/usr/local/bin:/usr/local/sbin:/usr/bin:/bin:/usr/sbin:/sbin"
 ZSH_TMUX_AUTOSTART=false
 plugins=(git history-substring-search zsh-syntax-highlighting tmux colored-man urltools osx laravel brew composer)
 
+export EDITOR='vim'
+
 #alias
 
 alias grep="grep --color=auto"
@@ -108,4 +110,14 @@ fi
 if [ -x "`which tmux`" ]; then
 	alias tm="TERM=screen-256color-bce tmux -2"
 	alias tmux="TERM=screen-256color-bce tmux -2"
+fi
+
+#Home brew auto completion
+if [ `uname -s` = 'Darwin' ]; then
+    fpath=(/usr/local/share/zsh-completions $fpath)
+fi
+
+### Added by the Heroku Toolbelt
+if [ -d /usr/local/heroku ]; then
+    export PATH="/usr/local/heroku/bin:$PATH"
 fi
