@@ -3,6 +3,7 @@ set expandtab
 set tabstop=4
 set shiftwidth=4
 set number
+set cursorline
 set autoindent
 set smartindent
 set t_Co=256
@@ -76,7 +77,9 @@ Plugin 'Shougo/neocomplcache.vim'
 Plugin 'emmet.vim'
 
 Plugin 'fisadev/fisa-vim-colorscheme'
-
+"JS 
+Plugin 'pangloss/vim-javascript'
+Plugin 'othree/yajs.vim'
 
 if iCanHazVundle == 0
     echo "Installing Plugins..."
@@ -159,13 +162,13 @@ set foldcolumn=0
 
 "Run files
 
-"autocmd filetype c   nnoremap <F8> :w <bar> exec '!gcc '.shellescape('%').' -O2 && ./a.out'<CR>
-"autocmd filetype cpp nnoremap <F8> :w <bar> exec '!g++ '.shellescape('%').' -std=c++11 -O2 && ./a.out'<CR>
-"autocmd BufRead *.py nmap <F8> :w !python3 % <CR>
+autocmd filetype c   nnoremap <F8> :w <bar> exec '!gcc '.shellescape('%').' -O2 && ./a.out'<CR>
+autocmd filetype cpp nnoremap <F8> :w <bar> exec '!g++ '.shellescape('%').' -std=c++11 -O2 && ./a.out'<CR>
+autocmd BufRead *.py nmap <F8> :w !python3 % <CR>
 
 "autocmd FileType python setlocal et sta sw=4 sts=4
 "nmap <F8> :SCCompile<cr>
-nmap <F8> :SCCompileRun<cr>
+"nmap <F8> :SCCompileRun<cr>
 
 "nerdtree
 let NERDTreeQuitOnOpen=1
