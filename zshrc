@@ -101,6 +101,10 @@ if [ -x "`which tmux`" ]; then
 	alias tm="TERM=screen-256color-bce tmux -2"
 	alias tmux="TERM=screen-256color-bce tmux -2"
 fi
+#docker
+if [ -x "`which docker`" ]; then
+    plugins=(docker $plugins)
+fi
 
 #Home brew auto completion
 if [ `uname -s` = 'Darwin' ]; then
