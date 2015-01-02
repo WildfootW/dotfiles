@@ -108,7 +108,9 @@ let g:neocomplcache_same_filetype_lists = {}
 let g:neocomplcache_same_filetype_lists._ = '_'
 
 " Emmet
-let g:user_emmet_expandabbr_key = '<c-y>'
+let g:user_emmet_install_global = 0
+autocmd FileType html,css EmmetInstall
+let g:user_emmet_expandabbr_key = '<Tab>'
 
 " Syntastic 
 
@@ -154,6 +156,8 @@ highlight LineNr ctermfg=yellow
 filetype plugin on
 let g:pydiction_location = '~/.vim/bundle/Pydiction/complete-dict'
 let g:pydiction_menu_height = 3
+
+"snimate
 
 "folding
 set foldenable 
