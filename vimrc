@@ -9,6 +9,7 @@ set smartindent
 set t_Co=256
 set ignorecase
 set backspace=indent,eol,start
+set mouse=nicr
 " autocompletion of files and commands behaves like shell
 " " (complete only the common part, list the options that match)
 set wildmode=list:longest"
