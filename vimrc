@@ -53,11 +53,11 @@ Plugin 'vim-scripts/HTML5-Syntax-File'
 Plugin 'mileszs/ack.vim'
 
 Plugin 'tpope/vim-surround'
-"Class/Module browser
+"Commenter
 Plugin 'scrooloose/nerdcommenter' 
 " Python and other languages code checker
 Plugin 'scrooloose/syntastic'
-"tag bar
+"Class/Module browser
 Plugin 'majutsushi/tagbar'
 " Auto complete tag pair
 Plugin 'othree/xml.vim'
@@ -81,6 +81,10 @@ Plugin 'fisadev/fisa-vim-colorscheme'
 "JS 
 Plugin 'pangloss/vim-javascript'
 Plugin 'othree/yajs.vim'
+
+"Air line
+Plugin 'bling/vim-airline'
+
 
 if iCanHazVundle == 0
     echo "Installing Plugins..."
@@ -152,6 +156,8 @@ highlight SignifySignAdd cterm=bold ctermbg=237 ctermfg=119
 highlight SignifySignDelete cterm=bold ctermbg=237 ctermfg=167
 highlight SignifySignChange cterm=bold ctermbg=237 ctermfg=227
 highlight LineNr ctermfg=yellow
+"Airline
+set laststatus=2
 
 "Pydiction plugin settings
 filetype plugin on
