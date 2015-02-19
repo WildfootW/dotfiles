@@ -44,12 +44,10 @@ filetype plugin indent on     " required
 "Plugin (Bundles)
 Plugin 'Auto-pairs'
 "Run file
-Plugin 'SingleCompile'
+"Plugin 'SingleCompile'
 
 Plugin 'Pydiction'
-
-Plugin 'vim-scripts/HTML5-Syntax-File'
-
+"Command Tool for code searching 
 Plugin 'mileszs/ack.vim'
 
 Plugin 'tpope/vim-surround'
@@ -115,7 +113,7 @@ let g:neocomplcache_same_filetype_lists._ = '_'
 " Emmet
 let g:user_emmet_install_global = 0
 autocmd FileType html,css EmmetInstall
-let g:user_emmet_expandabbr_key = '<Tab>'
+let g:user_emmet_expandabbr_key = '<C-y>'
 
 " Syntastic 
 
