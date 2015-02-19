@@ -191,12 +191,19 @@ nmap <F3> :tabnew<CR>
 nmap <F4> :TagbarToggle<CR>
 nmap <F5> :NERDTreeToggle<CR>
 
-set pastetoggle=<F9>
+"paste setting
 nnoremap <F9> :set invpaste paste?<CR>
 set pastetoggle=<F9>
 set showmode
+
+"NERDCommenter
+nmap <C-c> <plug>NERDCommenterToggle
+
 "save file as sudo
 cmap w!! w !sudo tee > /dev/null %
+
+"set leader key
+let mapleader=","
 
 "Key Mapping
 cab Q q
