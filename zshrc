@@ -80,9 +80,6 @@ export EDITOR='vim'
 alias grep="grep --color=auto"
 alias less="less -R"
 
-alias gs="git status"
-alias gl="git log --oneline "
-
 alias python2=python2.7
 alias python=python3
 
