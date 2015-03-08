@@ -43,22 +43,29 @@ filetype plugin indent on     " required
 
 "Plugin (Bundles)
 Plugin 'Auto-pairs'
-"Run file
-"Plugin 'SingleCompile'
-
-Plugin 'Pydiction'
-"Command Tool for code searching 
-Plugin 'mileszs/ack.vim'
-
-Plugin 'tpope/vim-surround'
-"Commenter
-Plugin 'scrooloose/nerdcommenter' 
-" Python and other languages code checker
-Plugin 'scrooloose/syntastic'
-"Class/Module browser
-Plugin 'majutsushi/tagbar'
 " Auto complete tag pair
 Plugin 'othree/xml.vim'
+"Zen coding
+Plugin 'emmet.vim'
+"Command Tool for code searching 
+Plugin 'mileszs/ack.vim'
+"vim command tools
+Plugin 'tpope/vim-surround'
+"Air line
+Plugin 'bling/vim-airline'
+"Commenter
+Plugin 'scrooloose/nerdcommenter' 
+"Class/Module browser
+Plugin 'majutsushi/tagbar'
+" File tree
+Plugin 'scrooloose/nerdtree'
+
+"JS 
+Plugin 'pangloss/vim-javascript'
+Plugin 'othree/yajs.vim'
+
+" Python and other languages code checker
+Plugin 'scrooloose/syntastic'
 "Auto Complete
 Plugin 'tomtom/tlib_vim'
 Plugin 'MarcWeber/vim-addon-mw-utils'
@@ -67,22 +74,16 @@ Plugin 'honza/vim-snippets'
 
 " Code and files fuzzy finder
 Plugin 'kien/ctrlp.vim'
-" File tree
-Plugin 'scrooloose/nerdtree'
 "" Better autocompletion 
 Plugin 'Shougo/neocomplcache.vim'
 "Plugin 'matchit.zip'
-"Zen coding
-Plugin 'emmet.vim'
+"Run file
+"Plugin 'SingleCompile'
 
+Plugin 'Pydiction'
+
+"Color scheme
 Plugin 'fisadev/fisa-vim-colorscheme'
-"JS 
-Plugin 'pangloss/vim-javascript'
-Plugin 'othree/yajs.vim'
-
-"Air line
-Plugin 'bling/vim-airline'
-
 
 if iCanHazVundle == 0
     echo "Installing Plugins..."
