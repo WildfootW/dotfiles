@@ -87,22 +87,18 @@ let g:user_emmet_expandabbr_key = '<C-y>'
 " show list of errors and warnings on the current file
 nmap <leader>e :Errors<CR>
 let g:syntastic_check_on_open = 1
-
 " don't put icons on the sign column (it hides the vcs status icons of
 " signify)
 let g:syntastic_enable_signs = 1
 " custom icons (enable them if you use a patched font, and enable the previous 
 " setting)
-let g:syntastic_error_symbol = '✗'
-let g:syntastic_warning_symbol = '⚠'
-let g:syntastic_style_error_symbol = '!'
-"let g:syntastic_style_warning_symbol = '⚠'")
+let g:syntastic_error_symbol = 'x'
+let g:syntastic_warning_symbol = '!'
 let g:syntastic_enable_balloons = 1
-
 let g:syntastic_cpp_compiler = "g++"
 let g:syntastic_cpp_check_header = 1
 let g:syntastic_python_python_exec = '/usr/bin/python3'
-let g:syntastic_python_checkers = ["pyflakes"]
+let g:syntastic_python_checkers = ["pep8", "pyflakes"]
 let syntastic_check_on_wq = 1
 
 " use 256 colors when possible
@@ -129,25 +125,18 @@ set foldenable
 set foldmethod=syntax 
 set foldcolumn=0 
 
-"Run files
-
-autocmd filetype c   nnoremap <F8> :w <bar> exec '!gcc '.shellescape('%').' -O2 && ./a.out'<CR>
-autocmd filetype cpp nnoremap <F8> :w <bar> exec '!g++ '.shellescape('%').' -std=c++11 -O2 && ./a.out'<CR>
-autocmd BufRead *.py nmap <F8> :w !python3 % <CR>
-
-"autocmd FileType python setlocal et sta sw=4 sts=4
-"nmap <F8> :SCCompile<cr>
-"nmap <F8> :SCCompileRun<cr>
-
 "nerdtree
 let NERDTreeQuitOnOpen=1
 
 "key binding
-"nmap <Tab> gt
-"nmap <S-Tab> gT
+
+"Run files
 nmap <F3> :tabnew<CR>
 nmap <F4> :TagbarToggle<CR>
 nmap <F5> :NERDTreeToggle<CR>
+autocmd filetype c   nnoremap <F8> :w <bar> exec '!gcc '.shellescape('%').' -O2 && ./a.out'<CR>
+autocmd filetype cpp nnoremap <F8> :w <bar> exec '!g++ '.shellescape('%').' -std=c++11 -O2 && ./a.out'<CR>
+autocmd BufRead *.py nmap <F8> :w !python3 % <CR>
 
 "paste setting
 nnoremap <F9> :set invpaste paste?<CR>
@@ -163,7 +152,6 @@ cmap w!! w !sudo tee > /dev/null %
 "set leader key
 let mapleader=","
 
-"Key Mapping
 cab Q q
 cab W w
 cab X x
