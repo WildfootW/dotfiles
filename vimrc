@@ -10,6 +10,9 @@ set t_Co=256
 set ignorecase
 set backspace=indent,eol,start
 set mouse=nicr
+"set leader key
+let mapleader=","
+
 " autocompletion of files and commands behaves like shell
 " " (complete only the common part, list the options that match)
 set wildmode=list:longest"
@@ -73,6 +76,19 @@ Plugin 'scrooloose/syntastic'
 "Color scheme
 Plugin 'fisadev/fisa-vim-colorscheme'
 
+" auto completion
+Plugin 'ervandew/supertab'
+
+Plugin 'MarcWeber/vim-addon-mw-utils'
+Plugin 'tomtom/tlib_vim'
+Plugin 'garbas/vim-snipmate'
+Plugin 'honza/vim-snippets'
+
+"Plugin 'rkulla/pydiction'
+
+"let g:pydiction_location = '/home/user/.vim/bundle/pydiction/complete-dict'
+
+
 if iCanHazVundle == 0
     echo "Installing Plugins..."
     :PluginInstall
@@ -95,11 +111,14 @@ let g:syntastic_enable_signs = 1
 let g:syntastic_error_symbol = 'x'
 let g:syntastic_warning_symbol = '!'
 let g:syntastic_enable_balloons = 1
+let syntastic_check_on_wq = 1
+
 let g:syntastic_cpp_compiler = "g++"
 let g:syntastic_cpp_check_header = 1
+"let g:syntastic_cpp_checkers = ["cppcheck"]
+
 let g:syntastic_python_python_exec = '/usr/bin/python3'
 let g:syntastic_python_checkers = ["pep8", "pyflakes"]
-let syntastic_check_on_wq = 1
 
 " use 256 colors when possible
 if &term =~? 'mlterm\|xterm\|xterm-256\|screen-256'
@@ -149,8 +168,8 @@ nmap <C-c> <plug>NERDCommenterToggle
 "save file as sudo
 cmap w!! w !sudo tee > /dev/null %
 
-"set leader key
-let mapleader=","
+"jump to next error
+nmap <leader>l :lnext<CR>
 
 cab Q q
 cab W w
