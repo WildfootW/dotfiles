@@ -42,6 +42,8 @@ Plugin 'gmarik/vundle'
 filetype plugin indent on     " required
 
 "Plugin (Bundles)
+
+"auto add corresponse quote
 Plugin 'Auto-pairs'
 " Auto complete tag pair
 Plugin 'othree/xml.vim'
@@ -59,6 +61,8 @@ Plugin 'scrooloose/nerdcommenter'
 Plugin 'majutsushi/tagbar'
 " File tree
 Plugin 'scrooloose/nerdtree'
+" Code and files fuzzy finder
+Plugin 'kien/ctrlp.vim'
 
 "JS 
 Plugin 'pangloss/vim-javascript'
@@ -66,22 +70,6 @@ Plugin 'othree/yajs.vim'
 
 " Python and other languages code checker
 Plugin 'scrooloose/syntastic'
-"Auto Complete
-Plugin 'tomtom/tlib_vim'
-Plugin 'MarcWeber/vim-addon-mw-utils'
-Plugin 'garbas/vim-snipmate'
-Plugin 'honza/vim-snippets'
-
-" Code and files fuzzy finder
-Plugin 'kien/ctrlp.vim'
-"" Better autocompletion 
-Plugin 'Shougo/neocomplcache.vim'
-"Plugin 'matchit.zip'
-"Run file
-"Plugin 'SingleCompile'
-
-Plugin 'Pydiction'
-
 "Color scheme
 Plugin 'fisadev/fisa-vim-colorscheme'
 
@@ -90,34 +78,12 @@ if iCanHazVundle == 0
     :PluginInstall
 endif
 "==================================
-" NeoComplCache 
-
-" most of them not documented because I'm not sure how they work
-" (docs aren't good, had to do a lot of trial and error to make 
-" it play nice)
-let g:neocomplcache_enable_at_startup = 1
-let g:neocomplcache_enable_ignore_case = 1
-let g:neocomplcache_enable_smart_case = 1
-let g:neocomplcache_enable_auto_select = 1
-let g:neocomplcache_enable_fuzzy_completion = 1
-let g:neocomplcache_enable_camel_case_completion = 1
-let g:neocomplcache_enable_underbar_completion = 1
-let g:neocomplcache_fuzzy_completion_start_length = 1
-let g:neocomplcache_auto_completion_start_length = 1
-let g:neocomplcache_manual_completion_start_length = 1
-let g:neocomplcache_min_keyword_length = 1
-let g:neocomplcache_min_syntax_length = 1
-" complete with workds from any opened file
-let g:neocomplcache_same_filetype_lists = {}
-let g:neocomplcache_same_filetype_lists._ = '_'
-
 " Emmet
 let g:user_emmet_install_global = 0
 autocmd FileType html,css EmmetInstall
 let g:user_emmet_expandabbr_key = '<C-y>'
 
 " Syntastic 
-
 " show list of errors and warnings on the current file
 nmap <leader>e :Errors<CR>
 let g:syntastic_check_on_open = 1
@@ -157,13 +123,6 @@ highlight SignifySignChange cterm=bold ctermbg=237 ctermfg=227
 highlight LineNr ctermfg=yellow
 "Airline
 set laststatus=2
-
-"Pydiction plugin settings
-filetype plugin on
-let g:pydiction_location = '~/.vim/bundle/Pydiction/complete-dict'
-let g:pydiction_menu_height = 3
-
-"snimate
 
 "folding
 set foldenable 
