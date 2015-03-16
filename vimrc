@@ -195,7 +195,7 @@ let g:syntastic_enable_balloons = 1
 let g:syntastic_cpp_compiler = "g++"
 let g:syntastic_cpp_check_header = 1
 let g:syntastic_python_python_exec = '/usr/bin/python3'
-let g:syntastic_python_checkers = ["pyflakes"]
+let g:syntastic_python_checkers = ["pyflakes", "pep8"]
 let syntastic_check_on_wq = 1
 
 
