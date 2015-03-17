@@ -54,7 +54,7 @@ Plugin 'tpope/vim-surround'
 "Air line
 Plugin 'bling/vim-airline'
 "Commenter
-Plugin 'scrooloose/nerdcommenter' 
+Plugin 'azdkj532/nerdcommenter' 
 "Class/Module browser
 Plugin 'majutsushi/tagbar'
 " File tree
@@ -152,9 +152,9 @@ let g:neocomplete#sources#omni#input_patterns.perl = '\h\w*->\h\w*\|\h\w*::'
 
 " neosnippet ===
 " Plugin key-mappings.
-imap <C-s>     <Plug>(neosnippet_expand_or_jump)
-smap <C-s>     <Plug>(neosnippet_expand_or_jump)
-xmap <C-s>     <Plug>(neosnippet_expand_target)
+imap <C-k>     <Plug>(neosnippet_expand_or_jump)
+smap <C-k>     <Plug>(neosnippet_expand_or_jump)
+xmap <C-k>     <Plug>(neosnippet_expand_target)
 
 " SuperTab like snippets behavior.
 imap <expr><TAB> neosnippet#expandable_or_jumpable() ?
