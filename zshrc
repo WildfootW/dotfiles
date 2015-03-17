@@ -80,9 +80,6 @@ export EDITOR='vim'
 alias grep="grep --color=auto"
 alias less="less -R"
 
-alias python2=python2.7
-alias python=python3
-
 alias v=vim
 
 alias rm="rm -r"
