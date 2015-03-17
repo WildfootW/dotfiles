@@ -73,8 +73,6 @@ Plugin 'othree/yajs.vim'
 
 " Python and other languages code checker
 Plugin 'scrooloose/syntastic'
-" Code and files fuzzy finder
-Plugin 'kien/ctrlp.vim'
 "" Better autocompletion 
 Plugin 'Shougo/neocomplete.vim'
 Plugin 'Shougo/neosnippet'
