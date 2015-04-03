@@ -64,6 +64,7 @@ Plugin 'azdkj532/nerdcommenter'
 Plugin 'majutsushi/tagbar'
 " File tree
 Plugin 'scrooloose/nerdtree'
+Plugin 'jistr/vim-nerdtree-tabs'
 " Code and files fuzzy finder
 Plugin 'kien/ctrlp.vim'
 
@@ -178,7 +179,7 @@ endif
 
 " Emmet
 let g:user_emmet_install_global = 0
-autocmd FileType html,css EmmetInstall
+autocmd FileType html,css,htmldjango EmmetInstall
 let g:user_emmet_expandabbr_key = '<C-y>'
 
 
@@ -253,15 +254,14 @@ autocmd BufRead *.py nmap <F8> :w !python3 % <CR>
 
 
 "nerdtree
-let NERDTreeQuitOnOpen=1
-
 
 "key binding
 
 "Run files
 nmap <F3> :tabnew<CR>
 nmap <F4> :TagbarToggle<CR>
-nmap <F5> :NERDTreeToggle<CR>
+"nmap <F5> :NERDTreeToggle<CR>
+map <F5> <plug>NERDTreeTabsToggle<CR>
 autocmd filetype c   nnoremap <F8> :w <bar> exec '!gcc '.shellescape('%').' -O2 && ./a.out'<CR>
 autocmd filetype cpp nnoremap <F8> :w <bar> exec '!g++ '.shellescape('%').' -std=c++11 -O2 && ./a.out'<CR>
 autocmd BufRead *.py nmap <F8> :w !python3 % <CR>
