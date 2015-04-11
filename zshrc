@@ -81,8 +81,7 @@ alias grep="grep --color=auto"
 alias less="less -R"
 
 alias v=vim
-
-alias rm="rm -r"
+alias gt="git tree"
 
 alias ta="tmux attach -t"
 # apt-get
