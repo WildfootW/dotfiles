@@ -226,6 +226,9 @@ highlight LineNr ctermfg=yellow
 
 "Airline
 set laststatus=2
+let g:airline_powerline_fonts = 1
+ " Theme
+ let g:airline_theme='wombat'
 
 
 "Pydiction plugin settings
