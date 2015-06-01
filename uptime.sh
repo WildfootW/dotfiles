@@ -1,3 +1,3 @@
-#!/usr/bin/env sh
+#!/usr/bin/env bash
 # Prints the uptime.
-uptime | grep -ZoG "\d\d days,[^,]*"
+uptime | grep -ZoG "\d\{1\} days,[^,]*"
