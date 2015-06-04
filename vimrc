@@ -80,6 +80,9 @@ Plugin 'Shougo/neosnippet'
 Plugin 'Shougo/neosnippet-snippets'
 Plugin 'Pydiction'
 
+" Django
+Plugin 'jmcomets/vim-pony'
+
 "Plugin 'matchit.zip'
 "Color scheme
 Plugin 'fisadev/fisa-vim-colorscheme'
@@ -182,6 +185,8 @@ let g:user_emmet_install_global = 0
 autocmd FileType html,css,htmldjango EmmetInstall
 let g:user_emmet_expandabbr_key = '<C-y>'
 
+" Pony.vim for Django
+let g:pony_open_in_new_tab = 1
 
 " Syntastic 
 " show list of errors and warnings on the current file
