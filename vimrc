@@ -209,7 +209,7 @@ let g:syntastic_cpp_check_header = 1
 let g:syntastic_python_python_exec = '/usr/bin/python3'
 let g:syntastic_python_checkers = ["pyflakes", "pep8"]
 let syntastic_check_on_wq = 1
-
+let g:pep8_ignore="E501"
 
 " use 256 colors when possible
 if &term =~? 'mlterm\|xterm\|xterm-256\|screen-256'
