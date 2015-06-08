@@ -207,9 +207,9 @@ let g:syntastic_cpp_check_header = 1
 "let g:syntastic_cpp_checkers = ["cppcheck"]
 
 let g:syntastic_python_python_exec = '/usr/bin/python3'
-let g:syntastic_python_checkers = ["pyflakes", "pep8"]
+let g:syntastic_python_checkers = ["flake8"]
 let syntastic_check_on_wq = 1
-let g:pep8_ignore="E501"
+let g:syntastic_python_flake8_args = "--ignore=E501" 
 
 " use 256 colors when possible
 if &term =~? 'mlterm\|xterm\|xterm-256\|screen-256'
@@ -270,9 +270,8 @@ nmap <F3> :tabnew<CR>
 nmap <F4> :TagbarToggle<CR>
 "nmap <F5> :NERDTreeToggle<CR>
 map <F5> <plug>NERDTreeTabsToggle<CR>
-autocmd filetype c   nnoremap <F8> :w <bar> exec '!gcc '.shellescape('%').' -O2 && ./a.out'<CR>
-autocmd filetype cpp nnoremap <F8> :w <bar> exec '!g++ '.shellescape('%').' -std=c++11 -O2 && ./a.out'<CR>
-autocmd BufRead *.py nmap <F8> :w !python3 % <CR>
+let hlstate=0
+nnoremap <F6> :if (hlstate == 0) \| nohlsearch \| else \| set hlsearch \| endif \| let hlstate=1-hlstate<cr>
 
 
 "paste setting
