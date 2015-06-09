@@ -67,6 +67,9 @@ Plugin 'scrooloose/nerdtree'
 Plugin 'jistr/vim-nerdtree-tabs'
 " Code and files fuzzy finder
 Plugin 'kien/ctrlp.vim'
+" Git
+Plugin 'airblade/vim-gitgutter'
+
 
 "JS 
 Plugin 'pangloss/vim-javascript'
@@ -81,7 +84,7 @@ Plugin 'Shougo/neosnippet-snippets'
 Plugin 'Pydiction'
 
 " Django
-Plugin 'jmcomets/vim-pony'
+Plugin 'azdkj532/vim-pony'
 
 "Plugin 'matchit.zip'
 "Color scheme
@@ -190,7 +193,21 @@ let g:pony_open_in_new_tab = 1
 
 " Syntastic 
 " show list of errors and warnings on the current file
-nmap <leader>e :Errors<CR>
+let g:errorStat=0
+function! ToggleErrors()
+    if g:errorStat == 0
+        :Errors
+    else
+        :lclose
+    endif
+    let g:errorStat = 1-g:errorStat
+endfunction
+
+nnoremap <leader>e :call ToggleErrors()<CR>
+"nmap <leader>e :Errors<CR>
+"jump to next error
+nmap <leader>l :lnext<CR>
+
 let g:syntastic_check_on_open = 1
 " don't put icons on the sign column (it hides the vcs status icons of
 " signify)
@@ -287,9 +304,6 @@ nmap <C-c> <plug>NERDCommenterToggle
 "save file as sudo
 cmap w!! w !sudo tee > /dev/null %
 
-
-"jump to next error
-nmap <leader>l :lnext<CR>
 
 cab Q q
 cab W w
