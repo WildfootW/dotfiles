@@ -207,6 +207,7 @@ nnoremap <leader>e :call ToggleErrors()<CR>
 "nmap <leader>e :Errors<CR>
 "jump to next error
 nmap <leader>l :lnext<CR>
+nmap <leader>p :lprevious<CR>
 
 let g:syntastic_check_on_open = 1
 " don't put icons on the sign column (it hides the vcs status icons of
