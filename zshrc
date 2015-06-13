@@ -50,7 +50,11 @@ plugins=(git pip history-substring-search zsh-syntax-highlighting tmux osx larav
 source $ZSH/oh-my-zsh.sh
 # User configuration
 
+export LC_ALL=en_US.UTF-8
+
 export PATH="/usr/local/bin:/usr/local/sbin:/usr/bin:/bin:/usr/sbin:/sbin"
+
+source ~/dotfiles/env.sh
 # export MANPATH="/usr/local/man:$MANPATH"
 
 # You may need to manually set your language environment
