@@ -69,6 +69,8 @@ Plugin 'jistr/vim-nerdtree-tabs'
 Plugin 'kien/ctrlp.vim'
 " Git
 Plugin 'airblade/vim-gitgutter'
+" Move Around
+Plugin 'Lokaltog/vim-easymotion'
 
 
 "JS 
@@ -230,6 +232,27 @@ let g:syntastic_python_python_exec = '/usr/bin/python3'
 let g:syntastic_python_checkers = ["flake8"]
 let syntastic_check_on_wq = 1
 let g:syntastic_python_flake8_args = "--ignore=E501" 
+" EasyMotion
+nmap <Leader>s <Plug>(easymotion-s2)
+map  / <Plug>(easymotion-sn)
+omap / <Plug>(easymotion-tn)
+map <Leader>j <Plug>(easymotion-j)
+map <Leader>k <Plug>(easymotion-k)
+
+let g:EasyMotion_startofline = 0 " keep cursor colum when JK motion"
+
+" These `n` & `N` mappings are options. You do not have to map `n` & `N` to
+" EasyMotion.
+" Without these mappings, `n` & `N` works fine. (These mappings just provide
+" different highlight method and have some other features )
+map  n <Plug>(easymotion-next)
+map  N <Plug>(easymotion-prev)
+" Use uppercase target labels and type as a lower case
+let g:EasyMotion_use_upper = 1
+" type `l` and match `l`&`L`
+let g:EasyMotion_smartcase = 1
+" Smartsign (type `3` and match `3`&`#`)
+let g:EasyMotion_use_smartsign_us = 1
 
 " use 256 colors when possible
 if &term =~? 'mlterm\|xterm\|xterm-256\|screen-256'
@@ -290,8 +313,8 @@ nmap <F3> :tabnew<CR>
 nmap <F4> :TagbarToggle<CR>
 "nmap <F5> :NERDTreeToggle<CR>
 map <F5> <plug>NERDTreeTabsToggle<CR>
-let hlstate=0
-nnoremap <F6> :if (hlstate == 0) \| nohlsearch \| else \| set hlsearch \| endif \| let hlstate=1-hlstate<cr>
+"let hlstate=0
+"nnoremap <F6> :if (hlstate == 0) \| nohlsearch \| else \| set hlsearch \| endif \| let hlstate=1-hlstate<cr>
 
 
 "paste setting
