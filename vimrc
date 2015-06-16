@@ -208,7 +208,7 @@ function! ToggleErrors()
     let g:errorStat = 1-g:errorStat
 endfunction
 
-nnoremap <leader>e :call ToggleErrors()<CR>
+nnoremap <silent> <leader>e :call ToggleErrors()<CR>
 "nmap <leader>e :Errors<CR>
 "jump to next error
 nmap <leader>l :lnext<CR>
@@ -235,6 +235,7 @@ let g:syntastic_python_python_exec = '/usr/bin/python3'
 let g:syntastic_python_checkers = ["flake8"]
 let syntastic_check_on_wq = 1
 let g:syntastic_python_flake8_args = "--ignore=E501" 
+
 " EasyMotion
 nmap <Leader>s <Plug>(easymotion-s2)
 map  / <Plug>(easymotion-sn)
@@ -256,6 +257,8 @@ let g:EasyMotion_use_upper = 1
 let g:EasyMotion_smartcase = 1
 " Smartsign (type `3` and match `3`&`#`)
 let g:EasyMotion_use_smartsign_us = 1
+highlight link EasyMotionMoveHL Search
+
 
 " use 256 colors when possible
 if &term =~? 'mlterm\|xterm\|xterm-256\|screen-256'
@@ -273,6 +276,7 @@ highlight SignifySignAdd cterm=bold ctermbg=237 ctermfg=119
 highlight SignifySignDelete cterm=bold ctermbg=237 ctermfg=167
 highlight SignifySignChange cterm=bold ctermbg=237 ctermfg=227
 highlight LineNr ctermfg=yellow
+highlight Search cterm=none ctermbg=green ctermfg=black
 
 
 "Airline
@@ -316,8 +320,8 @@ nmap <F3> :tabnew<CR>
 nmap <F4> :TagbarToggle<CR>
 "nmap <F5> :NERDTreeToggle<CR>
 map <F5> <plug>NERDTreeTabsToggle<CR>
-"let hlstate=0
-"nnoremap <F6> :if (hlstate == 0) \| nohlsearch \| else \| set hlsearch \| endif \| let hlstate=1-hlstate<cr>
+let hlstate=0
+nnoremap <silent> <F6> :if (hlstate == 0) \| set hlsearch \| else \| nohlsearch \| endif \| let hlstate=1-hlstate<cr>
 
 
 "paste setting
