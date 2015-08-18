@@ -275,15 +275,19 @@ highlight DiffChange cterm=bold ctermbg=none ctermfg=227
 highlight SignifySignAdd cterm=bold ctermbg=237 ctermfg=119
 highlight SignifySignDelete cterm=bold ctermbg=237 ctermfg=167
 highlight SignifySignChange cterm=bold ctermbg=237 ctermfg=227
-highlight LineNr ctermfg=yellow
+highlight LineNr ctermbg=black
 highlight Search cterm=none ctermbg=green ctermfg=black
+highlight NonText cterm=none ctermbg=black
+highlight VertSplit ctermbg=black ctermfg=gray
+highlight TabLine cterm=none ctermbg=black
+highlight TabLineSel cterm=reverse 
 
 
 "Airline
 set laststatus=2
 let g:airline_powerline_fonts = 1
  " Theme
- let g:airline_theme='wombat'
+ let g:airline_theme='powerlineish'
 
 
 "Pydiction plugin settings
