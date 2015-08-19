@@ -45,7 +45,7 @@ ZSH_THEME="alanpeabody"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git pip history-substring-search zsh-syntax-highlighting tmux osx laravel composer)
+plugins=(git pip history-substring-search zsh-syntax-highlighting tmux osx vi-mode python)
 
 source $ZSH/oh-my-zsh.sh
 # User configuration
