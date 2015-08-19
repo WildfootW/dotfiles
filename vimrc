@@ -69,8 +69,11 @@ Plugin 'jistr/vim-nerdtree-tabs'
 Plugin 'kien/ctrlp.vim'
 " Git
 Plugin 'airblade/vim-gitgutter'
+Plugin 'tpope/vim-fugitive'
 " Move Around
 Plugin 'Lokaltog/vim-easymotion'
+" Tab manage
+Plugin 'mkitt/tabline.vim'
 
 
 "JS 
@@ -279,16 +282,31 @@ highlight LineNr ctermbg=black
 highlight Search cterm=none ctermbg=green ctermfg=black
 highlight NonText cterm=none ctermbg=black
 highlight VertSplit ctermbg=black ctermfg=gray
-highlight TabLine cterm=none ctermbg=black
-highlight TabLineSel cterm=reverse 
 
 
 "Airline
 set laststatus=2
+let g:airline#extensions#syntastic#enabled = 1
+let g:airline#extensions#tagbar#enabled = 1
+let g:airline#extensions#tabline#enabled = 1
+let g:airline#extensions#tabline#tab_nr_type = 1 " tab number
+let g:airline#extensions#tabline#show_close_button = 0
 let g:airline_powerline_fonts = 1
- " Theme
- let g:airline_theme='powerlineish'
+" Theme
+let g:airline_theme='kolor'
 
+" TabSelect
+map <leader>1 1gt
+map <leader>2 2gt
+map <leader>3 3gt
+map <leader>4 4gt
+map <leader>5 5gt
+map <leader>6 6gt
+map <leader>7 7gt
+map <leader>8 8gt
+map <leader>9 9gt
+map <Leader><Tab> :tabnext<CR>
+map <Leader><S-Tab> :tabprevious<CR>
 
 "Pydiction plugin settings
 filetype plugin on
