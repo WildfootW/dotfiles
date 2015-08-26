@@ -234,7 +234,7 @@ let g:syntastic_cpp_compiler = "g++"
 let g:syntastic_cpp_check_header = 1
 "let g:syntastic_cpp_checkers = ["cppcheck"]
 
-let g:syntastic_python_python_exec = '/usr/bin/python3'
+let g:syntastic_python_python_exec = '/usr/local/bin/python3'
 let g:syntastic_python_checkers = ["flake8"]
 let syntastic_check_on_wq = 1
 let g:syntastic_python_flake8_args = "--ignore=E501" 
