@@ -278,10 +278,10 @@ highlight DiffChange cterm=bold ctermbg=none ctermfg=227
 highlight SignifySignAdd cterm=bold ctermbg=237 ctermfg=119
 highlight SignifySignDelete cterm=bold ctermbg=237 ctermfg=167
 highlight SignifySignChange cterm=bold ctermbg=237 ctermfg=227
-highlight LineNr ctermbg=black
+highlight LineNr ctermbg=none
 highlight Search cterm=none ctermbg=green ctermfg=black
-highlight NonText cterm=none ctermbg=black
-highlight VertSplit ctermbg=black ctermfg=gray
+highlight NonText cterm=none ctermbg=none
+highlight VertSplit ctermbg=none ctermfg=gray
 
 
 "Airline
