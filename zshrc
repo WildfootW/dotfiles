@@ -116,6 +116,6 @@ if [ -d /usr/local/heroku ]; then
 fi
 
 # completion
-autoload -U compinit
-compinit
+#autoload -U compinit
+#compinit
 
