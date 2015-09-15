@@ -111,6 +111,7 @@ set completeopt-=preview
 let g:ycm_min_num_of_chars_for_completion=1
 let g:ycm_cache_omnifunc=0
 let g:ycm_seed_identifiers_with_syntax=1
+let g:ycm_show_diagnostics_ui=0
 
 " make YCM compatible with UltiSnips (using supertab)
 let g:ycm_key_list_select_completion = ['<C-n>', '<Down>']
@@ -122,7 +123,6 @@ let g:UltiSnipsUsePythonVersion = 2
 let g:UltiSnipsExpandTrigger = '<c-y>'
 let g:UltiSnipsJumpForwardTrigger = '<C-n>'
 let g:UltiSnipsJumpBackwardTrigger = '<C-p>'
-let g:UltiSnipsSnippetDirectories=['UltiSnips']
 
 " Emmet
 let g:user_emmet_install_global = 0
@@ -166,11 +166,13 @@ let syntastic_check_on_wq = 1
 let g:syntastic_cpp_compiler = "g++"
 let g:syntastic_cpp_compiler_options = ' -std=c++11 -stdlib=libc++'
 let g:syntastic_cpp_check_header = 1
-"let g:syntastic_cpp_checkers = ["cppcheck"]
+let g:syntastic_cpp_cpplint_exec = "/usr/local/bin/cpplint"
+let g:syntastic_cpp_checkers = ["cpplint"]
 
 let g:syntastic_python_python_exec = '/usr/local/bin/python3'
 let g:syntastic_python_checkers = ["flake8"]
-let syntastic_check_on_wq = 1
+let syntastic_check_on_open = 1
+let syntastic_check_on_wq = 0
 let g:syntastic_python_flake8_args = "--ignore=E501" 
 
 " EasyMotion
@@ -216,7 +218,7 @@ highlight LineNr ctermbg=none
 highlight Search cterm=none ctermbg=green ctermfg=black
 highlight NonText cterm=none ctermbg=none
 highlight VertSplit ctermbg=none ctermfg=gray
-
+highlight SignColumn ctermbg=none
 
 "Airline
 set laststatus=2
@@ -262,10 +264,7 @@ autocmd filetype c   nnoremap <F8> :w <bar> exec '!gcc '.shellescape('%').' -O2 
 autocmd filetype cpp nnoremap <F8> :w <bar> exec '!g++ '.shellescape('%').' -std=c++11 -O2 && ./a.out'<CR>
 autocmd BufRead *.py nmap <F8> :w !python3 % <CR>
 
-"autocmd FileType python setlocal et sta sw=4 sts=4
-"nmap <F8> :SCCompile<cr>
-"nmap <F8> :SCCompileRun<cr>
-
+autocmd FileType python setlocal et sta sw=4 sts=4
 
 "nerdtree
 
@@ -278,6 +277,9 @@ nmap <F4> :TagbarToggle<CR>
 map <F5> <plug>NERDTreeTabsToggle<CR>
 let hlstate=0
 nnoremap <silent> <F6> :if (hlstate == 0) \| set hlsearch \| else \| nohlsearch \| endif \| let hlstate=1-hlstate<cr>
+nnoremap <space> za
+nnoremap ds 0D
+inoremap <c-]> <esc>A
 
 
 "paste setting
