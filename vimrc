@@ -302,4 +302,6 @@ cab X x
 cab WQ wq
 cab Wq wq
 cab wQ wq
+cab QA qa
+cab Qa qa
 cab Set set
