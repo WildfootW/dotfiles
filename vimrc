@@ -68,7 +68,6 @@ Plugin 'jistr/vim-nerdtree-tabs'
 Plugin 'kien/ctrlp.vim'
 " Git
 Plugin 'airblade/vim-gitgutter'
-Plugin 'tpope/vim-fugitive'
 " Move Around
 Plugin 'Lokaltog/vim-easymotion'
 " Tab manage
@@ -120,7 +119,7 @@ let g:SuperTabDefaultCompletionType = '<C-n>'
 
 " better key bindings for UltiSnipsExpandTrigger
 let g:UltiSnipsUsePythonVersion = 2
-let g:UltiSnipsExpandTrigger = '<c-y>'
+let g:UltiSnipsExpandTrigger = '<c-\>'
 let g:UltiSnipsJumpForwardTrigger = '<C-n>'
 let g:UltiSnipsJumpBackwardTrigger = '<C-p>'
 
@@ -228,6 +227,13 @@ let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#tab_nr_type = 1 " tab number
 let g:airline#extensions#tabline#show_close_button = 0
 let g:airline_powerline_fonts = 1
+
+let g:airline#extensions#ctrlp#color_template = 'insert'
+let g:airline#extensions#ctrlp#color_template = 'normal'
+let g:airline#extensions#ctrlp#color_template = 'visual'
+let g:airline#extensions#ctrlp#color_template = 'replace'
+let g:airline#extensions#ctrlp#show_adjacent_modes = 1
+
 " Theme
 let g:airline_theme='kolor'
 
@@ -279,7 +285,10 @@ let hlstate=0
 nnoremap <silent> <F6> :if (hlstate == 0) \| set hlsearch \| else \| nohlsearch \| endif \| let hlstate=1-hlstate<cr>
 nnoremap <space> za
 nnoremap ds 0D
+noremap <c-j> <c-e>
+noremap <c-k> <c-y>
 inoremap <c-]> <esc>A
+nmap K kJ
 
 
 "paste setting
