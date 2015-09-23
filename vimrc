@@ -273,6 +273,9 @@ autocmd BufRead *.py nmap <F8> :w !python3 % <CR>
 
 autocmd FileType python setlocal et sta sw=4 sts=4
 
+" use absolute line number when commandline window
+autocmd CmdwinEnter * set norelativenumber
+
 "nerdtree
 
 "key binding
