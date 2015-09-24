@@ -288,7 +288,6 @@ map <F5> <plug>NERDTreeTabsToggle<CR>
 let hlstate=0
 nnoremap <silent> <F6> :if (hlstate == 0) \| set hlsearch \| else \| nohlsearch \| endif \| let hlstate=1-hlstate<cr>
 nnoremap <space> za
-nnoremap ds 0D
 noremap <c-j> <c-e>
 noremap <c-k> <c-y>
 inoremap <c-]> <esc>A
