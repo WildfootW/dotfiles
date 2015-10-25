@@ -115,6 +115,11 @@ if [ -d /usr/local/heroku ]; then
     plugins=(heroku $plugins)
 fi
 
+# pyenv 
+
+eval "$(pyenv init -)"
+eval "$(pyenv virtualenv-init -)"
+
 # completion
 autoload -U compinit
 compinit
