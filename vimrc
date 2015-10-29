@@ -69,6 +69,8 @@ Plugin 'jistr/vim-nerdtree-tabs'
 Plugin 'kien/ctrlp.vim'
 " Git
 Plugin 'airblade/vim-gitgutter'
+Plugin 'mattn/webapi-vim'
+Plugin 'mattn/gist-vim'
 " Move Around
 Plugin 'Lokaltog/vim-easymotion'
 " Tab manage
