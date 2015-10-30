@@ -90,6 +90,7 @@ Plugin 'Shougo/neosnippet'
 Plugin 'Shougo/neosnippet-snippets'
 Plugin 'davidhalter/jedi-vim'
 
+Plugin 'justmao945/vim-clang'
 " Django
 Plugin 'azdkj532/vim-pony'
 
@@ -114,13 +115,12 @@ let g:neocomplete#sources#syntax#min_keyword_length = 3
 let g:neocomplete#lock_buffer_name_pattern = '\*ku\*'
 " Enable auto delimeter
 let g:neocomplete#enable_auto_delimiter = 0
+" Set length of complete menu list
+let g:neocomplete#max_list = 10
 " Define dictionary.
 let g:neocomplete#sources#dictionary#dictionaries = {
     \ 'default' : '',
-    \ 'python' : $HOME.'/.vim/complete-dict',
     \ }
-" Disable preview window
-set completeopt-=preview
 
 " Define keyword.
 if !exists('g:neocomplete#keyword_patterns')
@@ -136,18 +136,18 @@ inoremap <expr><C-l>     neocomplete#complete_common_string()
 " <CR>: close popup and save indent.
 inoremap <silent> <CR> <C-r>=<SID>my_cr_function()<CR>
 function! s:my_cr_function()
-  return neocomplete#close_popup() . "\<CR>"
   " For no inserting <CR> key.
-  "return pumvisible() ? neocomplete#close_popup() : "\<CR>"
+  return pumvisible() ? neocomplete#close_popup() : "\<CR>"
 endfunction
 " <TAB>: completion.
-"inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
+inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
+inoremap <expr><S-TAB>  pumvisible() ? "\<C-p>" : "\<TAB>"
 " <C-h>, <BS>: close popup and delete backword char.
 inoremap <expr><BS> neocomplete#smart_close_popup()."\<C-h>"
 inoremap <expr><C-y>  neocomplete#close_popup()
 inoremap <expr><C-e>  neocomplete#cancel_popup()
 " Close popup by <Space>.
-"inoremap <expr><Space> pumvisible() ? neocomplete#close_popup() : "\<Space>"
+inoremap <expr><Space> pumvisible() ? neocomplete#close_popup() : "\<Space>"
 " Enable omni completion.
 autocmd FileType css setlocal omnifunc=csscomplete#CompleteCSS
 autocmd FileType html,markdown setlocal omnifunc=htmlcomplete#CompleteTags
@@ -174,23 +174,25 @@ let g:neocomplete#sources#omni#input_patterns.python = '\h\w*\|[^. \t]\.\w*'
 
 " neosnippet ===
 " Plugin key-mappings.
-imap <C-k>     <Plug>(neosnippet_expand_or_jump)
-smap <C-k>     <Plug>(neosnippet_expand_or_jump)
-xmap <C-k>     <Plug>(neosnippet_expand_target)
-
-" SuperTab like snippets behavior.
-imap <expr><TAB> neosnippet#expandable_or_jumpable() ?
-\ "\<Plug>(neosnippet_expand_or_jump)"
-\: pumvisible() ? "\<C-n>" : "\<TAB>"
-smap <expr><TAB> neosnippet#expandable_or_jumpable() ?
-\ "\<Plug>(neosnippet_expand_or_jump)"
-\: "\<TAB>"
+imap <C-\>     <Plug>(neosnippet_expand_or_jump)
+smap <C-\>     <Plug>(neosnippet_expand_or_jump)
+xmap <C-\>     <Plug>(neosnippet_expand_target)
 
 " For snippet_complete marker.
 if has('conceal')
   set conceallevel=2 concealcursor=i
 endif
+
+" Disable preview window
+set completeopt-=preview
 " End neosnippet ===
+
+" vim-clang
+let g:clang_auto = 0
+let g:clang_c_completeopt = 'longest,menuone'
+let g:clang_cpp_completeopt = 'longest,menuone'
+let g:clang_cpp_options = '-std=c++11 -stdlib=libc++'
+let g:clang_sh_exec = 'zsh'
 
 
 " Emmet
@@ -319,14 +321,6 @@ map <leader>8 8gt
 map <leader>9 9gt
 map <Leader><Tab> :tabnext<CR>
 map <Leader><S-Tab> :tabprevious<CR>
-
-"Pydiction plugin settings
-filetype plugin on
-let g:pydiction_location = '~/.vim/bundle/Pydiction/complete-dict'
-let g:pydiction_menu_height = 5
-
-
-"snimate
 
 
 "folding
