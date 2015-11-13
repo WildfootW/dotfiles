@@ -117,8 +117,10 @@ fi
 
 # pyenv 
 
-eval "$(pyenv init -)"
-eval "$(pyenv virtualenv-init -)"
+if [ -x "`which pyenv`" ]; then
+    eval "$(pyenv init -)"
+    eval "$(pyenv virtualenv-init -)"
+fi
 
 # completion
 #autoload -U compinit
