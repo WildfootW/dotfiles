@@ -227,10 +227,10 @@ let g:syntastic_check_on_open = 1
 let g:syntastic_enable_signs = 1
 " custom icons (enable them if you use a patched font, and enable the previous 
 " setting)
-let g:syntastic_error_symbol = 'X'
-let g:syntastic_warning_symbol = '!'
-let g:syntastic_style_error_symbol = '>>'
-let g:syntastic_style_warning_symbol = '>'
+let g:syntastic_error_symbol = '✖'
+let g:syntastic_warning_symbol = '➜'
+let g:syntastic_style_error_symbol = '☃'
+let g:syntastic_style_warning_symbol = '☃'
 let g:syntastic_enable_balloons = 1
 let syntastic_check_on_wq = 1
 
@@ -269,6 +269,11 @@ let g:EasyMotion_smartcase = 1
 let g:EasyMotion_use_smartsign_us = 1
 highlight link EasyMotionMoveHL Search
 
+" gitgutter
+let g:gitgutter_sign_added = '+'
+let g:gitgutter_sign_modified = '◉'
+let g:gitgutter_sign_removed = '◉-'
+let g:gitgutter_sign_modified_removed = '-'
 
 " use 256 colors when possible
 if &term =~? 'mlterm\|xterm\|xterm-256\|screen-256'
