@@ -25,18 +25,18 @@ set nocompatible              " be iMproved, required
 filetype off                  " required
 
 "Setting up vundle"
-let vundle_readme=expand('~/.vim/bundle/vundle/README.md')
+let vundle_readme=expand('~/.vim/bundle/Vundle.vim/README.md')
 let iCanHazVundle=1
 if !filereadable(vundle_readme)
     echo "Installing Vundle.."
     echo ""
     silent !mkdir -p ~/.vim/bundle
-    silent !git clone https://github.com/gmarik/vundle ~/.vim/bundle/vundle --depth 1
+    silent !git clone https://github.com/gmarik/Vundle.vim ~/.vim/bundle/Vundle.vim --depth 1
     let iCanHazVundle=0
 endif
 
 " set the runtime path to include Vundle and initialize
-set rtp+=~/.vim/bundle/vundle/
+set rtp+=~/.vim/bundle/Vundle.vim/
 call vundle#rc()
 "-----------------
 
@@ -360,6 +360,7 @@ noremap <c-j> <c-e>
 noremap <c-k> <c-y>
 inoremap <c-]> <esc>A
 nmap K kJ
+imap <c-c> <esc>
 
 
 "paste setting
