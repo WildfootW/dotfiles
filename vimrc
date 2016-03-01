@@ -59,6 +59,7 @@ Plugin 'mileszs/ack.vim'
 Plugin 'tpope/vim-surround'
 "Air line
 Plugin 'bling/vim-airline'
+Plugin 'vim-airline/vim-airline-themes'
 "Commenter
 Plugin 'azdkj532/nerdcommenter' 
 "Class/Module browser
