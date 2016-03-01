@@ -45,7 +45,7 @@ ZSH_THEME="alanpeabody"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git pip history-substring-search tmux osx brew)
+plugins=(git pip history-substring-search tmux osx brew zsh-autosuggestions)
 
 source $ZSH/oh-my-zsh.sh
 # User configuration
@@ -80,6 +80,7 @@ export EDITOR='vim'
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
+setopt correct
 
 alias grep="grep --color=auto"
 alias less="less -R"
@@ -120,6 +121,7 @@ fi
 if [ -x "`which pyenv`" ]; then
     eval "$(pyenv init -)"
     eval "$(pyenv virtualenv-init -)"
+    export PYENV_VIRTUALENV_DISABLE_PROMPT=1
 fi
 
 # completion
