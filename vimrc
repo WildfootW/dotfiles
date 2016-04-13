@@ -11,6 +11,8 @@ set t_Co=256
 set ignorecase
 set backspace=indent,eol,start
 set mouse=nicr
+"fix E484:Can't open file /tmp
+"set shell=/bin/sh
 "set leader key
 let mapleader=","
 
@@ -25,23 +27,23 @@ set nocompatible              " be iMproved, required
 filetype off                  " required
 
 "Setting up vundle"
-let vundle_readme=expand('~/.vim/bundle/Vundle.vim/README.md')
+let vundle_readme=expand('~/.vim/bundle/vundle/README.md')
 let iCanHazVundle=1
 if !filereadable(vundle_readme)
     echo "Installing Vundle.."
     echo ""
     silent !mkdir -p ~/.vim/bundle
-    silent !git clone https://github.com/gmarik/Vundle.vim ~/.vim/bundle/Vundle.vim --depth 1
+    silent !git clone https://github.com/gmarik/vundle ~/.vim/bundle/vundle --depth 1
     let iCanHazVundle=0
 endif
 
 " set the runtime path to include Vundle and initialize
-set rtp+=~/.vim/bundle/Vundle.vim/
+set rtp+=~/.vim/bundle/vundle/
 call vundle#rc()
 "-----------------
 
 " let Vundle manage Vundle, required
-Plugin 'VundleVim/Vundle.vim'
+Plugin 'gmarik/vundle'
 
 filetype plugin indent on     " required
 
@@ -59,7 +61,6 @@ Plugin 'mileszs/ack.vim'
 Plugin 'tpope/vim-surround'
 "Air line
 Plugin 'bling/vim-airline'
-Plugin 'vim-airline/vim-airline-themes'
 "Commenter
 Plugin 'azdkj532/nerdcommenter' 
 "Class/Module browser
@@ -228,10 +229,10 @@ let g:syntastic_check_on_open = 1
 let g:syntastic_enable_signs = 1
 " custom icons (enable them if you use a patched font, and enable the previous 
 " setting)
-let g:syntastic_error_symbol = '✖'
-let g:syntastic_warning_symbol = '➜'
-let g:syntastic_style_error_symbol = '☃'
-let g:syntastic_style_warning_symbol = '☃'
+let g:syntastic_error_symbol = 'X'
+let g:syntastic_warning_symbol = '!'
+let g:syntastic_style_error_symbol = '>>'
+let g:syntastic_style_warning_symbol = '>'
 let g:syntastic_enable_balloons = 1
 let syntastic_check_on_wq = 1
 
@@ -270,11 +271,6 @@ let g:EasyMotion_smartcase = 1
 let g:EasyMotion_use_smartsign_us = 1
 highlight link EasyMotionMoveHL Search
 
-" gitgutter
-let g:gitgutter_sign_added = '+'
-let g:gitgutter_sign_modified = '◉'
-let g:gitgutter_sign_removed = '◉-'
-let g:gitgutter_sign_modified_removed = '-'
 
 " use 256 colors when possible
 if &term =~? 'mlterm\|xterm\|xterm-256\|screen-256'
@@ -288,9 +284,9 @@ endif
 highlight DiffAdd cterm=bold ctermbg=none ctermfg=119
 highlight DiffDelete cterm=bold ctermbg=none ctermfg=167
 highlight DiffChange cterm=bold ctermbg=none ctermfg=227
-highlight SignifySignAdd cterm=bold ctermbg=none ctermfg=119
-highlight SignifySignDelete cterm=bold ctermbg=none ctermfg=167
-highlight SignifySignChange cterm=bold ctermbg=none ctermfg=227
+highlight SignifySignAdd cterm=bold ctermbg=237 ctermfg=119
+highlight SignifySignDelete cterm=bold ctermbg=237 ctermfg=167
+highlight SignifySignChange cterm=bold ctermbg=237 ctermfg=227
 highlight LineNr ctermbg=none
 highlight Search cterm=none ctermbg=green ctermfg=black
 highlight NonText cterm=none ctermbg=none
@@ -361,7 +357,6 @@ noremap <c-j> <c-e>
 noremap <c-k> <c-y>
 inoremap <c-]> <esc>A
 nmap K kJ
-imap <c-c> <esc>
 
 
 "paste setting
