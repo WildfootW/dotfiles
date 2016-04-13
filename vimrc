@@ -11,6 +11,8 @@ set t_Co=256
 set ignorecase
 set backspace=indent,eol,start
 set mouse=nicr
+"fix E484:Can't open file /tmp
+"set shell=/bin/sh
 "set leader key
 let mapleader=","
 
