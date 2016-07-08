@@ -116,6 +116,10 @@ if [ -d /usr/local/heroku ]; then
     plugins=(heroku $plugins)
 fi
 
+if [ -x /usr/local/bin/ghci ]; then
+    export PATH="$HOME/Library/Haskell/bin:$PATH"
+fi
+
 # pyenv 
 
 if [ -x "`which pyenv`" ]; then
@@ -123,8 +127,3 @@ if [ -x "`which pyenv`" ]; then
     eval "$(pyenv virtualenv-init -)"
     export PYENV_VIRTUALENV_DISABLE_PROMPT=1
 fi
-
-# completion
-#autoload -U compinit
-#compinit
-
