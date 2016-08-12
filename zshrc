@@ -89,6 +89,7 @@ alias v=vim
 alias gt="git tree"
 
 alias ta="tmux attach -t"
+alias m8="mtr 8.8.8.8"
 # apt-get
 if [ -x "`which apt-get`" ]; then
 	alias apt-uu='sudo apt-get update; sudo apt-get upgrade'
