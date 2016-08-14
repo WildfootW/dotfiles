@@ -101,7 +101,7 @@ if [ -x "`which tmux`" ]; then
 	alias tmux="TERM=screen-256color-bce tmux -2"
 fi
 
-if [[ $SSH_CONNECTION != "" && $MY_SSH_CONNECTION != "yes" ]]; then
+if [[ $SSH_CONNECTION != "" && $MY_SSH_CONNECTION != "yes" && -z "${TMUX}" ]]; then
     while true; do
         echo -n "Do you want to attach to a tmux session? [y/n]"
         read yn
