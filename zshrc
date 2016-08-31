@@ -91,7 +91,7 @@ alias gt="git tree"
 alias ta="tmux attach -t"
 alias m8="mtr 8.8.8.8"
 # apt-get
-if [ -x "`which apt-get`" ]; then
+if [ command -v apt-get > /dev/null 2>&1 ]; then
 	alias apt-uu='sudo apt-get update; sudo apt-get upgrade'
 fi
 
@@ -136,7 +136,7 @@ fi
 
 # pyenv 
 
-if [ -x "`which pyenv`" ]; then
+if [ command -v pyenv > /dev/null 2>&1 ]; then
     eval "$(pyenv init -)"
     eval "$(pyenv virtualenv-init -)"
     export PYENV_VIRTUALENV_DISABLE_PROMPT=1
