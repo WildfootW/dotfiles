@@ -136,8 +136,12 @@ fi
 
 # pyenv 
 
+if [ -d /home/azdkj532/.pyenv/ ]; then
+    export PATH="/home/azdkj532/.pyenv/bin/:$PATH"
+fi
 if [ command -v pyenv > /dev/null 2>&1 ]; then
     eval "$(pyenv init -)"
     eval "$(pyenv virtualenv-init -)"
     export PYENV_VIRTUALENV_DISABLE_PROMPT=1
 fi
+
