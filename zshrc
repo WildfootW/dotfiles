@@ -91,7 +91,7 @@ alias gt="git tree"
 alias ta="tmux attach -t"
 alias m8="mtr 8.8.8.8"
 # apt-get
-if [ command -v apt-get > /dev/null 2>&1 ]; then
+if ( command -v apt-get > /dev/null 2>&1 ); then
 	alias apt-uu='sudo apt-get update; sudo apt-get upgrade'
 fi
 
@@ -136,10 +136,11 @@ fi
 
 # pyenv 
 
-if [ -d /home/azdkj532/.pyenv/ ]; then
-    export PATH="/home/azdkj532/.pyenv/bin/:$PATH"
+if [ -d ~/.pyenv/ ]; then
+    export PATH="~/.pyenv/shims:$PATH"
 fi
-if [ command -v pyenv > /dev/null 2>&1 ]; then
+if ( command -v pyenv > /dev/null 2>&1 ); then
+    plugin=($plugins pyenv)
     eval "$(pyenv init -)"
     eval "$(pyenv virtualenv-init -)"
     export PYENV_VIRTUALENV_DISABLE_PROMPT=1
