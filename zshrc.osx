@@ -12,6 +12,8 @@ fpath=(/usr/local/share/zsh-completions $fpath)
 plugins=(osx brew $plugins)
 
 # tmux
+ZSH_TMUX_AUTOSTART=false
+plugins=(tmux $plugins)
 
 # Haskell
 if [ -x /usr/local/bin/ghci ]; then

@@ -46,9 +46,8 @@ ZSH_THEME="alanpeabody"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git pip history-substring-search tmux zsh-autosuggestions)
+plugins=(git pip history-substring-search zsh-autosuggestions)
 
-source $ZSH/oh-my-zsh.sh
 # User configuration
 
 export PATH="/usr/local/bin:/usr/local/sbin:/usr/bin:/bin:/usr/sbin:/sbin"
@@ -63,8 +62,6 @@ export PATH="/usr/local/bin:/usr/local/sbin:/usr/bin:/bin:/usr/sbin:/sbin"
 
 # ssh
 # export SSH_KEY_PATH="~/.ssh/dsa_id"
-
-ZSH_TMUX_AUTOSTART=false
 
 export EDITOR='vim'
 
@@ -87,5 +84,6 @@ fi
 
 if [ `uname -s` = 'Linux' ]; then
     export LC_ALL=en_US.UTF-8
-    ZSH_TMUX_AUTOSTART=true
 fi
+
+source $ZSH/oh-my-zsh.sh

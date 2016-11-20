@@ -1,6 +1,10 @@
 alias v=vim
 alias gt="git tree"
 
+# tmux
+ZSH_TMUX_AUTOSTART=true
+plugins=(tmux $plugins)
+
 # apt-get
 if ( command -v apt-get > /dev/null 2>&1 ); then
 	alias apt-uu='sudo apt-get update; sudo apt-get upgrade'
