@@ -12,7 +12,7 @@ if ( command -v apt-get > /dev/null 2>&1 ); then
 fi
 
 #docker
-if [ -x "`which docker`" ]; then
+if ( command -v docker > /dev/null 2>&1 ); then
     plugins=(docker $plugins)
 fi
 
