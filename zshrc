@@ -1,5 +1,6 @@
 # Path to your oh-my-zsh installation.
-export ZSH=$HOME/.oh-my-zsh
+export DOTFILES=$HOME/dotfiles
+export ZSH=$DOTFILES/oh-my-zsh
 
 # Set name of the theme to load.
 # Look in ~/.oh-my-zsh/themes/
@@ -45,16 +46,13 @@ ZSH_THEME="alanpeabody"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git pip history-substring-search tmux osx brew zsh-autosuggestions)
+plugins=(git pip history-substring-search tmux zsh-autosuggestions)
 
 source $ZSH/oh-my-zsh.sh
 # User configuration
 
-export LC_ALL=en_US.UTF-8
-
 export PATH="/usr/local/bin:/usr/local/sbin:/usr/bin:/bin:/usr/sbin:/sbin"
 
-source ~/dotfiles/env.sh
 # export MANPATH="/usr/local/man:$MANPATH"
 
 # You may need to manually set your language environment
@@ -65,8 +63,6 @@ source ~/dotfiles/env.sh
 
 # ssh
 # export SSH_KEY_PATH="~/.ssh/dsa_id"
-
-
 
 ZSH_TMUX_AUTOSTART=false
 
@@ -80,69 +76,16 @@ export EDITOR='vim'
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
+
+# Zsh configuration
 setopt correct
 
-alias grep="grep --color=auto"
-alias less="less -R"
-
-alias v=vim
-alias gt="git tree"
-
-alias ta="tmux attach -t"
-alias m8="mtr 8.8.8.8"
-# apt-get
-if ( command -v apt-get > /dev/null 2>&1 ); then
-	alias apt-uu='sudo apt-get update; sudo apt-get upgrade'
-fi
-
-#tmux
-if [ -x "`which tmux`" ]; then
-	alias tm="TERM=screen-256color-bce tmux -2"
-	alias tmux="TERM=screen-256color-bce tmux -2"
-fi
-
-if [[ $SSH_CONNECTION != "" && $MY_SSH_CONNECTION != "yes" && -z "${TMUX}" ]]; then
-    while true; do
-        echo -n "Do you want to attach to a tmux session? [y/n]"
-        read yn
-        case $yn in
-            [Yy]* ) MY_SSH_CONNECTION="yes" tmux attach; break;;
-            [Nn]* ) break;;
-        * ) echo "Please answer y/n";;
-        esac
-    done
-fi
-
-#docker
-if [ -x "`which docker`" ]; then
-    plugins=(docker $plugins)
-fi
-
-#Home brew auto completion
 if [ `uname -s` = 'Darwin' ]; then
-    fpath=(/usr/local/share/zsh-completions $fpath)
-    plugins=(brew $plugins)
+    source $DOTFILES/env.sh
+    source $DOTFILES/zshrc.osx
 fi
 
-### Added by the Heroku Toolbelt
-if [ -d /usr/local/heroku ]; then
-    export PATH="/usr/local/heroku/bin:$PATH"
-    plugins=(heroku $plugins)
+if [ `uname -s` = 'Linux' ]; then
+    export LC_ALL=en_US.UTF-8
+    ZSH_TMUX_AUTOSTART=true
 fi
-
-if [ -x /usr/local/bin/ghci ]; then
-    export PATH="$HOME/Library/Haskell/bin:$PATH"
-fi
-
-# pyenv 
-
-if [ -d ~/.pyenv/ ]; then
-    export PATH="~/.pyenv/shims:$PATH"
-fi
-if ( command -v pyenv > /dev/null 2>&1 ); then
-    plugin=($plugins pyenv)
-    eval "$(pyenv init -)"
-    eval "$(pyenv virtualenv-init -)"
-    export PYENV_VIRTUALENV_DISABLE_PROMPT=1
-fi
-

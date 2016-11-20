@@ -1,0 +1,16 @@
+alias v=vim
+alias gt="git tree"
+
+# apt-get
+if ( command -v apt-get > /dev/null 2>&1 ); then
+	alias apt-uu='sudo apt-get update; sudo apt-get upgrade'
+fi
+
+#docker
+if [ -x "`which docker`" ]; then
+    plugins=(docker $plugins)
+fi
+
+if ( command -v cowsay > /dev/null 2>&1 ); then
+    cowsay "Here is $(uname)"
+fi
