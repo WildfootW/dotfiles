@@ -84,6 +84,7 @@ fi
 
 if [ `uname -s` = 'Linux' ]; then
     export LC_ALL=en_US.UTF-8
+    source $DOTFILES/zshrc.linux
 fi
 
 source $ZSH/oh-my-zsh.sh
