@@ -9,7 +9,7 @@ alias gt="git tree"
 alias m8="mtr 8.8.8.8"
 
 fpath=(/usr/local/share/zsh-completions $fpath)
-plugins=(osx brew $plugins)
+plugins=(osx $plugins)
 
 # tmux
 ZSH_TMUX_AUTOSTART=false
