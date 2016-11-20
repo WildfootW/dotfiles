@@ -1,5 +1,6 @@
 alias v=vim
 alias gt="git tree"
+export PATH="/usr/games:$PATH"
 
 # tmux
 ZSH_TMUX_AUTOSTART=true
