@@ -46,7 +46,7 @@ ZSH_THEME="alanpeabody"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git pip history-substring-search zsh-autosuggestions zsh-syntax-highlighting)
+plugins=(git pip history-substring-search zsh-autosuggestions)
 
 # User configuration
 
