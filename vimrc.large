@@ -335,7 +335,7 @@ map <Leader><S-Tab> :tabprevious<CR>
 
 "folding
 set foldenable 
-set foldmethod=manual
+set foldmethod=indent
 set foldcolumn=0 
 
 
@@ -366,7 +366,6 @@ noremap <c-j> <c-e>
 noremap <c-k> <c-y>
 inoremap <c-]> <esc>A
 nmap K kJ
-imap <c-c> <esc>
 
 
 "paste setting
@@ -376,7 +375,9 @@ set showmode
 
 
 "NERDCommenter
-nmap <C-c> <plug>NERDCommenterToggle
+"nmap <C-c> <plug>NERDCommenterToggle
+"let g:NERDSpaceDelims = 1
+"let g:NERDCustomDelimiters = {'python': {'left': '#'}}
 
 
 "save file as sudo
