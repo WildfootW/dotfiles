@@ -16,7 +16,8 @@ let mapleader=","
 
 " autocompletion of files and commands behaves like shell
 " " (complete only the common part, list the options that match)
-set wildmode=list:longest"
+set wildmode=longest,full
+set wildmenu
 
 syntax on
 
@@ -61,7 +62,7 @@ Plugin 'tpope/vim-surround'
 Plugin 'bling/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
 "Commenter
-Plugin 'azdkj532/nerdcommenter' 
+Plugin 'scrooloose/nerdcommenter'
 "Class/Module browser
 Plugin 'majutsushi/tagbar'
 " File tree
