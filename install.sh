@@ -1,6 +1,6 @@
 #!/bin/bash
 
-files='tmux.conf vim vimrc zshrc'
+files='vim vimrc zshrc'
 
 function abspath() {
     pushd . > /dev/null
@@ -38,13 +38,14 @@ function check_zsh() {
 }
 
 function check_ohmyzsh() {
-    if [ -d ~/.oh-my-zsh ]; then
+    if [ -d ~/.oh-my-zsh -o -d oh-my-zsh ]; then
         echo "You already have oh-my-zsh. Good!"
     else
         echo "Seems that you don't have oh-my-zsh."
         echo "But that's OK, let clone one."
         check_git
-        git clone https://github.com/robbyrussell/oh-my-zsh.git ~/.oh-my-zsh --depth 1
+        git submodule init
+        git submodule update
     fi
 }
 
