@@ -368,6 +368,8 @@ noremap <c-k> <c-y>
 inoremap <c-]> <esc>A
 nmap K kJ
 
+" crontab
+autocmd filetype crontab setlocal nobackup nowritebackup
 
 "paste setting
 nnoremap <F9> :set invpaste paste?<CR>
