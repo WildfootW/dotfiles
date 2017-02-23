@@ -12,7 +12,7 @@ fpath=(/usr/local/share/zsh-completions $fpath)
 plugins=(osx $plugins)
 
 # Notification
-OSX_NOTIFICATION='display notification "Hello world" with title "helloworld" '
+OSX_NOTIFICATION='display notification "Task Complete!" with title "iTerm2" '
 alias alert='echo $OSX_NOTIFICATION | osascript'
 
 # tmux
