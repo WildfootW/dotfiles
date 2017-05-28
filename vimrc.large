@@ -53,7 +53,7 @@ Plugin 'Auto-pairs'
 " Auto complete tag pair
 "Plugin 'othree/xml.vim'
 "Zen coding
-Plugin 'emmet.vim'
+Plugin 'mattn/emmet-vim'
 "Command Tool for code searching 
 Plugin 'mileszs/ack.vim'
 "vim command tools
@@ -80,10 +80,12 @@ Plugin 'Lokaltog/vim-easymotion'
 Plugin 'mkitt/tabline.vim'
 " Close other buffers
 Plugin 'BufOnly.vim'
+" vim intergrate with tmux
+Plugin 'benmills/vimux'
 
 "JS 
-"Plugin 'pangloss/vim-javascript'
-"Plugin 'othree/yajs.vim'
+Plugin 'pangloss/vim-javascript'
+Plugin 'othree/yajs.vim'
 
 " Agda
 " Plugin 'derekelkins/agda-vim'
@@ -98,7 +100,7 @@ Plugin 'davidhalter/jedi-vim'
 
 Plugin 'justmao945/vim-clang'
 " Django
-Plugin 'azdkj532/vim-pony'
+" Plugin 'azdkj532/vim-pony'
 
 "Plugin 'matchit.zip'
 "Color scheme
@@ -381,6 +383,11 @@ set showmode
 "nmap <C-c> <plug>NERDCommenterToggle
 "let g:NERDSpaceDelims = 1
 "let g:NERDCustomDelimiters = {'python': {'left': '#'}}
+
+"Vimux
+map <Leader>vl :VimuxRunLastCommand<CR>
+map <Leader>vp :VimuxPromptCommand<CR>
+map <Leader>vi :VimuxInspectRunner<CR>
 
 
 "save file as sudo
