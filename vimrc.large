@@ -44,16 +44,12 @@ call vundle#rc()
 " let Vundle manage Vundle, required
 Plugin 'VundleVim/Vundle.vim'
 
-filetype plugin indent on     " required
-
-"Plugin (Bundles)
-
 "auto add corresponse quote
 Plugin 'Auto-pairs'
 " Auto complete tag pair
 "Plugin 'othree/xml.vim'
 "Zen coding
-Plugin 'mattn/emmet-vim'
+" Plugin 'mattn/emmet-vim'
 "Command Tool for code searching 
 Plugin 'mileszs/ack.vim'
 "vim command tools
@@ -79,13 +75,13 @@ Plugin 'Lokaltog/vim-easymotion'
 " Tab manage
 Plugin 'mkitt/tabline.vim'
 " Close other buffers
-Plugin 'BufOnly.vim'
+" Plugin 'BufOnly.vim'
 " vim intergrate with tmux
-Plugin 'benmills/vimux'
+" Plugin 'benmills/vimux'
 
 "JS 
-Plugin 'pangloss/vim-javascript'
-Plugin 'othree/yajs.vim'
+" Plugin 'pangloss/vim-javascript'
+" Plugin 'othree/yajs.vim'
 
 " Agda
 " Plugin 'derekelkins/agda-vim'
@@ -98,19 +94,44 @@ Plugin 'Shougo/neosnippet'
 Plugin 'Shougo/neosnippet-snippets'
 Plugin 'davidhalter/jedi-vim'
 
-Plugin 'justmao945/vim-clang'
-" Django
-" Plugin 'azdkj532/vim-pony'
+" Plugin 'justmao945/vim-clang'
 
 "Plugin 'matchit.zip'
 "Color scheme
 Plugin 'fisadev/fisa-vim-colorscheme'
 
+" Python formatter
+if has('python')
+    Plug 'pignacio/vim-yapf-format'
+endif
+
+filetype plugin indent on     " required
+" Tell vim-plug we finished declaring plugins, so it can load them
+call vundle#end()
 if iCanHazVundle == 0
     echo "Installing Plugins..."
     :PluginInstall
 endif
-"==================================
+
+" ===================================================================
+" YAPF formatter
+let g:yapf_format_yapf_location = '/usr/local/bin/yapf'
+
+" brief help
+" Reformat current line
+" :YapfFormat
+"
+" Reformat current visual range
+" :'<,'>YapfFormat
+"
+" In general, reformat <range>
+" :<range>YapfFormat
+"
+" Reformat whole file
+" :YapfFullFormat
+" "
+
+" ===================================================================
 " NeoComplete 
 " Enable AutoComplete
 let g:acp_enableAtStartup = 0
@@ -180,7 +201,8 @@ let g:neocomplete#sources#omni#input_patterns.python = '\h\w*\|[^. \t]\.\w*'
 " End neocomplete ====
 
 
-" neosnippet ===
+" ===================================================================
+" neosnippet
 " Plugin key-mappings.
 imap <C-\>     <Plug>(neosnippet_expand_or_jump)
 smap <C-\>     <Plug>(neosnippet_expand_or_jump)
@@ -193,8 +215,8 @@ endif
 
 " Disable preview window
 set completeopt-=preview
-" End neosnippet ===
 
+" ===================================================================
 " vim-clang
 let g:clang_auto = 0
 let g:clang_c_completeopt = 'longest,menuone'
@@ -203,14 +225,13 @@ let g:clang_cpp_options = '-std=c++11 -stdlib=libc++'
 let g:clang_sh_exec = 'zsh'
 
 
+" ===================================================================
 " Emmet
 let g:user_emmet_install_global = 0
 autocmd FileType html,css,htmldjango EmmetInstall
 let g:user_emmet_expandabbr_key = '<C-y>'
 
-" Pony.vim for Django
-let g:pony_open_in_new_tab = 1
-
+" ===================================================================
 " Syntastic 
 " show list of errors and warnings on the current file
 let g:errorStat=0
@@ -230,30 +251,29 @@ nmap <leader>l :lnext<CR>
 nmap <leader>p :lprevious<CR>
 
 let g:syntastic_check_on_open = 1
-" don't put icons on the sign column (it hides the vcs status icons of
-" signify)
+
+" custom icons(signs)
 let g:syntastic_enable_signs = 1
-" custom icons (enable them if you use a patched font, and enable the previous 
-" setting)
 let g:syntastic_error_symbol = '✖'
 let g:syntastic_warning_symbol = '➜'
 let g:syntastic_style_error_symbol = '☃'
 let g:syntastic_style_warning_symbol = '☃'
 let g:syntastic_enable_balloons = 1
-let syntastic_check_on_wq = 1
 
+" cf. syntastic-filetype-checker
+" C++
 let g:syntastic_cpp_compiler = "g++"
 let g:syntastic_cpp_compiler_options = ' -std=c++11 -stdlib=libc++'
 let g:syntastic_cpp_check_header = 1
-let g:syntastic_cpp_cpplint_exec = "/usr/local/bin/cpplint"
 let g:syntastic_cpp_checkers = ["cpplint"]
-
-let g:syntastic_python_python_exec = '/usr/local/bin/python3'
+let g:syntastic_cpp_cpplint_exec = "/usr/local/bin/cpplint"
+" Python
 let g:syntastic_python_checkers = ["flake8"]
-let syntastic_check_on_open = 1
-let syntastic_check_on_wq = 0
+let g:syntastic_python_python_exec = '/usr/local/bin/python3'
+let g:syntastic_python_python_exec = '/usr/local/bin/flake8'
 let g:syntastic_python_flake8_args = "--ignore=E501" 
 
+" ===================================================================
 " EasyMotion
 nmap <Leader>s <Plug>(easymotion-s2)
 map  / <Plug>(easymotion-sn)
@@ -277,12 +297,14 @@ let g:EasyMotion_smartcase = 1
 let g:EasyMotion_use_smartsign_us = 1
 highlight link EasyMotionMoveHL Search
 
+" ===================================================================
 " gitgutter
 let g:gitgutter_sign_added = '+'
 let g:gitgutter_sign_modified = '◉'
 let g:gitgutter_sign_removed = '◉-'
 let g:gitgutter_sign_modified_removed = '-'
 
+" ===================================================================
 " use 256 colors when possible
 if &term =~? 'mlterm\|xterm\|xterm-256\|screen-256'
     let &t_Co = 256
@@ -304,6 +326,7 @@ highlight NonText cterm=none ctermbg=none
 highlight VertSplit ctermbg=none ctermfg=gray
 highlight SignColumn ctermbg=none
 
+" ===================================================================
 "Airline
 set laststatus=2
 let g:airline#extensions#syntastic#enabled = 1
@@ -319,9 +342,11 @@ let g:airline#extensions#ctrlp#color_template = 'visual'
 let g:airline#extensions#ctrlp#color_template = 'replace'
 let g:airline#extensions#ctrlp#show_adjacent_modes = 1
 
+" ===================================================================
 " Theme
 let g:airline_theme='kolor'
 
+" ===================================================================
 " TabSelect
 map <leader>1 1gt
 map <leader>2 2gt
@@ -335,13 +360,13 @@ map <leader>9 9gt
 map <Leader><Tab> :tabnext<CR>
 map <Leader><S-Tab> :tabprevious<CR>
 
-
+" ===================================================================
 "folding
 set foldenable 
 set foldmethod=indent
 set foldcolumn=0 
 
-
+" ===================================================================
 "Run files
 autocmd filetype c   nnoremap <F8> :w <bar> exec '!gcc '.shellescape('%').' -O2 && ./a.out'<CR>
 autocmd filetype cpp nnoremap <F8> :w <bar> exec '!g++ '.shellescape('%').' -std=c++11 -O2 && ./a.out'<CR>
@@ -352,8 +377,6 @@ autocmd FileType python setlocal et sta sw=4 sts=4
 
 " use absolute line number when commandline window
 autocmd CmdwinEnter * set norelativenumber
-
-"nerdtree
 
 "key binding
 
@@ -392,7 +415,6 @@ map <Leader>vi :VimuxInspectRunner<CR>
 
 "save file as sudo
 cmap w!! w !sudo tee > /dev/null %
-
 
 cab Q q
 cab W w
