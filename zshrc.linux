@@ -1,0 +1,26 @@
+alias v=vim
+alias gt="git tree"
+export PATH="/usr/games:$PATH"
+
+# tmux
+ZSH_TMUX_AUTOSTART=true
+plugins=(tmux $plugins)
+
+# apt-get
+if ( command -v apt-get > /dev/null 2>&1 ); then
+	alias apt-uu='sudo apt-get update && sudo apt-get upgrade'
+fi
+
+#docker
+if ( command -v docker > /dev/null 2>&1 ); then
+    plugins=(docker $plugins)
+fi
+
+if ( command -v nvm > /dev/null 2>&1 ); then
+	export NVM_DIR="~/.nvm"
+	[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
+fi
+
+if ( command -v cowsay > /dev/null 2>&1 ); then
+    cowsay "Here is $(uname)"
+fi

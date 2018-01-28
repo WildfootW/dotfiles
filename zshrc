@@ -1,5 +1,6 @@
 # Path to your oh-my-zsh installation.
-export ZSH=$HOME/.oh-my-zsh
+export DOTFILES=$HOME/dotfiles
+export ZSH=$DOTFILES/oh-my-zsh
 
 # Set name of the theme to load.
 # Look in ~/.oh-my-zsh/themes/
@@ -45,16 +46,12 @@ ZSH_THEME="alanpeabody"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git pip history-substring-search zsh-syntax-highlighting tmux osx brew)
+plugins=(git pip history-substring-search zsh-autosuggestions)
 
-source $ZSH/oh-my-zsh.sh
 # User configuration
-
-export LC_ALL=en_US.UTF-8
 
 export PATH="/usr/local/bin:/usr/local/sbin:/usr/bin:/bin:/usr/sbin:/sbin"
 
-source ~/dotfiles/env.sh
 # export MANPATH="/usr/local/man:$MANPATH"
 
 # You may need to manually set your language environment
@@ -65,10 +62,6 @@ source ~/dotfiles/env.sh
 
 # ssh
 # export SSH_KEY_PATH="~/.ssh/dsa_id"
-
-
-
-ZSH_TMUX_AUTOSTART=false
 
 export EDITOR='vim'
 
@@ -81,48 +74,19 @@ export EDITOR='vim'
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
-alias grep="grep --color=auto"
-alias less="less -R"
+# Zsh configuration
+setopt correct
 
-alias v=vim
-alias gt="git tree"
-
-alias ta="tmux attach -t"
-# apt-get
-if [ -x "`which apt-get`" ]; then
-	alias apt-uu='sudo apt-get update; sudo apt-get upgrade'
-fi
-
-#tmux
-if [ -x "`which tmux`" ]; then
-	alias tm="TERM=screen-256color-bce tmux -2"
-	alias tmux="TERM=screen-256color-bce tmux -2"
-fi
-#docker
-if [ -x "`which docker`" ]; then
-    plugins=(docker $plugins)
-fi
-
-#Home brew auto completion
 if [ `uname -s` = 'Darwin' ]; then
-    fpath=(/usr/local/share/zsh-completions $fpath)
-    plugins=(brew $plugins)
+    source $DOTFILES/env.sh
+    source $DOTFILES/zshrc.osx
 fi
 
-### Added by the Heroku Toolbelt
-if [ -d /usr/local/heroku ]; then
-    export PATH="/usr/local/heroku/bin:$PATH"
-    plugins=(heroku $plugins)
+if [ `uname -s` = 'Linux' ]; then
+    export LC_ALL=en_US.UTF-8
+    source $DOTFILES/zshrc.linux
 fi
 
-# pyenv 
+source $ZSH/oh-my-zsh.sh
 
-if [ -x "`which pyenv`" ]; then
-    eval "$(pyenv init -)"
-    eval "$(pyenv virtualenv-init -)"
-fi
-
-# completion
-#autoload -U compinit
-#compinit
-
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
