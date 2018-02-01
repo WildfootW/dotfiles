@@ -51,6 +51,8 @@ plugins=(git pip history-substring-search zsh-autosuggestions)
 # User configuration
 
 export PATH="/usr/local/bin:/usr/local/sbin:/usr/bin:/bin:/usr/sbin:/sbin"
+#export PATH=$PATH:/usr/java/jre1.8.0_131/bin
+#export PATH=$PATH:/usr/java/jdk1.8.0_131/bin
 
 # export MANPATH="/usr/local/man:$MANPATH"
 
@@ -88,3 +90,6 @@ if [ `uname -s` = 'Linux' ]; then
 fi
 
 source $ZSH/oh-my-zsh.sh
+
+# add PATH
+export PATH=$PATH:~/bin
