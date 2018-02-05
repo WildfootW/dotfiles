@@ -1,22 +1,11 @@
 #!/bin/bash
 
-files='vim vimrc zshrc tmux.conf'
+# Absolute path to this script, e.g. /home/user/Pwngdb/install.sh
+SCRIPT=$(readlink -f "$0")
+# Absolute path this script is in, thus /home/user/Pwngdb
+SCRIPTPATH=$(dirname "$SCRIPT")
 
-function abspath() {
-    pushd . > /dev/null
-    if [ -d "$1"  ]; then
-        cd "$1"; dirs -l +0
-    else
-        cd "`dirname \"$1\"`"
-        cur_dir=`dirs -l +0`
-        if [ "$cur_dir" == "/"  ]; then
-            echo "$cur_dir`basename \"$1\"`"
-        else
-            echo "$cur_dir/`basename \"$1\"`"
-        fi
-    fi
-    popd > /dev/null
-}
+files='vim vimrc zshrc tmux.conf'
 
 function check_git() {
     if [ -x "`which git`" ]; then
@@ -54,7 +43,7 @@ function install_file() {
     if [ -f $dst ] || [ -d $dst ]; then
         echo "File conflict: $dst"
     else
-        src="`abspath $1`"
+        src="$SCRIPTPATH/$1"
         link "$src" "$dst"
     fi
 }
@@ -79,6 +68,7 @@ echo "   \\______________________________________________\\|"
 echo ""
 echo "copy from inndy, thank you Inndy!"
 echo "fork from azdkj532, thank you Squirrel!"
+
 check_ohmyzsh
 
 for file in `echo $files | tr ' ' '\n'`; do
