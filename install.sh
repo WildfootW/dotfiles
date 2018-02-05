@@ -69,28 +69,16 @@ function install_vim_plugin() {
     vim +qall
 }
 
-function fix_prev() {
-    echo "Fix previous bug..."
-
-    if [ -L ~/.pytonrc.py ]; then
-        echo -ne '~/.pytonrc.py found, do you want to remove it? (y)'
-        read rmf
-        if [ -z $rmf ] || [ $rmf == "Y" ] || [ $rmf == "y" ]; then
-            rm ~/.pytonrc.py
-        fi
-    fi
-}
-
 echo ""
 echo "  +------------------------------------------------+"
 echo "  |                                                |\\"
-echo "  |    azdkj's config file install script v1.0     | \\"
+echo "  |       WildfootW's dotfile install script       | \\"
 echo "  |                                                | |"
 echo "  +------------------------------------------------+ |"
 echo "   \\______________________________________________\\|"
 echo ""
 echo "copy from inndy, thank you Inndy!"
-fix_prev
+echo "fork from azdkj532, thank you Squirrel!"
 check_ohmyzsh
 
 for file in `echo $files | tr ' ' '\n'`; do
