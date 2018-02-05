@@ -1,6 +1,6 @@
 #!/bin/bash
 
-files='vim vimrc zshrc'
+files='vim vimrc zshrc tmux.conf'
 
 function abspath() {
     pushd . > /dev/null
