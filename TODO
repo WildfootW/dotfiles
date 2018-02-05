@@ -1,1 +1,5 @@
-install tmux vim zsh automaticaly
+install git tmux vim zsh automaticaly
+reference: https://stackoverflow.com/questions/10220019/how-to-write-a-shell-script-that-runs-some-commands-as-superuser-and-some-comman
+link this folder to ~/
+git submodule init
+git submodule update
