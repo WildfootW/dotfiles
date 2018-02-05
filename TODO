@@ -1,1 +1,2 @@
 install tmux vim zsh automaticaly
+ln tmux.conf to ~/
