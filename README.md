@@ -1,8 +1,9 @@
 # dotfiles
 
-## Install
-clone a repo with submodules
+## Useage
+change the "$git_name" and "$git_email" in install.sh
+
 ```
-$ git submodule init
-$ git submodule update
+sudo ./install
 ```
+
