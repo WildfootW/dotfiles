@@ -6,37 +6,9 @@ SCRIPT=$(readlink -f "$0")
 SCRIPTPATH=$(dirname "$SCRIPT")
 
 files='vim vimrc zshrc tmux.conf'
-
-function check_git() {
-    if [ -x "`which git`" ]; then
-        echo "You already have git. :D"
-    else
-        echo "You need git to do this. :("
-        exit 1
-    fi
-}
-
-function check_zsh() {
-    if [ -x "`which zsh`" ]; then
-        echo "You already have zsh. :D"
-        echo "Now we switch to zsh!!"
-        chsh -s /bin/zsh
-    else
-        echo "You may need zsh..."
-    fi
-}
-
-function check_ohmyzsh() {
-    if [ -d ~/.oh-my-zsh -o -d oh-my-zsh ]; then
-        echo "You already have oh-my-zsh. Good!"
-    else
-        echo "Seems that you don't have oh-my-zsh."
-        echo "But that's OK, let clone one."
-        check_git
-        git submodule init
-        git submodule update
-    fi
-}
+softwares="git zsh vim tmux"
+git_email="wild.foot.yee.tzwu@gmail.com"
+git_name="WildfootW"
 
 function install_file() {
     dst=~/.$1
@@ -53,9 +25,23 @@ function link() {
     ln -s "$1" "$2"
 }
 
-function install_vim_plugin() {
-    echo "Install vim plugins"
-    vim +qall
+function check_software() {
+    echo "checking $1..."
+    if [ -x "`which $1`" ]; then
+        echo "Done!"
+    else
+        echo "$1 is not installed. installing..."
+        apt-get install -y $1
+    fi
+}
+
+function set_git_environment_settings() {
+	git config --global user.email $git_email
+	git config --global user.name $git_name
+	git config --global color.ui true
+	git config --global core.editor vim 
+	git config --global alias.co commit
+	git config --global alias.lg "log --color --graph --all --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --"
 }
 
 echo ""
@@ -69,12 +55,36 @@ echo ""
 echo "copy from inndy, thank you Inndy!"
 echo "fork from azdkj532, thank you Squirrel!"
 
-check_ohmyzsh
+#check sudo
+if [ $USER != "root" ]; then
+    echo "You need to be sudo..., exit."
+    exit 1
+fi
 
+#check and install softwares
+for software in `echo $softwares | tr ' ' '\n'`; do
+    check_software $software
+done
+
+#clone submodule
+echo "Cloning oh-my-zsh..."
+git submodule init
+git submodule update
+
+#set git environment settings
+set_git_environment_settings
+
+#install files
 for file in `echo $files | tr ' ' '\n'`; do
     install_file $file
 done
+echo "link dotfile to home directory"
+ln -s  $SCRIPTPATH ~/
 
-install_vim_plugin
-check_zsh
+#install vim plugins
+echo "Install vim plugins"
+vim +qall
 
+#switch to zsh
+echo "change default shell to zsh"
+chsh -s /bin/zsh $SUDO_USER
