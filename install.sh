@@ -49,6 +49,40 @@ function set_git_environment_settings() {
     git config --global alias.lg "log --color --graph --all --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --"
 }
 
+function setup_GitHub_SSH_Key() {
+    echo "Setup GitHub SSH Key..."
+
+    if [ -e "$HOME/.ssh" ]; then
+        if [ ! -d "$HOME/.ssh" ];then
+            echo ".ssh exist in HOME directory but not a directory!"
+            echo "GitHub SSH Key setup failed!"
+            exit 1
+        fi
+    else
+        mkdir "$HOME/.ssh"
+        chgrp $SUDO_USER $HOME/.ssh
+        chown $SUDO_USER $HOME/.ssh
+    fi
+#    if [ -e "$HOME/.ssh/GitHub" ]; then
+#        echo "$HOME/.ssh/GitHub exist"
+#        echo "GitHub SSH Key setup failed!"
+#        exit 1
+#    fi
+
+    ssh-keygen -t rsa -C $git_email -f "$HOME/.ssh/GitHub" -b 2048 -q -N ""
+    #-q Silence ssh-keygen -N new_passphrase
+    chgrp $SUDO_USER $HOME/.ssh/GitHub
+    chown $SUDO_USER $HOME/.ssh/GitHub
+    eval $(ssh-agent)
+    ssh-add $HOME/.ssh/GitHub
+
+    echo "Success!! please paste the public key to GitHub."
+    echo "+------------------------------------------------+"
+    cat $HOME/.ssh/GitHub.pub
+    echo "+------------------------------------------------+"
+    echo "After pasted the public key. Use \"ssh -T git@github.com\" to test if setup success."
+}
+
 echo ""
 echo "  +------------------------------------------------+"
 echo "  |                                                |\\"
@@ -76,8 +110,9 @@ echo "Cloning oh-my-zsh..."
 git submodule init
 git submodule update
 
-#set git environment settings
+#set git and GitHub SSH Key
 set_git_environment_settings
+setup_GitHub_SSH_Key
 
 #install files and folders
 for file in `echo $files | tr ' ' '\n'`; do
