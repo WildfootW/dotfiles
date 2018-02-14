@@ -5,13 +5,31 @@ SCRIPT=$(readlink -f "$0")
 # Absolute path this script is in, thus /home/user/Pwngdb
 SCRIPTPATH=$(dirname "$SCRIPT")
 
+source ./check_distribution.sh
+echo "your distribution is $distribution $distribution_version"
+
 files='vim vimrc zshrc tmux.conf'
 softwares="git zsh vim tmux"
 git_email="wild.foot.yee.tzwu@gmail.com"
 git_name="WildfootW"
 
+function initial() {
+    if [ $distribution == "Ubuntu" ]; then
+        permission=$USER
+        current_user=$SUDO_USER
+        home_directory=$HOME
+    elif [ $distribution == "CentOS Linux" ]; then
+        permission=$USER
+        current_user=$SUDO_USER
+        home_directory="/home/$SUDO_USER"
+    else
+        echo "Your distribution havn't been support yet. exit.."
+        exit 1 
+    fi
+}
+
 function install_file() {
-    dst="$HOME/.$1"
+    dst="$home_directory/.$1"
     if [ -f $dst ] || [ -d $dst ]; then
         echo "File conflict: $dst"
     else
@@ -22,11 +40,11 @@ function install_file() {
 }
 
 function install_dotfiles_folder() {
-    if [ -e "$HOME/dotfiles" ]; then
+    if [ -e "$home_directory/dotfiles" ]; then
         echo "dotfiles in home directory existed"
     else
         echo "Link dotfile to home directory"
-        ln -s $SCRIPTPATH $HOME
+        ln -s $SCRIPTPATH $home_directory
     fi
 }
 
@@ -36,7 +54,11 @@ function check_software() {
         echo "Done!"
     else
         echo "$1 is not installed. installing..."
-        apt-get install -y $1
+        if [ $distribution == "Ubuntu" ]; then
+            apt-get install -y $1
+        elif [ $distribution == "CentOS Linux" ]; then
+            yum -y install $1
+        fi
     fi
 }
 
@@ -52,33 +74,33 @@ function set_git_environment_settings() {
 function setup_GitHub_SSH_Key() {
     echo "Setup GitHub SSH Key..."
 
-    if [ -e "$HOME/.ssh" ]; then
-        if [ ! -d "$HOME/.ssh" ];then
+    if [ -e "$home_directory/.ssh" ]; then
+        if [ ! -d "$home_directory/.ssh" ];then
             echo ".ssh exist in HOME directory but not a directory!"
             echo "GitHub SSH Key setup failed!"
             exit 1
         fi
     else
-        mkdir "$HOME/.ssh"
-        chgrp $SUDO_USER $HOME/.ssh
-        chown $SUDO_USER $HOME/.ssh
+        mkdir "$home_directory/.ssh"
+        chgrp $current_user $home_directory/.ssh
+        chown $current_user $home_directory/.ssh
     fi
-#    if [ -e "$HOME/.ssh/GitHub" ]; then
-#        echo "$HOME/.ssh/GitHub exist"
+#    if [ -e "$home_directory/.ssh/GitHub" ]; then
+#        echo "$home_directory/.ssh/GitHub exist"
 #        echo "GitHub SSH Key setup failed!"
 #        exit 1
 #    fi
 
-    ssh-keygen -t rsa -C $git_email -f "$HOME/.ssh/GitHub" -b 2048 -q -N ""
+    ssh-keygen -t rsa -C $git_email -f "$home_directory/.ssh/GitHub" -b 2048 -q -N ""
     #-q Silence ssh-keygen -N new_passphrase
-    chgrp $SUDO_USER $HOME/.ssh/GitHub
-    chown $SUDO_USER $HOME/.ssh/GitHub
+    chgrp $current_user $home_directory/.ssh/GitHub
+    chown $current_user $home_directory/.ssh/GitHub
     eval $(ssh-agent)
-    ssh-add $HOME/.ssh/GitHub
+    ssh-add $home_directory/.ssh/GitHub
 
     echo "Success!! please paste the public key to GitHub."
     echo "+------------------------------------------------+"
-    cat $HOME/.ssh/GitHub.pub
+    cat $home_directory/.ssh/GitHub.pub
     echo "+------------------------------------------------+"
     echo "After pasted the public key. Use \"ssh -T git@github.com\" to test if setup success."
 }
@@ -94,8 +116,10 @@ echo ""
 echo "copy from inndy, thank you Inndy!"
 echo "fork from azdkj532, thank you Squirrel!"
 
+initial
+
 #check sudo
-if [ $USER != "root" ]; then
+if [ $permission != "root" ]; then
     echo "You need to be sudo..., exit."
     exit 1
 fi
@@ -126,4 +150,4 @@ vim +qall
 
 #switch to zsh
 echo "change default shell to zsh"
-chsh -s /bin/zsh $SUDO_USER
+chsh -s /bin/zsh $current_user
