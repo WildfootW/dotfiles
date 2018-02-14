@@ -14,11 +14,11 @@ git_email="wild.foot.yee.tzwu@gmail.com"
 git_name="WildfootW"
 
 function initial() {
-    if [ $distribution == "Ubuntu" ]; then
+    if [ "$distribution" == "Ubuntu" ]; then
         permission=$USER
         current_user=$SUDO_USER
         home_directory=$HOME
-    elif [ $distribution == "CentOS Linux" ]; then
+    elif [ "$distribution" == "CentOS Linux" ]; then
         permission=$USER
         current_user=$SUDO_USER
         home_directory="/home/$SUDO_USER"
