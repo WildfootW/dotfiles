@@ -54,9 +54,9 @@ function check_software() {
         echo "Done!"
     else
         echo "$1 is not installed. installing..."
-        if [ $distribution == "Ubuntu" ]; then
+        if [ "$distribution" == "Ubuntu" ]; then
             apt-get install -y $1
-        elif [ $distribution == "CentOS Linux" ]; then
+        elif [ "$distribution" == "CentOS Linux" ]; then
             yum -y install $1
         fi
     fi
