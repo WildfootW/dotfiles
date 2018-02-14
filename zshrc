@@ -89,6 +89,9 @@ if [ `uname -s` = 'Linux' ]; then
     source $DOTFILES/zshrc.linux
 fi
 
+# Cancel automatically closing the terminal when tmux exits
+ZSH_TMUX_AUTOQUIT=false
+
 source $ZSH/oh-my-zsh.sh
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
