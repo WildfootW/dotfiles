@@ -63,6 +63,7 @@ function check_software() {
 }
 
 function set_git_environment_settings() {
+    echo "set git environment settings..."
     git config --global user.email $git_email
     git config --global user.name $git_name
     git config --global color.ui true
@@ -104,6 +105,7 @@ function setup_GitHub_SSH_Key() {
     cat $home_directory/.ssh/GitHub.pub
     echo "+------------------------------------------------+"
     echo "After pasted the public key. Use \"ssh -T git@github.com\" to test if setup success."
+    echo "If it is not working. Just command \"ssh-add $home_directory/.ssh/GitHub\" manually."
 }
 
 echo ""
