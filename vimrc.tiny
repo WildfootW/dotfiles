@@ -158,7 +158,7 @@ map <Leader><Tab> :tabnext<CR>
 map <Leader><S-Tab> :tabprevious<CR>
 
 " crontab
-autocmd filetype crontab setlocal nobackup nowritebackup
+"autocmd filetype crontab setlocal nobackup nowritebackup
 
 "folding
 set foldenable 
