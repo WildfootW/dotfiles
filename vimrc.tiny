@@ -199,3 +199,4 @@ cab Set set
 autocmd BufNewFile UVa*.cpp     0r ~/.vim/skeleton_OJ.cpp
 autocmd BufNewFile UVa*.c       0r ~/.vim/skeleton_OJ.c
 autocmd BufNewFile PWN*.py      0r ~/.vim/skeleton_PWN.py
+autocmd BufNewFile *.sh         0r ~/.vim/skeleton.sh
