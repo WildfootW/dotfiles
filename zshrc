@@ -75,6 +75,7 @@ export EDITOR='vim'
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
+alias gg++="g++ -g"
 
 # Zsh configuration
 setopt correct
