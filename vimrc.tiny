@@ -196,7 +196,16 @@ cab Qa qa
 cab Set set
 
 "read skeleton template file when opening new file
-autocmd BufNewFile UVa*.cpp     0r ~/.vim/skeleton_OJ.cpp
-autocmd BufNewFile UVa*.c       0r ~/.vim/skeleton_OJ.c
-autocmd BufNewFile PWN*.py      0r ~/.vim/skeleton_PWN.py
-autocmd BufNewFile *.sh         0r ~/.vim/skeleton.sh
+"autocmd BufNewFile *.<extension> execute "0r <directory>/".input("Template name: ").".<extension>"
+
+autocmd BufNewFile *.cpp        execute "0r ~/.vim/template/skeleton_".input("Template name: ").".cpp"
+autocmd BufNewFile *.c          execute "0r ~/.vim/template/skeleton_".input("Template name: ").".c"
+autocmd BufNewFile *.py         execute "0r ~/.vim/template/skeleton_".input("Template name: ").".py"
+autocmd BufNewFile *.sh         execute "0r ~/.vim/template/skeleton_".input("Template name: ").".sh"
+autocmd BufNewFile *.html       0r ~/.vim/template/skeleton.html
+
+"header
+autocmd BufNewFile *.cpp        0r ~/.vim/template/header.c
+autocmd BufNewFile *.c          0r ~/.vim/template/header.c
+autocmd BufNewFile *.py         0r ~/.vim/template/header.py
+autocmd BufNewFile *.sh         0r ~/.vim/template/header.sh

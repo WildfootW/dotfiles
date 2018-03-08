@@ -1,7 +1,3 @@
-#!/usr/bin/env python
-#   WildfootW 2018
-#   https://github.com/Wildfoot
-#
 # open program at local 
 # ncat -ve ./a.out -kl 8888
 
