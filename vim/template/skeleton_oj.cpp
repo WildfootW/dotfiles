@@ -10,7 +10,7 @@ using namespace std;
 int main()
 {
     ios::sync_with_stdio(false);
-    cin.tie(false);
+    cin.tie(0);
 
     cout << "Time used = " << (double)clock() / CLOCKS_PER_SEC << endl;
     return 0;   
