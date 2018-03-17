@@ -4,6 +4,7 @@
 #include <ctime>
 
 #define INF 2147483647
+#define EPS 1e-9
 
 using namespace std;
 
