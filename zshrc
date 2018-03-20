@@ -76,6 +76,8 @@ export EDITOR='vim'
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 alias gg++="g++ -std=c++11 -O2 -g"
+alias search_pid="ps -ef | grep"
+alias open_socket="ncat -kl 8888 -ve"
 
 # Zsh configuration
 setopt correct
