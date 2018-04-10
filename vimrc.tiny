@@ -199,6 +199,7 @@ cab Set set
 
 autocmd BufNewFile *.cpp        execute "0r ~/.vim/template/skeleton_".input("Template name (Press Enter to use basic template) : ").".cpp"
 autocmd BufNewFile *.c          execute "0r ~/.vim/template/skeleton_".input("Template name (Press Enter to use basic template) : ").".c"
+autocmd BufNewFile *.ino        execute "0r ~/.vim/template/skeleton_".input("Template name (Press Enter to use basic template) : ").".ino"
 autocmd BufNewFile *.py         execute "0r ~/.vim/template/skeleton_".input("Template name (Press Enter to use basic template) : ").".py"
 autocmd BufNewFile *.sh         execute "0r ~/.vim/template/skeleton_".input("Template name (Press Enter to use basic template) : ").".sh"
 autocmd BufNewFile *.html       0r ~/.vim/template/skeleton.html
