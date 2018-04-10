@@ -20,7 +20,7 @@ set wildmode=list:longest"
 
 syntax on
 
-"Vundle
+"""""""""""""""""""""""""""""""""""""""""""""""""""Vundle""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 filetype off                  " required
 
 "Setting up vundle"
@@ -52,7 +52,7 @@ Plugin 'Auto-pairs'
 "vim command tools
 Plugin 'tpope/vim-surround'
 "Air line
-Plugin 'bling/vim-airline'
+Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
 " File tree
 Plugin 'scrooloose/nerdtree'
@@ -65,8 +65,6 @@ Plugin 'airblade/vim-gitgutter'
 Plugin 'Lokaltog/vim-easymotion'
 " Tab manage
 Plugin 'mkitt/tabline.vim'
-
-"Plugin 'matchit.zip'
 "Color scheme
 Plugin 'fisadev/fisa-vim-colorscheme'
 
@@ -74,7 +72,8 @@ if iCanHazVundle == 0
     echo "Installing Plugins..."
     :PluginInstall
 endif
-"==================================
+""""""""""""""""""""""""""""""""""""""""""""""""""""" END Vundle """""""""""""""""""""""""""""""""""""""""""""""""""""
+
 
 " EasyMotion
 nmap <Leader>s <Plug>(easymotion-s2)
@@ -207,6 +206,7 @@ autocmd BufNewFile *.html       0r ~/.vim/template/skeleton.html
 "header
 autocmd BufNewFile *.cpp        0r ~/.vim/template/header.c
 autocmd BufNewFile *.c          0r ~/.vim/template/header.c
+autocmd BufNewFile *.ino        0r ~/.vim/template/header.c
 autocmd BufNewFile *.js         0r ~/.vim/template/header.c
 autocmd BufNewFile *.py         0r ~/.vim/template/header.py
 autocmd BufNewFile *.sh         0r ~/.vim/template/header.sh
