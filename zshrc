@@ -63,9 +63,6 @@ export PATH="/usr/local/bin:/usr/local/sbin:/usr/bin:/bin:/usr/sbin:/sbin"
 # Compilation flags
 # export ARCHFLAGS="-arch x86_64"
 
-# ssh
-# export SSH_KEY_PATH="~/.ssh/dsa_id"
-
 export EDITOR='vim'
 
 # Set personal aliases, overriding those provided by oh-my-zsh libs,
@@ -75,31 +72,21 @@ export EDITOR='vim'
 #
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
-# alias ohmyzsh="mate ~/.oh-my-zsh"
-alias gg++="g++ -std=c++11 -O2 -g"
-alias search_pid="ps -ef | grep"
-alias open_socket="ncat -kl 8888 -ve"
 
 # Zsh configuration
 setopt correct
 
 if [ `uname -s` = 'Darwin' ]; then
-    source $DOTFILES/env.sh
+    source $DOTFILES/environment_variable-osx.sh
     source $DOTFILES/zshrc.osx
 fi
 
 if [ `uname -s` = 'Linux' ]; then
-    export LC_ALL=en_US.UTF-8
+    source $DOTFILES/environment_variable-linux.sh
     source $DOTFILES/zshrc.linux
 fi
-
-# Cancel automatically closing the terminal when tmux exits
-ZSH_TMUX_AUTOQUIT=false
 
 source $ZSH/oh-my-zsh.sh
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
-
-# add PATH
-export PATH=$PATH:~/Programfile/bin:~/bin
 
