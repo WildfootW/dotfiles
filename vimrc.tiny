@@ -1,7 +1,12 @@
 "Settings
+
+" about space and tab
 set expandtab
 set tabstop=4
 set shiftwidth=4
+set listchars=tab:>-,trail:-
+set list
+
 set relativenumber
 set number
 set cursorline
