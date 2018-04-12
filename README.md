@@ -7,6 +7,10 @@ change the "$git_name" and "$git_email" in install.sh
 sudo ./install
 ```
 
+### required
+[Powerline fonts](https://github.com/powerline/fonts)
+for the correct theme th display in terminal
+
 ## Vim plugin
 ### manager
 1. [VundleVim](https://github.com/VundleVim/Vundle.vim)
