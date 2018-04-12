@@ -12,7 +12,8 @@ fpath=(/usr/local/share/zsh-completions $fpath)
 plugins=(osx $plugins)
 
 # Notification
-source $DOTFILES/alert.script
+OSX_NOTIFICATION='display notification "Task Complete!" with title "iTerm2" '
+alias alert='echo $OSX_NOTIFICATION | osascript'
 
 # tmux
 ZSH_TMUX_AUTOSTART=false
