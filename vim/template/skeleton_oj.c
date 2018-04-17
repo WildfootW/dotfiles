@@ -13,7 +13,7 @@ int main()
 //    FILE *fin, *fout;
 //    fin = fopen("data.in", "rb");
 //    fout = fopen("data.out", "wb");
-//    // usage 
+//    // usage
 //    // fscanf(fin, "%d", &x)
 //    // fprintf(fout, "")
 //    fclose(fin);
