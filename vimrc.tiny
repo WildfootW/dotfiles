@@ -72,6 +72,7 @@ Plugin 'Lokaltog/vim-easymotion'
 Plugin 'mkitt/tabline.vim'
 "Color scheme
 Plugin 'fisadev/fisa-vim-colorscheme'
+Plugin 'flazz/vim-colorschemes'
 
 if iCanHazVundle == 0
     echo "Installing Plugins..."
@@ -110,9 +111,10 @@ let g:gitgutter_sign_removed = '◉-'
 let g:gitgutter_sign_modified_removed = '-'
 
 " use 256 colors when possible
+" fisa, wombat256i, vc, ubaryd, tropikos, pt_black, pride, aurora, fx, znake
 if &term =~? 'mlterm\|xterm\|xterm-256\|screen-256'
     let &t_Co = 256
-        colorscheme fisa
+        colorscheme ubaryd
     else
         colorscheme delek
 endif
@@ -165,9 +167,9 @@ map <Leader><S-Tab> :tabprevious<CR>
 "autocmd filetype crontab setlocal nobackup nowritebackup
 
 "folding
-set foldenable 
+set foldenable
 set foldmethod=manual
-set foldcolumn=0 
+set foldcolumn=0
 
 "key binding
 
