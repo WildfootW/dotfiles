@@ -34,3 +34,4 @@ for the correct theme th display in terminal
 11. [tabline](https://github.com/mkitt/tabline.vim)
 ### color scheme
 12. [fisa](https://github.com/fisadev/fisa-vim-colorscheme)
+13. [vim-colorschemes](https://github.com/flazz/vim-colorschemes)
