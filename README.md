@@ -4,7 +4,10 @@
 change the "$git_name" and "$git_email" in install.sh
 
 ```
+git clone https://github.com/Wildfoot/dotfiles.git
+cd ./dotfiles
 sudo ./install
+git remote set-url origin git@github.com:Wildfoot/dotfiles.git
 ```
 
 ### required
