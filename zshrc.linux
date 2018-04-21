@@ -6,7 +6,7 @@ alias v=vim
 alias checkport="sudo lsof -n -i | grep LISTEN"
 
 # add PATH
-export PATH=$PATH:~/workplace/Capture-the-flag/WF-CTF-Tools/bin
+export PATH=$PATH:~/workplace/Capture-the-flag/WF_Capture-The-Flag_Tools/bin
 export PATH=$PATH:~/Programfile/bin
 export PATH=$PATH:~/bin
 
