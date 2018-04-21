@@ -6,7 +6,9 @@ alias v=vim
 alias checkport="sudo lsof -n -i | grep LISTEN"
 
 # add PATH
-export PATH=$PATH:~/Programfile/bin:~/bin
+export PATH=$PATH:~/workplace/Capture-the-flag/WF-CTF-Tools/bin
+export PATH=$PATH:~/Programfile/bin
+export PATH=$PATH:~/bin
 
 # apt-get
 if ( command -v apt-get > /dev/null 2>&1 ); then
