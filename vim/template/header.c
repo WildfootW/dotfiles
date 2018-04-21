@@ -1,3 +1,8 @@
-// 
-// WildfootW 2018
-// https://github.com/Wildfoot
+/*
+ * Version 
+ * Author: WildfootW
+ * GitHub: github.com/Wildfoot
+ * Copyright (C) 2018 WildfootW All rights reserved.
+ *
+ */
+
