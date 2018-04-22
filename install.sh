@@ -154,3 +154,7 @@ vim +qall
 #switch to zsh
 echo "change default shell to zsh"
 chsh -s /bin/zsh $current_user
+
+# make workplace dir
+echo "create workplace directory"
+su $current_user ./make_my_workplace_dir.sh
