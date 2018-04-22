@@ -1,5 +1,4 @@
-# open program at local 
-# ncat -ve ./a.out -kl 8888
+#
 
 from pwn import *
 
