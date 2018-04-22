@@ -1,7 +1,7 @@
 # alias
 alias gg++="g++ -std=c++11 -O2 -g"
-alias search_pid="ps -ef | grep"
-alias open_socket="ncat -kl 8888 -ve"
+alias pwn-search_pid="ps -ef | grep"
+alias pwn-open_socket="ncat -kl 8888 -ve"
 alias v=vim
 alias checkport="sudo lsof -n -i | grep LISTEN"
 
