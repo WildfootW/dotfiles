@@ -2,13 +2,13 @@
 alias gg++="g++ -std=c++11 -O2 -g"
 alias pwn-search_pid="ps -ef | grep"
 alias pwn-open_socket="ncat -kl 8888 -ve"
+alias pwn-gdb="sudo gdb -p"
 alias v=vim
 alias checkport="sudo lsof -n -i | grep LISTEN"
 
 # add PATH
 export PATH=$PATH:~/workplace/Capture-the-flag/WF_Capture-The-Flag_Tools/bin
 export PATH=$PATH:~/Programfile/bin
-export PATH=$PATH:~/bin
 
 # apt-get
 if ( command -v apt-get > /dev/null 2>&1 ); then
