@@ -2,20 +2,26 @@
 
 from pwn import *
 
-context.update(arch="i386", os="linux")
-context.log_level = "debug"
+context.arch = "i386"
+context.os = "linux"
+context.endian = "little"
+# ["CRITICAL", "DEBUG", "ERROR", "INFO", "NOTSET", "WARN", "WARNING"]
+context.log_level = "DEBUG"
 
-host = "127.0.0.1"
-port = 8888
-#host = ""
-#port = 
+is_local = True
+
+host = ""
+port = 0
+if is_local:
+    host = "127.0.0.1"
+    port = 8888
 r = remote(host, port)
 
 input("Attach in gdb and press Enter")
 
 #payload = flat([])
-#print(payload)
+#log.info("payload: " + payload)
 
 #r.recvuntil(":")
 #r.sendline(payload)
-r.interactive()
+r.interactive("Pwned # ")
