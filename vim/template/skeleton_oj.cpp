@@ -22,6 +22,8 @@ inline string _fixstr(char para, int alignment_num = DEFAULT_FIXSTR)
 inline string _fixstr(int para, int alignment_num = DEFAULT_FIXSTR)
 {
     string ret = to_string(para);
+    if(para == INF)
+        ret = "INF";
     return _fixstr(ret, alignment_num);
 }
 
