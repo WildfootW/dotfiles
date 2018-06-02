@@ -20,7 +20,7 @@ r = remote(host, port)
 input("Attach in gdb and press Enter")
 
 #payload = flat([])
-#log.info("payload: " + payload)
+#log.info("payload: " + str(payload))
 
 #r.recvuntil(":")
 #r.sendline(payload)
