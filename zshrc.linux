@@ -6,6 +6,7 @@ alias pwn-gdb_attach="sudo gdb -p"
 alias v=vim
 alias checkport="sudo lsof -n -i | grep LISTEN"
 alias docker-pid="sudo docker ps -q | sudo xargs docker inspect --format 'Pid:{{.State.Pid}} ID:{{.ID}} | {{.Config.Hostname}}'"
+alias docker-attach="sudo nsenter --mount --uts --ipc --net --pid --target "
 
 # add PATH
 export PATH=$PATH:~/workplace/Capture-the-flag/WF_Capture-The-Flag_Tools/bin
