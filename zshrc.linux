@@ -3,13 +3,16 @@ alias gg++="g++ -std=c++11 -O2 -g"
 alias pwn-search_pid="ps -ef | grep"
 alias pwn-open_socket="ncat -kl 8888 -ve"
 alias pwn-gdb_attach="sudo gdb -p"
+alias pwn-docker-run="docker run --rm --cap-add=SYS_PTRACE --security-opt seccomp=unconfined --volume "/home/wildfootw":"/home/wildfootw" -it -P"
 alias v=vim
 alias checkport="sudo lsof -n -i | grep LISTEN"
 alias docker-pid="sudo docker ps -q | sudo xargs docker inspect --format 'Pid:{{.State.Pid}} ID:{{.ID}} | {{.Config.Hostname}}'"
-alias docker-attach="sudo nsenter --mount --uts --ipc --net --pid --target "
+alias docker-attach="sudo env SHELL="/bin/bash" nsenter --mount --uts --ipc --net --pid --target"
+alias objdumpi="objdump -M intel"
+alias wget_file_system="wget -r -np -R 'index.html*'"
 
 # add PATH
-export PATH=$PATH:~/workplace/Capture-the-flag/WF_Capture-The-Flag_Tools/bin
+export PATH=$PATH:~/workspace/Capture-the-flag/WF_Capture-The-Flag_Tools/bin
 export PATH=$PATH:~/Programfile/bin
 
 # apt-get
