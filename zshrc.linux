@@ -3,6 +3,7 @@ alias gg++="g++ -std=c++11 -O2 -g"
 alias pwn-search_pid="ps -ef | grep"
 alias pwn-open_socket="ncat -kl 8888 -ve"
 alias pwn-gdb_attach="sudo gdb -p"
+alias pwn-cp_my_pwn_tools="cp ~/dotfiles/vim/template/my_pwn_tools.py ."
 alias v=vim
 alias checkport="sudo lsof -n -i | grep LISTEN"
 alias docker-pid="sudo docker ps -q | sudo xargs docker inspect --format 'Pid:{{.State.Pid}} ID:{{.ID}} | {{.Config.Hostname}}'"

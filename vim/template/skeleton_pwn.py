@@ -1,6 +1,17 @@
 # not yet completed
 
 from pwn import *
+from my_pwn_tools import *
+
+# my_pwn_tools
+fmt = format_s()
+
+def print_payload(payload, message = None):
+    if message != None:
+        log.info(message)
+    payload = str(payload)
+    log.info("payload: " + payload)
+    log.info("payload length: " + str(len(payload)))
 
 context.arch = "i386"
 context.os = "linux"
