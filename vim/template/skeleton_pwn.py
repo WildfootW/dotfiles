@@ -13,6 +13,8 @@ def print_payload(payload, message = None):
     log.info("payload: " + payload)
     log.info("payload length: " + str(len(payload)))
 
+fmt = format_s()
+
 context.arch = "i386"
 context.os = "linux"
 context.endian = "little"
@@ -31,8 +33,8 @@ r = remote(host, port)
 input("Attach in gdb and press Enter")
 
 #payload = flat([])
-#log.info("payload: " + str(payload))
-
 #r.recvuntil(":")
+
+#print_payload(payload)
 #r.sendline(payload)
 r.interactive("Pwned # ")
