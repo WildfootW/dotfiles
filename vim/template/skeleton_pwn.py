@@ -20,6 +20,9 @@ context.os = "linux"
 context.endian = "little"
 # ["CRITICAL", "DEBUG", "ERROR", "INFO", "NOTSET", "WARN", "WARNING"]
 context.log_level = "DEBUG"
+#context.terminal = ['gnome-terminal', '-x', 'sh', '-c']
+#r = process("./a.out", env={"LD_PRELOAD" : "./libc.so.6"})
+#gdb.attach(r, execute='b main\n')
 
 is_local = True
 
