@@ -35,9 +35,9 @@ r = remote(host, port)
 
 input("Attach in gdb and press Enter")
 
-#payload = flat([])
 #r.recvuntil(":")
-
+#payload = flat([])
 #print_payload(payload)
 #r.sendline(payload)
+
 r.interactive("Pwned # ")
