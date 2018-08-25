@@ -13,8 +13,6 @@ def print_payload(payload, message = None):
     log.info("payload: " + payload)
     log.info("payload length: " + str(len(payload)))
 
-fmt = format_s()
-
 context.arch = "i386"
 context.os = "linux"
 context.endian = "little"
