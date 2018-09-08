@@ -42,7 +42,6 @@ void setup()
 
 void loop()
 {
-////////////////////// check if WIFI still connected //////////////////////
-    Check_WiFi_Status();
+    Check_WiFi_Status();    //check if WIFI still connected 
 }
 
