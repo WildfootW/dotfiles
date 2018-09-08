@@ -5,6 +5,7 @@
 #   GitHub: github.com/Wildfoot
 #   Copyright (C) 2018 WildfootW All rights reserved.
 #
+from pwn import *
 
 class Error(Exception):
     """
@@ -116,9 +117,31 @@ class auto_format_s(format_s):
         self.ljust(self.P_index_frontend_payload_len * self.operating_address_size, byte)
         return self
 
+def print_patch(asm_code, byte_amount = 0):
+    print(" patch for asm : ".center(60, "="))
+    print(asm_code)
+    asm_hexcode = asm(asm_code).hex()
+    for i in range(byte_amount):
+        asm_hexcode += "90"
+    asm_hexcode_fix = ""
+    for i in range(len(asm_hexcode) // 4):
+        asm_hexcode_fix += asm_hexcode[i * 4:i * 4 + 4]
+        asm_hexcode_fix += " "
+    if len(asm_hexcode) % 4:
+        asm_hexcode_fix += asm_hexcode[-2:]
+    print(asm_hexcode_fix)
+    print("\n    or\n")
+    asm_hexcode_fix = asm_hexcode[:2] + " "
+    asm_hexcode = asm_hexcode[2:]
+    for i in range(len(asm_hexcode) // 4):
+        asm_hexcode_fix += asm_hexcode[i * 4:i * 4 + 4]
+        asm_hexcode_fix += " "
+    if len(asm_hexcode) % 4:
+        asm_hexcode_fix += asm_hexcode[-2:]
+    print(asm_hexcode_fix)
+    print("".center(60, "="))
 
 if __name__ == "__main__":
-    from pwn import *
 
     def print_payload(payload):
         payload = str(payload)
@@ -143,3 +166,9 @@ if __name__ == "__main__":
     fmt.auto_hhn(write_value, 8).auto_s().auto_hn(write_value, 8).auto_ljust()
     payload = fmt.get()
     print_payload(payload)
+
+    asm_code = """
+        mov eax, 0x4007eb
+        jmp eax
+    """
+    print_patch(asm_code, 5)

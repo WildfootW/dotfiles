@@ -13,13 +13,14 @@ def print_payload(payload, message = None):
     log.info("payload: " + payload)
     log.info("payload length: " + str(len(payload)))
 
-fmt = format_s()
-
 context.arch = "i386"
 context.os = "linux"
 context.endian = "little"
 # ["CRITICAL", "DEBUG", "ERROR", "INFO", "NOTSET", "WARN", "WARNING"]
 context.log_level = "DEBUG"
+#context.terminal = ['gnome-terminal', '-x', 'sh', '-c']
+#r = process("./a.out", env={"LD_PRELOAD" : "./libc.so.6"})
+#gdb.attach(r, execute='b main\n')
 
 is_local = True
 
@@ -32,9 +33,9 @@ r = remote(host, port)
 
 input("Attach in gdb and press Enter")
 
-#payload = flat([])
 #r.recvuntil(":")
-
+#payload = flat([])
 #print_payload(payload)
 #r.sendline(payload)
+
 r.interactive("Pwned # ")
