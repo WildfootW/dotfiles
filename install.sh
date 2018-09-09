@@ -24,7 +24,7 @@ function initial() {
         home_directory="/home/$SUDO_USER"
     else
         echo "Your distribution havn't been support yet. exit.."
-        exit 1 
+        exit 1
     fi
 }
 
@@ -155,6 +155,6 @@ vim +qall
 echo "change default shell to zsh"
 chsh -s /bin/zsh $current_user
 
-# make workplace dir
-echo "create workplace directory"
-su $current_user ./make_my_workplace_dir.sh
+# make workspace dir
+echo "create workspace directory"
+su $current_user ./make_my_workspace_dir.sh
