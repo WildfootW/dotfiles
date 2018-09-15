@@ -5,10 +5,10 @@
 #   Copyright (C) 2018 WildfootW All rights reserved.
 #
 
-mkdir -p ~/workspace
-mkdir -p ~/workspace/clone-project
-mkdir -p ~/workspace/work-on-project
-mkdir -p ~/workspace/Capture-the-flag
-mkdir -p ~/workspace/conference\ \&\ workshop
+mkdir -p ~/workplace
+mkdir -p ~/workplace/clone-project
+mkdir -p ~/workplace/work-on-project
+mkdir -p ~/workplace/Capture-the-flag
+mkdir -p ~/workplace/conference\ \&\ workshop
 mkdir -p ~/Programfile
 mkdir -p ~/Programfile/bin
