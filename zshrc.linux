@@ -12,10 +12,12 @@ alias docker-attach="sudo env SHELL='/bin/bash' nsenter --mount --uts --ipc --ne
 alias objdumpi="objdump -M intel"
 alias wget_file_system="wget -r -np -R 'index.html*'"
 alias find_string_here="grep -rnw './' -e"
+alias pip3-install="python3 -m pip install --user"
 
 # add PATH
 export PATH=$PATH:~/workplace/Capture-the-flag/WF_Capture-The-Flag_Tools/bin
 export PATH=$PATH:~/Programfile/bin
+export PATH=$PATH:~/.local/bin
 
 # apt-get
 if ( command -v apt-get > /dev/null 2>&1 ); then
