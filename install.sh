@@ -97,6 +97,9 @@ function setup_GitHub_SSH_Key() {
     #-q Silence ssh-keygen -N new_passphrase
     chgrp $current_user $home_directory/.ssh/GitHub
     chown $current_user $home_directory/.ssh/GitHub
+    chgrp $current_user $home_directory/.ssh/GitHub.pub
+    chown $current_user $home_directory/.ssh/GitHub.pub
+
     eval $(ssh-agent)
     ssh-add $home_directory/.ssh/GitHub
 
