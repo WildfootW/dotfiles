@@ -36,15 +36,17 @@ function install_file() {
         src="$SCRIPTPATH/$1"
         echo "Link $src to $dst"
         ln -s $src $dst
+        chown -h $current_user:$current_user $dst
     fi
 }
 
 function install_dotfiles_folder() {
     if [ -e "$home_directory/dotfiles" ]; then
-        echo "dotfiles in home directory existed"
+        echo "dotfiles in $home_directory existed"
     else
-        echo "Link dotfile to home directory"
+        echo "Link $SCRIPTPATH to $home_directory"
         ln -s $SCRIPTPATH $home_directory
+        chown -h $current_user:$current_user $home_directory/dotfiles
     fi
 }
 
@@ -84,8 +86,7 @@ function setup_GitHub_SSH_Key() {
         fi
     else
         mkdir "$home_directory/.ssh"
-        chgrp $current_user $home_directory/.ssh
-        chown $current_user $home_directory/.ssh
+        chown $current_user:$current_user $home_directory/.ssh
     fi
 #    if [ -e "$home_directory/.ssh/GitHub" ]; then
 #        echo "$home_directory/.ssh/GitHub exist"
@@ -95,10 +96,8 @@ function setup_GitHub_SSH_Key() {
 
     ssh-keygen -t rsa -C $git_email -f "$home_directory/.ssh/GitHub" -b 2048 -q -N ""
     #-q Silence ssh-keygen -N new_passphrase
-    chgrp $current_user $home_directory/.ssh/GitHub
-    chown $current_user $home_directory/.ssh/GitHub
-    chgrp $current_user $home_directory/.ssh/GitHub.pub
-    chown $current_user $home_directory/.ssh/GitHub.pub
+    chown $current_user:$current_user $home_directory/.ssh/GitHub
+    chown $current_user:$current_user $home_directory/.ssh/GitHub.pub
 
     eval $(ssh-agent)
     ssh-add $home_directory/.ssh/GitHub
