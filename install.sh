@@ -9,7 +9,7 @@ source ./check_distribution.sh
 echo "your distribution is $distribution $distribution_version"
 
 files='vim vimrc zshrc tmux.conf'
-softwares="git zsh vim tmux"
+softwares="git zsh vim tmux fonts-powerline"
 git_email="wild.foot.yee.tzwu@gmail.com"
 git_name="WildfootW"
 
