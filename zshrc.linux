@@ -13,6 +13,7 @@ alias objdumpi="objdump -M intel"
 alias wget_file_system="wget -r -np -R 'index.html*'"
 alias find_string_here="grep -rnw './' -e"
 alias pip3-install="python3 -m pip install --user"
+alias battery-status='upower -i /org/freedesktop/UPower/devices/battery_BAT0| grep -E "state|to\ full|percentage"'
 
 # add PATH
 export PATH=$PATH:~/workplace/Capture-the-flag/WF_Capture-The-Flag_Tools/bin
