@@ -139,6 +139,9 @@ echo "Cloning oh-my-zsh..."
 git submodule init
 git submodule update
 
+# clone some custom plugin
+git clone https://github.com/zsh-users/zsh-autosuggestions $SCRIPTPATH/oh-my-zsh/custom/plugins/zsh-autosuggestions
+
 #set git and GitHub SSH Key
 set_git_environment_settings
 setup_GitHub_SSH_Key
