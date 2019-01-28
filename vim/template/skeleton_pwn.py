@@ -1,10 +1,7 @@
 # not yet completed
 
 from pwn import *
-from my_pwn_tools import *
-
-# my_pwn_tools
-fmt = format_s()
+#from my_pwn_tools import *
 
 def print_payload(payload, message = None):
     if message != None:
@@ -17,21 +14,22 @@ context.os = "linux"
 context.endian = "little"
 # ["CRITICAL", "DEBUG", "ERROR", "INFO", "NOTSET", "WARN", "WARNING"]
 context.log_level = "DEBUG"
-#context.terminal = ['gnome-terminal', '-x', 'sh', '-c']
-#gdb.attach(r, execute='b main\n')
+context.terminal = ["gnome-terminal", "-x", "sh", "-c"] # ["tmux", "neww"]
 
-is_local = False
-#is_local = True
-host = ""
-port = 0
-if is_local:
-    host = "127.0.0.1"
-    port = 8888
-#r = remote(host, port)
+is_local = True
+#is_local = False
+r = process("./a.out")  #r = process("./a.out", env={"LD_PRELOAD" : "./libc.so.6"})
+#host = "127.0.0.1"
+#port = 8888
 #r.close()
-#r = process("./a.out")  #r = process("./a.out", env={"LD_PRELOAD" : "./libc.so.6"})
+#r = remote(host, port)
+if not is_local:
+    host = ""
+    port = 0
+    r = remote(host, port)
 
 input("Attach in gdb and press Enter")
+#gdb.attach(r, execute='b main\n')
 
 #u64(r.recvuntil("\n")[:-1].ljust(8, b"\x00"))
 #r.recvuntil(":")

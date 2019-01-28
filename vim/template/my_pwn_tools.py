@@ -141,16 +141,16 @@ def print_patch(asm_code, byte_amount = 0):
     print(asm_hexcode_fix)
     print("".center(60, "="))
 
+fmt = format_s()
+
 if __name__ == "__main__":
 
     def print_payload(payload):
-        payload = str(payload)
-        log.warning("payload: " + payload)
+        log.warning("payload: " + str(payload))
         log.warning("payload length: " + str(len(payload)))
         print("\n")
 
     log.info("Test format_s()")
-    fmt = format_s()
 # usage
     target_address = 0x60106c
     write_value = 0xfaceb00c
