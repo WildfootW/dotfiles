@@ -14,11 +14,12 @@ context.os = "linux"
 context.endian = "little"
 # ["CRITICAL", "DEBUG", "ERROR", "INFO", "NOTSET", "WARN", "WARNING"]
 context.log_level = "DEBUG"
-context.terminal = ["gnome-terminal", "-x", "sh", "-c"] # ["tmux", "neww"]
+context.terminal = ["tmux", "split-window"] # ["gnome-terminal", "-x", "sh", "-c"] # ["tmux", "neww"]
 
 is_local = True
 #is_local = False
 r = process("./a.out")  #r = process("./a.out", env={"LD_PRELOAD" : "./libc.so.6"})
+glibc = ELF("/lib/i386-linux-gnu/libc-2.27.so")
 #host = "127.0.0.1"
 #port = 8888
 #r.close()
@@ -27,9 +28,10 @@ if not is_local:
     host = ""
     port = 0
     r = remote(host, port)
+    glibc = ELF("./libc-2.23.so")
 
-input("Attach in gdb and press Enter")
-#gdb.attach(r, execute='b main\n')
+#input("Attach in gdb and press Enter")
+gdb.attach(r, execute='b main\n')
 
 #u64(r.recvuntil("\n")[:-1].ljust(8, b"\x00"))
 #r.recvuntil(":")
