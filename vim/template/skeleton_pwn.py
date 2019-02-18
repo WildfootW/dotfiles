@@ -19,23 +19,24 @@ context.terminal = ["tmux", "split-window"] # ["gnome-terminal", "-x", "sh", "-c
 is_local = True
 #is_local = False
 r = process("./a.out")  #r = process("./a.out", env={"LD_PRELOAD" : "./libc.so.6"})
-glibc = ELF("/lib/i386-linux-gnu/libc-2.27.so")
-#host = "127.0.0.1"
-#port = 8888
+libc = ELF("/lib/x86_64-linux-gnu/libc-2.27.so") # ELF("/lib/i386-linux-gnu/libc-2.27.so")
+host = "127.0.0.1"
+port = 8888
 #r.close()
 #r = remote(host, port)
 if not is_local:
     host = ""
     port = 0
     r = remote(host, port)
-    glibc = ELF("./libc-2.23.so")
+    libc = ELF("./libc-2.23.so")
 
-#input("Attach in gdb and press Enter")
-gdb.attach(r, execute='b main\n')
+if is_local:
+    #input("Attach in gdb and press Enter")
+    gdb.attach(r, execute='b main\n')
 
 #u64(r.recvuntil("\n")[:-1].ljust(8, b"\x00"))
 #r.recvuntil(":")
-#payload = flat([])
+#payload  = flat([])
 #print_payload(payload)
 #r.sendline(payload)
 
