@@ -1,14 +1,36 @@
+## Copy-paste integration
+#set-option -g default-command "reattach-to-user-namespace -l zsh"
+
+# use zsh as default
+set-option -g default-shell /bin/zsh
+
 # Use vim keybindings in copy mode
 setw -g mode-keys vi
+
+# Setup 'v' to begin selection as in Vim
+#bind-key -T copy-mode-vi v send -X begin-selection
+
+# Update default binding of `Enter` to also use copy-pipe
+#unbind -T copy-mode-vi Enter
+#bind-key -T copy-mode-vi Enter send -X copy-pipe "reattach-to-user-namespace pbcopy"
+
+# Bind ']' to use pbpaste
+bind ] run "reattach-to-user-namespace pbpaste | tmux load-buffer - && tmux paste-buffer"
+
+set-option -gw xterm-keys on
+
+##Set perfix from to C-b C-a
+#set -g prefix C-a
+#unbind-key C-b
+#bind-key C-a send-prefix
 
 #sync panes
 bind-key Tab setw synchronize-panes
 
 # mouse event
-setw -g mouse on
+#setw -g mouse on
 
 # 256 colors please
-set -g default-terminal "screen-256color"
 set -g terminal-overrides "xterm:colors=256"
 
 # default window title colors
@@ -31,6 +53,7 @@ set-option -g message-fg colour166 #orange
 
 # pane number display
 set-option -g base-index 1
+set-option -g pane-base-index 1
 set-option -g display-panes-active-colour colour33 #blue
 set-option -g display-panes-colour colour166 #orange
 # clock
@@ -39,9 +62,6 @@ set-window-option -g clock-mode-colour green #green
 # Activity
 setw -g monitor-activity on
 set -g visual-activity off
-
-# renumber windows sequentially after closing any of them
-set -g renumber-windows on
 
 # fixes the delay problem
 set -sg escape-time 0
@@ -62,10 +82,13 @@ set -g status-right-length 150
 set -g status-interval 5
 
 # 1.9 path - current directory
-bind c neww -c "#{pane_current_path}"
+bind c new-window -c "#{pane_current_path}"
+bind '"' split-window -c "#{pane_current_path}"
+bind % split-window -h -c "#{pane_current_path}"
 
 # Inconsolata-dz-Powerline Theme:
 set -g status-left '#[fg=colour235,bg=colour252,bold] ☢ #S #[fg=colour252,bg=colour238,nobold]#[fg=colour245,bg=colour238,bold] #(whoami) #[fg=colour238,bg=colour234,nobold] #P'
 set -g status-right "#[fg=colour238,bg=colour234,nobold]#[fg=colour245,bg=colour238] Uptime: #(~/dotfiles/status_script/uptime.sh) #[fg=colour252]#[fg=colour235,bg=colour252,bold] Time: %H:%M "
 set -g window-status-format "#[fg=white,bg=colour234] #I #W "
 set -g window-status-current-format "#[fg=colour234,bg=colour39] ❯#[fg=colour25,bg=colour39,noreverse,bold] #I ❯ #W #[fg=colour39,bg=colour234,nobold]"
+run-shell ~/dotfiles/tmux/tmux-resurrect/resurrect.tmux

@@ -8,7 +8,7 @@ SCRIPTPATH=$(dirname "$SCRIPT")
 source ./check_distribution.sh
 echo "your distribution is $distribution $distribution_version"
 
-files='vim vimrc zshrc tmux.conf'
+files='vim vimrc zshrc tmux.conf tmux.conf.local'
 softwares="git zsh vim tmux fonts-powerline"
 git_email="wild.foot.yee.tzwu@gmail.com"
 git_name="WildfootW"
