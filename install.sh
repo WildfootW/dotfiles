@@ -163,3 +163,7 @@ chsh -s /bin/zsh $current_user
 # make workplace dir
 echo "create workplace directory"
 su $current_user ./make_my_workplace_dir.sh
+
+# change owner in dotfiles back to user
+echo "change owner"
+chown -R $current_user:$current_user $SCRIPTPATH

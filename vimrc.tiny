@@ -71,8 +71,8 @@ Plugin 'Lokaltog/vim-easymotion'
 " Tab manage
 Plugin 'mkitt/tabline.vim'
 "Color scheme
-Plugin 'fisadev/fisa-vim-colorscheme'
 Plugin 'flazz/vim-colorschemes'
+Plugin 'fisadev/fisa-vim-colorscheme'
 
 if iCanHazVundle == 0
     echo "Installing Plugins..."
