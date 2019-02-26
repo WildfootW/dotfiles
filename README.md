@@ -41,3 +41,6 @@ for the correct theme th display in terminal
 ### color scheme
 12. [fisa](https://github.com/fisadev/fisa-vim-colorscheme)
 13. [vim-colorschemes](https://github.com/flazz/vim-colorschemes)
+
+## tmux
+[oh-my-tmux](https://github.com/gpakosz/.tmux)
