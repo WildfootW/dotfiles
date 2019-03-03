@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 #   Version 
 #   Author: WildfootW
 #   GitHub: github.com/WildfootW
