@@ -1,4 +1,9 @@
-#!/bin/bash
+#!/usr/bin/env bash
+#   Version 
+#   Author: WildfootW
+#   GitHub: github.com/WildfootW
+#   Copyright (C) 2019 WildfootW All rights reserved.
+#
 
 # Absolute path to this script, e.g. /home/user/Pwngdb/install.sh
 SCRIPT=$(readlink -f "$0")
@@ -8,12 +13,13 @@ SCRIPTPATH=$(dirname "$SCRIPT")
 source ./check_distribution.sh
 echo "your distribution is $distribution $distribution_version"
 
-files='vim vimrc zshrc tmux.conf tmux.conf.local'
-softwares="git zsh vim tmux fonts-powerline"
+files=(vim vimrc zshrc tmux.conf tmux.conf.local)
+softwares=(git zsh vim tmux) # fonts-powerline
 git_email="wild.foot.yee.tzwu@gmail.com"
 git_name="WildfootW"
 
-function initial() {
+function initial()
+{
     if [ "$distribution" == "Ubuntu" ]; then
         permission=$USER
         current_user=$SUDO_USER
@@ -28,7 +34,8 @@ function initial() {
     fi
 }
 
-function install_file() {
+function install_file()
+{
     dst="$home_directory/.$1"
     if [ -f $dst ] || [ -d $dst ]; then
         echo "File conflict: $dst"
@@ -40,7 +47,8 @@ function install_file() {
     fi
 }
 
-function install_dotfiles_folder() {
+function install_dotfiles_folder()
+{
     if [ -e "$home_directory/dotfiles" ]; then
         echo "dotfiles in $home_directory existed"
     else
@@ -50,7 +58,8 @@ function install_dotfiles_folder() {
     fi
 }
 
-function check_software() {
+function check_software()
+{
     echo "checking $1..."
     if [ -x "`which $1`" ]; then
         echo "Done!"
@@ -64,7 +73,8 @@ function check_software() {
     fi
 }
 
-function set_git_environment_settings() {
+function set_git_environment_settings()
+{
     echo "set git environment settings..."
     git config --global user.email $git_email
     git config --global user.name $git_name
@@ -75,9 +85,9 @@ function set_git_environment_settings() {
     git config --global push.default simple
 }
 
-function setup_GitHub_SSH_Key() {
+function setup_GitHub_SSH_Key()
+{
     echo "Setup GitHub SSH Key..."
-
     if [ -e "$home_directory/.ssh" ]; then
         if [ ! -d "$home_directory/.ssh" ];then
             echo ".ssh exist in HOME directory but not a directory!"
@@ -130,7 +140,7 @@ if [ $permission != "root" ]; then
 fi
 
 #check and install softwares
-for software in `echo $softwares | tr ' ' '\n'`; do
+for software in ${softwares[@]}; do
     check_software $software
 done
 
@@ -147,7 +157,7 @@ set_git_environment_settings
 setup_GitHub_SSH_Key
 
 #install files and folders
-for file in `echo $files | tr ' ' '\n'`; do
+for file in ${files[@]}; do
     install_file $file
 done
 install_dotfiles_folder

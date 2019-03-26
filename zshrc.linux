@@ -1,5 +1,5 @@
 # alias
-alias gg++="g++ -std=c++11 -O2 -g"
+alias gg++="g++ -std=c++14 -O2 -g"
 alias pwn-search_pid="ps -ef | grep"
 alias pwn-open_socket="ncat -kl 8888 -ve"
 alias pwn-gdb_attach="sudo gdb -p"
