@@ -15,7 +15,7 @@ echo "your distribution is $distribution $distribution_version"
 
 files=(vim vimrc zshrc tmux.conf tmux.conf.local)
 softwares=(git zsh vim tmux) # fonts-powerline
-git_email="wild.foot.yee.tzwu@gmail.com"
+git_email="wildfootw@gmail.com"
 git_name="WildfootW"
 
 function initial()
@@ -62,7 +62,7 @@ function check_software()
 {
     echo "checking $1..."
     if [ -x "`which $1`" ]; then
-        echo "Done!"
+        echo "Done."
     else
         echo "$1 is not installed. installing..."
         if [ "$distribution" == "Ubuntu" ]; then
@@ -162,6 +162,7 @@ for file in ${files[@]}; do
     install_file $file
 done
 install_dotfiles_folder
+ln -s $SCRIPTPATH/ssh-config ~/.ssh/config
 
 #install vim plugins
 echo "Install vim plugins"
