@@ -16,6 +16,8 @@ alias pip3-install="python3 -m pip install --user"
 alias battery-status='upower -i /org/freedesktop/UPower/devices/battery_BAT0| grep -E "state|to\ full|percentage"'
 alias open_folder='nautilus $PWD'
 alias get_log='sudo tail -f /var/log/syslog'
+alias disable_origin_keyboard="xinput float `xinput list | grep "AT Translated Set 2 keyboard" | awk -v FS="id=" '{print $2}' | awk -v FS=" " '{print $1}'`"
+alias reattach_origin_keyboard="xinput reattach `xinput list | grep "AT Translated Set 2 keyboard" | awk -v FS="id=" '{print $2}' | awk -v FS=" " '{print $1}'` 3"
 
 # add PATH
 export PATH=$PATH:~/workplace/Capture-the-flag/WF_Capture-The-Flag_Tools/bin
