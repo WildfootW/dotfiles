@@ -28,6 +28,13 @@ function initial()
         permission=$USER
         current_user=$SUDO_USER
         home_directory="/home/$SUDO_USER"
+    elif [ "$distribution" == "Kali GNU/Linux" ]; then
+        permission=$USER
+        current_user=$SUDO_USER
+        if [ "$SUDO_USER" == "" ]; then
+            current_user=$permission
+        fi
+        home_directory=$HOME
     else
         echo "Your distribution havn't been support yet. exit.."
         exit 1
