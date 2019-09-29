@@ -6,10 +6,10 @@
 #
 
 mkdir -p ~/workplace
-mkdir -p ~/workplace/clone-project
 mkdir -p ~/workplace/work-on-project
 mkdir -p ~/workplace/cybersecurity
-mkdir -p ~/workplace/Temporary
-mkdir -p ~/workplace/conference\ \&\ workshop
-mkdir -p ~/Programfile
-mkdir -p ~/Programfile/bin
+mkdir -p ~/workplace/temporary
+mkdir -p ~/workplace/data
+mkdir -p ~/programfile
+mkdir -p ~/programfile/bin
+mkdir -p ~/programfile/service
