@@ -5,11 +5,11 @@
 #   Copyright (C) 2018 WildfootW All rights reserved.
 #
 
-mkdir -p ~/workplace
-mkdir -p ~/workplace/work-on-project
-mkdir -p ~/workplace/cybersecurity
-mkdir -p ~/workplace/temporary
-mkdir -p ~/workplace/data
-mkdir -p ~/programfile
-mkdir -p ~/programfile/bin
-mkdir -p ~/programfile/service
+mkdir -p ~/Workplace
+mkdir -p ~/Workplace/work-on-project
+mkdir -p ~/Workplace/cybersecurity
+mkdir -p ~/Workplace/temporary
+mkdir -p ~/Workplace/data
+mkdir -p ~/Programfile
+mkdir -p ~/Programfile/bin
+mkdir -p ~/Programfile/service
