@@ -6,6 +6,7 @@
 #
 
 mkdir -p ~/Workplace
+mkdir -p ~/Workplace/virtual_mechine
 mkdir -p ~/Workplace/work-on-project
 mkdir -p ~/Workplace/cybersecurity
 mkdir -p ~/Workplace/temporary
