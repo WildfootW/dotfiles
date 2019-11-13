@@ -5,9 +5,9 @@
 Host wildfoo.tw
     HostName wildfoo.tw
     Port 29777
-    User WildfootW
+    User wildfootw
     IdentitiesOnly yes
-    IdentityFile ~/.ssh/WildfootW@wildfoo.tw
+    IdentityFile ~/.ssh/wildfootw@wildfoo.tw
 Host common.wildfoo.tw
     HostName wildfoo.tw
     Port 29777
