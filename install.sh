@@ -34,7 +34,7 @@ function initial()
         if [ "$SUDO_USER" == "" ]; then
             current_user=$permission
         fi
-        home_directory=$HOME
+        home_directory="/home/$current_user"
     else
         echo "Your distribution havn't been support yet. exit.."
         exit 1
@@ -169,7 +169,7 @@ for file in ${files[@]}; do
     install_file $file
 done
 install_dotfiles_folder
-ln -s $SCRIPTPATH/ssh-config ~/.ssh/config
+ln -s $SCRIPTPATH/ssh-config $home_directory/.ssh/config
 
 #install vim plugins
 echo "Install vim plugins"
