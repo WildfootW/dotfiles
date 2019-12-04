@@ -27,7 +27,7 @@ if ( command -v apt-get > /dev/null 2>&1 ); then
     alias apt-uu='sudo apt-get update && sudo apt-get upgrade'
 fi
 
-xinput 2> /dev/null
+xinput > /dev/null 2>&1
 if [ "$?" = 0 ]; then
     alias disable_origin_keyboard="xinput float `xinput list | grep "AT Translated Set 2 keyboard" | awk -v FS="id=" '{print $2}' | awk -v FS=" " '{print $1}'`"
     alias reattach_origin_keyboard="xinput reattach `xinput list | grep "AT Translated Set 2 keyboard" | awk -v FS="id=" '{print $2}' | awk -v FS=" " '{print $1}'` 3"
