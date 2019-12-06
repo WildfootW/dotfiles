@@ -34,7 +34,7 @@ function initial()
         if [ "$SUDO_USER" == "" ]; then
             current_user=$permission
         fi
-        home_directory="/home/$current_user"
+        home_directory="/home/wildfootw"
     else
         echo "Your distribution havn't been support yet. exit.."
         exit 1
