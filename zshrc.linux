@@ -18,7 +18,7 @@ alias open_folder='nautilus $PWD'
 alias get_log='sudo tail -f /var/log/syslog'
 
 # add PATH
-export PATH=$PATH:~/workplace/cybersecurity/Security-Tools/bin
+export PATH=$PATH:~/Workplace/cybersecurity/Tools/bin
 export PATH=$PATH:~/Programfile/bin
 export PATH=$PATH:~/.local/bin
 
