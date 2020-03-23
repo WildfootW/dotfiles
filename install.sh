@@ -15,7 +15,7 @@ echo "your distribution is $distribution $distribution_version"
 
 files=(vim vimrc zshrc tmux.conf tmux.conf.local)
 softwares=(git zsh vim tmux) # fonts-powerline
-git_email="wildfootw@gmail.com"
+git_email="wildfootw@wildfoo.tw"
 git_name="WildfootW"
 
 function initial()

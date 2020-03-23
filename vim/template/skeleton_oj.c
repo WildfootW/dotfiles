@@ -1,6 +1,6 @@
 //C11
-//  WildfootW 2018
-//  https://github.com/Wildfoot
+//  WildfootW 2020
+//  https://github.com/WildfootW
 //  Wrong Answer
 
 #include <stdio.h>
