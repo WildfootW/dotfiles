@@ -2,8 +2,8 @@
 #!/usr/bin/env python
 #   Version 1.0
 #   Author: WildfootW
-#   GitHub: github.com/Wildfoot
-#   Copyright (C) 2018 WildfootW All rights reserved.
+#   GitHub: github.com/WildfootW
+#   Copyright (C) 2020 WildfootW All rights reserved.
 #
 from pwn import *
 
