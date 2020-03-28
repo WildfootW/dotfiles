@@ -15,7 +15,7 @@ class Error(Exception):
 
 class LengthError(Error):
     """
-    Exception raised for your "P_index_frontend_payload_len" is too short for the payload.
+    Exception raised for your "P_index_forepart_payload_len" is too short for the payload.
     """
     def __init__(self, message):
         self.message = message
@@ -78,23 +78,23 @@ class auto_format_s(format_s):
 #    00000060  1a 10 60 00  00 00 00 00  1b 10 60 00  00 00 00 00  │··`·│····│··`·│····│
 #    00000070  1c 10 60 00  00 00 00 00  1d 10 60 00  00 00 00 00  │··`·│····│··`·│····│
 #    00000080  1e 10 60 00  00 00 00 00  1f 10 60 00  00 00 00 00  │··`·│····│··`·│····│
-# in this case P_index_frontend_payload_len = 10
+# in this case P_index_forepart_payload_len = 10
 
     P_index_begin = 0      # the paramenter index which point to this payload
-    P_index_frontend_payload_len = 0       # guess how many bytes you need
+    P_index_forepart_payload_len = 0       # guess how many bytes you need
     P_index_now = 0                       # how many address have been expected will be saved at the end of payload
     operating_address_size = 0      # usually 8 bytes(x64) or 4 bytes(x86)
 
-    def start(self, operating_address_size = 8, P_index_frontend_payload_len = 1, begin_paramenter = 6):
+    def start(self, operating_address_size = 8, P_index_forepart_payload_len = 1, begin_paramenter = 6):
         format_s.start(self)
-        self.P_index_frontend_payload_len = P_index_frontend_payload_len
+        self.P_index_forepart_payload_len = P_index_forepart_payload_len
         self.P_index_begin = begin_paramenter
         self.operating_address_size = operating_address_size
         self.P_index_now = 0
         return self
 
     def auto_get_P(self, increase_P_index_now = True):
-        ret = self.P_index_now + self.P_index_frontend_payload_len + self.P_index_begin
+        ret = self.P_index_now + self.P_index_forepart_payload_len + self.P_index_begin
         if increase_P_index_now:
             self.P_index_now += 1
         return ret
@@ -114,7 +114,7 @@ class auto_format_s(format_s):
         return self
 
     def auto_ljust(self, byte = b'W'):
-        self.ljust(self.P_index_frontend_payload_len * self.operating_address_size, byte)
+        self.ljust(self.P_index_forepart_payload_len * self.operating_address_size, byte)
         return self
 
 def print_patch(asm_code, byte_amount = 0):
@@ -160,9 +160,9 @@ if __name__ == "__main__":
     print_payload(payload)
 
     log.info("Test auto_format_s()")
-#start(self, operating_address_size = 8, P_index_frontend_payload_len = 1, begin_paramenter = 6):
+#start(self, operating_address_size = 8, P_index_forepart_payload_len = 1, begin_paramenter = 6):
     fmt = auto_format_s()
-    fmt.start(operating_address_size = 8,P_index_frontend_payload_len = 19)
+    fmt.start(operating_address_size = 8,P_index_forepart_payload_len = 19)
     fmt.auto_hhn(write_value, 8).auto_s().auto_hn(write_value, 8).auto_ljust()
     payload = fmt.get()
     print_payload(payload)
