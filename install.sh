@@ -14,31 +14,33 @@ source ./check_distribution.sh
 echo "your distribution is $distribution $distribution_version"
 
 files=(vim vimrc zshrc tmux.conf tmux.conf.local)
-softwares=(git zsh vim tmux) # fonts-powerline
+#softwares=(git zsh vim tmux) # fonts-powerline
 git_email="wildfootw@wildfoo.tw"
 git_name="WildfootW"
 
 function initial()
 {
-    if [ "$distribution" == "Ubuntu" ]; then
-        permission=$USER
-        current_user=$SUDO_USER
-        home_directory=$HOME
-    elif [ "$distribution" == "CentOS Linux" ]; then
-        permission=$USER
-        current_user=$SUDO_USER
-        home_directory="/home/$SUDO_USER"
-    elif [ "$distribution" == "Kali GNU/Linux" ]; then
-        permission=$USER
-        current_user=$SUDO_USER
-        if [ "$SUDO_USER" == "" ]; then
-            current_user=$permission
-        fi
-        home_directory="/home/wildfootw"
-    else
-        echo "Your distribution havn't been support yet. exit.."
-        exit 1
-    fi
+#    if [ "$distribution" == "Ubuntu" ]; then
+#        permission=$USER
+#        current_user=$SUDO_USER
+#        home_directory=$HOME
+#    elif [ "$distribution" == "CentOS Linux" ]; then
+#        permission=$USER
+#        current_user=$SUDO_USER
+#        home_directory="/home/$SUDO_USER"
+#    elif [ "$distribution" == "Kali GNU/Linux" ]; then
+#        permission=$USER
+#        current_user=$SUDO_USER
+#        if [ "$SUDO_USER" == "" ]; then
+#            current_user=$permission
+#        fi
+#        home_directory="/home/wildfootw"
+#    else
+#        echo "Your distribution havn't been support yet. exit.."
+#        exit 1
+#    fi
+    current_user=$USER
+    home_directory=$HOME
 }
 
 function install_file()
@@ -71,12 +73,14 @@ function check_software()
     if [ -x "`which $1`" ]; then
         echo "Done."
     else
-        echo "$1 is not installed. installing..."
-        if [ "$distribution" == "Ubuntu" ]; then
-            apt-get install -y $1
-        elif [ "$distribution" == "CentOS Linux" ]; then
-            yum -y install $1
-        fi
+        echo "$1 is not installed."
+        exit 1
+#        echo "$1 is not installed. installing..."
+#        if [ "$distribution" == "Ubuntu" ]; then
+#            apt-get install -y $1
+#        elif [ "$distribution" == "CentOS Linux" ]; then
+#            yum -y install $1
+#        fi
     fi
 }
 
@@ -141,18 +145,18 @@ echo "fork from azdkj532, thank you Squirrel!"
 initial
 
 #check sudo
-if [ $permission != "root" ]; then
-    echo "You need to be sudo..., exit."
-    exit 1
-fi
+#if [ $permission != "root" ]; then
+#    echo "You need to be sudo..., exit."
+#    exit 1
+#fi
 
 #check and install softwares
-for software in ${softwares[@]}; do
-    check_software $software
-done
+#for software in ${softwares[@]}; do
+#    check_software $software
+#done
 
 #clone submodule
-echo "Cloning oh-my-zsh..."
+echo "Cloning submodule..."
 git submodule init
 git submodule update
 
@@ -181,8 +185,9 @@ chsh -s /bin/zsh $current_user
 
 # make workplace dir
 echo "create workplace directory"
-su $current_user ./make_my_workplace_dir.sh
+#su $current_user ./make_my_workplace_dir.sh
+./make_my_workplace_dir.sh
 
 # change owner in dotfiles back to user
-echo "change owner"
-chown -R $current_user:$current_user $SCRIPTPATH
+#echo "change owner"
+#chown -R $current_user:$current_user $SCRIPTPATH

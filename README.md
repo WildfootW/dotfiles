@@ -9,13 +9,26 @@ mkdir Programfile
 cd ./Programfile
 git clone https://github.com/WildfootW/dotfiles.git
 cd ./dotfiles
-sudo ./install.sh
+./install.sh
 git remote set-url origin git@github.com:WildfootW/dotfiles.git
 ```
 
 ### required
 [Powerline fonts](https://github.com/powerline/fonts)
 for the correct theme th display in terminal
+* git
+* zsh
+* vim
+* tmux
+
+### theme
+#### theme
+* Nordic-darker
+    `git clone -b darker --single-branch  https://github.com/EliverLara/Nordic.git Nordic-darker`
+
+#### icon
+* Zafiro-Icons-Blue
+
 
 ## Vim plugin
 ### manager
