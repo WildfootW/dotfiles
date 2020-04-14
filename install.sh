@@ -94,6 +94,7 @@ function set_git_environment_settings()
     git config --global alias.co commit
     git config --global alias.lg "log --color --graph --all --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --"
     git config --global push.default simple
+    git config --global core.excludesfile ~/dotfiles/git/.gitignore # global gitignore
 }
 
 function setup_GitHub_SSH_Key()
