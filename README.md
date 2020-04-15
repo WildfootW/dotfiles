@@ -57,3 +57,10 @@ for the correct theme th display in terminal
 
 ## tmux
 [oh-my-tmux](https://github.com/gpakosz/.tmux)
+
+# Troubleshooting
+## Manually install ssh key of GitHub
+```
+eval $(ssh-agent)
+ssh-add ~/.ssh/GitHub
+```
