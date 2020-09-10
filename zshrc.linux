@@ -24,6 +24,7 @@ alias find_string_here="grep -rnw './' -e"
 alias pip3-install="python3 -m pip install --user"
 alias open_folder='nautilus $PWD'
 alias get_log='tail -f /var/log/syslog'
+alias weather='curl wttr.in'
 
 # add PATH
 export PATH=$PATH:~/Workplace/cybersecurity/Tools/bin
