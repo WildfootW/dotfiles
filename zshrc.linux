@@ -9,8 +9,10 @@ alias pwn-gdb_attach="sudo gdb -p"
 alias pwn-cp_my_pwn_tools="cp ~/dotfiles/vim/template/my_pwn_tools.py ."
 alias pwn-docker-run="docker run --rm --cap-add=SYS_PTRACE --security-opt seccomp=unconfined --volume '/home/wildfootw':'/home/wildfootw' -it -P"
 alias objdumpi="objdump -M intel"
-alias nmap-initial-scan="nmap -A -sC -sV -oN nmap.initial.log"
-alias nmap-scan-all-port="nmap -p- -vvv -oN nmap.scan_all_port.log"
+alias nmap-scan-initial="nmap -A -sC -sV -oN nmap.initial.log"
+alias nmap-scan-all-port="nmap -p- -vvv -oN nmap.all_port.log"
+alias nmap-scan-snmp="nmap -sU -n -p 161 -sC -oN nmap.snmp.log"
+alias nmap-scan-udp="nmap -sU -oN nmap.udp.log"
 
 ## Other
 alias v="vim"
