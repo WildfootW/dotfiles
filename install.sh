@@ -5,10 +5,10 @@
 #   Copyright (C) 2019 WildfootW All rights reserved.
 #
 
-# Absolute path to this script, e.g. /home/user/Pwngdb/install.sh
+# Absolute path to this script, z.B. /home/user/Pwngdb/install.sh
 SCRIPT=$(readlink -f "$0")
 # Absolute path this script is in, thus /home/user/Pwngdb
-SCRIPTPATH=$(dirname "$SCRIPT")
+SCRIPTLOCATION=$(dirname "$SCRIPT")
 
 source ./check_distribution.sh
 echo "your distribution is $distribution $distribution_version"
@@ -50,6 +50,12 @@ function initial()
     if [ "home_directory" == "" ]; then
         home_directory=$HOME
     fi
+
+    echo "Script Location: ($SCRIPTLOCATION)"
+    read _script_path_input
+    if [ "$_script_path_input" != "" ]; then
+        SCRIPTLOCATION=$_script_path_input
+    fi
 }
 
 function install_file()
@@ -58,7 +64,7 @@ function install_file()
     if [ -f $dst ] || [ -d $dst ]; then
         echo "File conflict: $dst"
     else
-        src="$SCRIPTPATH/$1"
+        src="$SCRIPTLOCATION/$1"
         echo "Link $src to $dst"
         ln -s $src $dst
         chown -h $current_user:$current_user $dst
@@ -70,8 +76,8 @@ function install_dotfiles_folder()
     if [ -e "$home_directory/dotfiles" ]; then
         echo "dotfiles in $home_directory existed"
     else
-        echo "Link $SCRIPTPATH to $home_directory"
-        ln -s $SCRIPTPATH $home_directory
+        echo "Link $SCRIPTLOCATION to $home_directory"
+        ln -s $SCRIPTLOCATION $home_directory
         chown -h $current_user:$current_user $home_directory/dotfiles
     fi
 }
@@ -172,8 +178,8 @@ git submodule init
 git submodule update
 
 # clone some custom plugin
-git clone https://github.com/zsh-users/zsh-autosuggestions $SCRIPTPATH/oh-my-zsh/custom/plugins/zsh-autosuggestions
-git clone https://github.com/zsh-users/zsh-syntax-highlighting.git $SCRIPTPATH/oh-my-zsh/custom/plugins/zsh-syntax-highlighting
+git clone https://github.com/zsh-users/zsh-autosuggestions $SCRIPTLOCATION/oh-my-zsh/custom/plugins/zsh-autosuggestions
+git clone https://github.com/zsh-users/zsh-syntax-highlighting.git $SCRIPTLOCATION/oh-my-zsh/custom/plugins/zsh-syntax-highlighting
 
 #set git and GitHub SSH Key
 set_git_environment_settings
@@ -184,7 +190,7 @@ for file in ${files[@]}; do
     install_file $file
 done
 install_dotfiles_folder
-ln -s $SCRIPTPATH/ssh-config $home_directory/.ssh/config
+ln -s $SCRIPTLOCATION/ssh-config $home_directory/.ssh/config
 
 #install vim plugins
 echo "Install vim plugins"
@@ -201,4 +207,4 @@ echo "create workplace directory"
 
 # change owner in dotfiles back to user
 #echo "change owner"
-#chown -R $current_user:$current_user $SCRIPTPATH
+#chown -R $current_user:$current_user $SCRIPTLOCATION
