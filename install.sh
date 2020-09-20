@@ -10,6 +10,9 @@ SCRIPT=$(readlink -f "$0")
 # Absolute path this script is in, thus /home/user/Pwngdb
 SCRIPTLOCATION=$(dirname "$SCRIPT")
 
+current_user=$USER
+home_directory=$HOME
+
 source ./check_distribution.sh
 echo "your distribution is $distribution $distribution_version"
 
@@ -39,16 +42,16 @@ function initial()
 #        echo "Your distribution havn't been support yet. exit.."
 #        exit 1
 #    fi
-    echo "Current Username: ($USER)"
-    read current_user
-    if [ "$current_user" == "" ]; then
-        current_user=$USER
+    echo "Current Username: ($current_user)"
+    read _current_user_input
+    if [ "$_current_user_input" != "" ]; then
+        current_user=$_current_user_input
     fi
 
-    echo "Home Directory: ($HOME)"
-    read home_directory
-    if [ "home_directory" == "" ]; then
-        home_directory=$HOME
+    echo "Home Directory: ($home_directory)"
+    read _home_directory_input
+    if [ "_home_directory_input" != "" ]; then
+        home_directory=$_home_directory_input
     fi
 
     echo "Script Location: ($SCRIPTLOCATION)"
