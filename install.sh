@@ -67,7 +67,6 @@ function install_file()
         src="$SCRIPTLOCATION/$1"
         echo "Link $src to $dst"
         ln -s $src $dst
-        chown -h $current_user:$current_user $dst
     fi
 }
 
@@ -78,7 +77,6 @@ function install_dotfiles_folder()
     else
         echo "Link $SCRIPTLOCATION to $home_directory"
         ln -s $SCRIPTLOCATION $home_directory
-        chown -h $current_user:$current_user $home_directory/dotfiles
     fi
 }
 
@@ -124,7 +122,6 @@ function setup_GitHub_SSH_Key()
         fi
     else
         mkdir "$home_directory/.ssh"
-        chown $current_user:$current_user $home_directory/.ssh
     fi
 #    if [ -e "$home_directory/.ssh/GitHub" ]; then
 #        echo "$home_directory/.ssh/GitHub exist"
@@ -134,8 +131,6 @@ function setup_GitHub_SSH_Key()
 
     ssh-keygen -t rsa -C $git_email -f "$home_directory/.ssh/GitHub" -b 2048 -q -N ""
     #-q Silence ssh-keygen -N new_passphrase
-    chown $current_user:$current_user $home_directory/.ssh/GitHub
-    chown $current_user:$current_user $home_directory/.ssh/GitHub.pub
 
     eval $(ssh-agent)
     ssh-add $home_directory/.ssh/GitHub
@@ -205,6 +200,3 @@ echo "create workplace directory"
 #su $current_user ./make_my_workplace_dir.sh
 ./make_my_workplace_dir.sh
 
-# change owner in dotfiles back to user
-#echo "change owner"
-#chown -R $current_user:$current_user $SCRIPTLOCATION
