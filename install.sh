@@ -39,8 +39,17 @@ function initial()
 #        echo "Your distribution havn't been support yet. exit.."
 #        exit 1
 #    fi
-    current_user=$USER
-    home_directory=$HOME
+    echo "Current Username: ($USER)"
+    read current_user
+    if [ "$current_user" == "" ]; then
+        current_user=$USER
+    fi
+
+    echo "Home Directory: ($HOME)"
+    read home_directory
+    if [ "home_directory" == "" ]; then
+        home_directory=$HOME
+    fi
 }
 
 function install_file()
