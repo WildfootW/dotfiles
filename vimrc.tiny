@@ -49,14 +49,12 @@ Plugin 'VundleVim/Vundle.vim'
 
 filetype plugin indent on     " required
 
-"Plugin (Bundles)
-
-"auto add corresponse quote
+" Plugin (Bundles)
 " Auto complete tag pair
 Plugin 'Auto-pairs'
-"vim command tools
+" vim command tools
 Plugin 'tpope/vim-surround'
-"Air line
+" Air line
 Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
 " File tree
@@ -70,9 +68,12 @@ Plugin 'airblade/vim-gitgutter'
 Plugin 'Lokaltog/vim-easymotion'
 " Tab manage
 Plugin 'mkitt/tabline.vim'
-"Color scheme
+" Color scheme
 Plugin 'flazz/vim-colorschemes'
 Plugin 'fisadev/fisa-vim-colorscheme'
+" Create files from templates
+Plugin 'aperezdc/vim-template'
+
 
 if iCanHazVundle == 0
     echo "Installing Plugins..."
@@ -202,20 +203,24 @@ cab QA qa
 cab Qa qa
 cab Set set
 
+" Template
+let g:templates_directory = ['~/.vim/templates']
+let g:email = "wildfootw@wildfoo.tw"
+
 "read skeleton template file when opening new file
 "autocmd BufNewFile *.<extension> execute "0r <directory>/".input("Template name: ").".<extension>"
 
-autocmd BufNewFile *.cpp        execute "0r ~/.vim/template/skeleton_".input("Template name (Press Enter to use basic template) : ").".cpp"
-autocmd BufNewFile *.c          execute "0r ~/.vim/template/skeleton_".input("Template name (Press Enter to use basic template) : ").".c"
-autocmd BufNewFile *.ino        execute "0r ~/.vim/template/skeleton_".input("Template name (Press Enter to use basic template) : ").".ino"
-autocmd BufNewFile *.py         execute "0r ~/.vim/template/skeleton_".input("Template name (Press Enter to use basic template) : ").".py"
-autocmd BufNewFile *.sh         execute "0r ~/.vim/template/skeleton_".input("Template name (Press Enter to use basic template) : ").".sh"
-autocmd BufNewFile *.html       0r ~/.vim/template/skeleton.html
-
-"header
-autocmd BufNewFile *.cpp        0r ~/.vim/template/header.c
-autocmd BufNewFile *.c          0r ~/.vim/template/header.c
-autocmd BufNewFile *.ino        0r ~/.vim/template/header.c
-autocmd BufNewFile *.js         0r ~/.vim/template/header.c
-autocmd BufNewFile *.py         0r ~/.vim/template/header.py
-autocmd BufNewFile *.sh         0r ~/.vim/template/header.sh
+"autocmd BufNewFile *.cpp        execute "0r ~/.vim/template/skeleton_".input("Template name (Press Enter to use basic template) : ").".cpp"
+"autocmd BufNewFile *.c          execute "0r ~/.vim/template/skeleton_".input("Template name (Press Enter to use basic template) : ").".c"
+"autocmd BufNewFile *.ino        execute "0r ~/.vim/template/skeleton_".input("Template name (Press Enter to use basic template) : ").".ino"
+"autocmd BufNewFile *.py         execute "0r ~/.vim/template/skeleton_".input("Template name (Press Enter to use basic template) : ").".py"
+"autocmd BufNewFile *.sh         execute "0r ~/.vim/template/skeleton_".input("Template name (Press Enter to use basic template) : ").".sh"
+"autocmd BufNewFile *.html       0r ~/.vim/template/skeleton.html
+"
+""header
+"autocmd BufNewFile *.cpp        0r ~/.vim/template/header.c
+"autocmd BufNewFile *.c          0r ~/.vim/template/header.c
+"autocmd BufNewFile *.ino        0r ~/.vim/template/header.c
+"autocmd BufNewFile *.js         0r ~/.vim/template/header.c
+"autocmd BufNewFile *.py         0r ~/.vim/template/header.py
+"autocmd BufNewFile *.sh         0r ~/.vim/template/header.sh
