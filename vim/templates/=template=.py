@@ -6,6 +6,5 @@
 #
 # Distributed under terms of the %LICENSE% license.
 
-"""
+if __name__ == "__main__":
 %HERE%
-"""
