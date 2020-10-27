@@ -1,6 +1,6 @@
 #=
     %FILE%
-    Copyright © %YEAR% %USER% <%MAIL%>
+    Copyleft (ɔ) %YEAR% %USER% <%MAIL%>
 
     Distributed under terms of the %LICENSE% license.
 =#

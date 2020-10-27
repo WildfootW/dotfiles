@@ -4,7 +4,7 @@
 #
 # Author %USER% <%MAIL%>
 # Version 0.1
-# Copyright (C) %YEAR% %USER% <%MAIL%>
+# Copyleft (ɔ) %YEAR% %USER% <%MAIL%>
 # Modified On %FDATE%
 # Created  %FDATE%
 #
