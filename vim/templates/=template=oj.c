@@ -5,7 +5,7 @@
  * Distributed under terms of the %LICENSE% license.
  */
 
-// Wrong Answer
+// [ ] Completed
 
 #define INF 2147483647
 #define EPS 1e-9

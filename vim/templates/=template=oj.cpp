@@ -5,7 +5,7 @@
  * Distributed under terms of the %LICENSE% license.
  */
 
-// Wrong Answer
+// [ ] Completed
 
 #include <iostream>
 #include <ctime>
