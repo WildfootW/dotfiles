@@ -1,1 +1,201 @@
-vimrc.tiny
+"Settings
+
+" about space and tab
+set expandtab
+set tabstop=4
+set shiftwidth=4
+set listchars=tab:>-,trail:-
+set list
+
+set relativenumber
+set number
+set cursorline
+set autoindent
+set smartindent
+set t_Co=256
+set ignorecase
+set backspace=indent,eol,start
+set mouse=nicr
+"set leader key
+let mapleader=","
+
+" autocompletion of files and commands behaves like shell
+" " (complete only the common part, list the options that match)
+set wildmode=list:longest"
+
+syntax on
+
+"""""""""""""""""""""""""""    plug.vim begin    """""""""""""""""""""""""""
+if empty(glob('~/.vim/autoload/plug.vim'))
+  silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
+    \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+  autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
+endif
+
+" Install vim-plug if not found
+if empty(glob('~/.vim/autoload/plug.vim'))
+  silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
+    \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+endif
+
+
+call plug#begin('~/.vim/plugged')
+
+" Auto complete tag pair
+Plug 'chun-yang/auto-pairs'
+" vim command tools
+Plug 'tpope/vim-surround'
+" Air line
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
+" File tree
+Plug 'scrooloose/nerdtree'
+Plug 'jistr/vim-nerdtree-tabs'
+" Code and files fuzzy finder
+Plug 'kien/ctrlp.vim'
+" Git
+Plug 'airblade/vim-gitgutter'
+" Move Around
+Plug 'Lokaltog/vim-easymotion'
+" Tab manage
+Plug 'mkitt/tabline.vim'
+" Color scheme
+Plug 'flazz/vim-colorschemes'
+Plug 'fisadev/fisa-vim-colorscheme'
+" Create files from templates
+Plug 'aperezdc/vim-template'
+
+call plug#end()
+
+
+" Run PlugInstall if there are missing plugins
+if len(filter(values(g:plugs), '!isdirectory(v:val.dir)'))
+  autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
+endif
+"""""""""""""""""""""""""""    plug.vim -end-    """""""""""""""""""""""""""
+
+" EasyMotion
+nmap <Leader>s <Plug>(easymotion-s2)
+map  / <Plug>(easymotion-sn)
+omap / <Plug>(easymotion-tn)
+map <Leader>j <Plug>(easymotion-j)
+map <Leader>k <Plug>(easymotion-k)
+
+let g:EasyMotion_startofline = 0 " keep cursor colum when JK motion"
+
+" These `n` & `N` mappings are options. You do not have to map `n` & `N` to
+" EasyMotion.
+" Without these mappings, `n` & `N` works fine. (These mappings just provide
+" different highlight method and have some other features )
+map  n <Plug>(easymotion-next)
+map  N <Plug>(easymotion-prev)
+" Use uppercase target labels and type as a lower case
+let g:EasyMotion_use_upper = 1
+" type `l` and match `l`&`L`
+let g:EasyMotion_smartcase = 1
+" Smartsign (type `3` and match `3`&`#`)
+let g:EasyMotion_use_smartsign_us = 1
+highlight link EasyMotionMoveHL Search
+
+" gitgutter
+let g:gitgutter_sign_added = '+'
+let g:gitgutter_sign_modified = '◉'
+let g:gitgutter_sign_removed = '◉-'
+let g:gitgutter_sign_modified_removed = '-'
+
+" use 256 colors when possible
+" fisa, wombat256i, vc, ubaryd, tropikos, pt_black, pride, aurora, fx, znake
+if &term =~? 'mlterm\|xterm\|xterm-256\|screen-256'
+    let &t_Co = 256
+        colorscheme ubaryd
+    else
+        colorscheme delek
+endif
+
+" nicer colors
+highlight DiffAdd cterm=bold ctermbg=none ctermfg=119
+highlight DiffDelete cterm=bold ctermbg=none ctermfg=167
+highlight DiffChange cterm=bold ctermbg=none ctermfg=227
+highlight SignifySignAdd cterm=bold ctermbg=none ctermfg=119
+highlight SignifySignDelete cterm=bold ctermbg=none ctermfg=167
+highlight SignifySignChange cterm=bold ctermbg=none ctermfg=227
+highlight LineNr ctermbg=none
+highlight Search cterm=none ctermbg=green ctermfg=black
+highlight NonText cterm=none ctermbg=none
+highlight VertSplit ctermbg=none ctermfg=gray
+highlight SignColumn ctermbg=none
+
+"Airline
+set laststatus=2
+let g:airline#extensions#syntastic#enabled = 1
+let g:airline#extensions#tagbar#enabled = 1
+let g:airline#extensions#tabline#enabled = 1
+let g:airline#extensions#tabline#tab_nr_type = 1 " tab number
+let g:airline#extensions#tabline#show_close_button = 0
+let g:airline_powerline_fonts = 1
+
+let g:airline#extensions#ctrlp#color_template = 'insert'
+let g:airline#extensions#ctrlp#color_template = 'normal'
+let g:airline#extensions#ctrlp#color_template = 'visual'
+let g:airline#extensions#ctrlp#color_template = 'replace'
+let g:airline#extensions#ctrlp#show_adjacent_modes = 1
+
+" Theme
+" kolor, ubaryd
+let g:airline_theme='ubaryd'
+
+" TabSelect
+map <leader>1 1gt
+map <leader>2 2gt
+map <leader>3 3gt
+map <leader>4 4gt
+map <leader>5 5gt
+map <leader>6 6gt
+map <leader>7 7gt
+map <leader>8 8gt
+map <leader>9 9gt
+map <Leader><Tab> :tabnext<CR>
+map <Leader><S-Tab> :tabprevious<CR>
+
+" crontab
+"autocmd filetype crontab setlocal nobackup nowritebackup
+
+"folding
+set foldenable
+set foldmethod=manual
+set foldcolumn=0
+
+"key binding
+
+nmap <F3> :tabnew<CR>
+nmap <F4> :TagbarToggle<CR>
+map <F5> <plug>NERDTreeTabsToggle<CR>
+let hlstate=0
+nnoremap <silent> <F6> :if (hlstate == 0) \| set hlsearch \| else \| nohlsearch \| endif \| let hlstate=1-hlstate<cr>
+nnoremap <space> za
+inoremap <c-]> <esc>A
+nmap K kJ
+
+"paste setting
+nnoremap <F9> :set invpaste paste?<CR>
+set pastetoggle=<F9>
+set showmode
+
+"save file as sudo
+cmap w!! w !sudo tee > /dev/null %
+
+
+cab Q q
+cab W w
+cab X x
+cab WQ wq
+cab Wq wq
+cab wQ wq
+cab QA qa
+cab Qa qa
+cab Set set
+
+" Template
+let g:templates_directory = ['~/.vim/templates']
+let g:email = "wildfootw@wildfoo.tw"
+

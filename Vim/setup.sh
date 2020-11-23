@@ -39,8 +39,3 @@ for file in ${files[@]}; do
     install_file $file
 done
 
-#install vim plugins
-echo "Install vim plugins"
-vim +qall
-
-
