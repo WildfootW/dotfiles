@@ -1,6 +1,6 @@
 # Path to your oh-my-zsh installation.
 export DOTFILES=$HOME/dotfiles
-export ZSH=$DOTFILES/oh-my-zsh
+export ZSH=$DOTFILES/Zshell/ohmyzsh
 
 # Set name of the theme to load.
 # Look in ~/.oh-my-zsh/themes/
@@ -77,13 +77,13 @@ export EDITOR='vim'
 setopt correct
 
 if [ `uname -s` = 'Darwin' ]; then
-    source $DOTFILES/environment_variable-osx.sh
-    source $DOTFILES/zshrc.osx
+    source $DOTFILES/Misc/environment_variable-osx.sh
+    source $DOTFILES/Zshell/zshrc.osx
 fi
 
 if [ `uname -s` = 'Linux' ]; then
-    source $DOTFILES/environment_variable-linux.sh
-    source $DOTFILES/zshrc.linux
+    source $DOTFILES/Misc/environment_variable-linux.sh
+    source $DOTFILES/Zshell/zshrc.linux
 fi
 
 source $ZSH/oh-my-zsh.sh

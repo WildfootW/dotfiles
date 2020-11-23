@@ -16,10 +16,8 @@ HomeDirectory=$HOME
 source ./check_distribution.sh
 echo "your distribution is $distribution $distribution_version"
 
-files=(vim vimrc zshrc tmux.conf tmux.conf.local)
 #softwares=(git zsh vim tmux) # fonts-powerline
-git_email="wildfootw@wildfoo.tw"
-git_name="WildfootW"
+subfolders=(Git SecureShell Tmux Vim Zshell)
 
 function initial()
 {
@@ -71,18 +69,6 @@ function initial()
     fi
 }
 
-function install_file()
-{
-    dst="$HomeDirectory/.$1"
-    if [ -f $dst ] || [ -d $dst ]; then
-        echo "File conflict: $dst"
-    else
-        src="$ScriptLocation/$1"
-        echo "Link $src to $dst"
-        ln -s $src $dst
-    fi
-}
-
 function install_dotfiles_folder()
 {
     if [ -e "$HomeDirectory/dotfiles" ]; then
@@ -108,52 +94,6 @@ function check_software()
 #            yum -y install $1
 #        fi
     fi
-}
-
-function set_git_environment_settings()
-{
-    echo "set git environment settings..."
-    git config --global user.email $git_email
-    git config --global user.name $git_name
-    git config --global color.ui true
-    git config --global core.editor vim 
-    git config --global alias.co commit
-    git config --global alias.lg "log --color --graph --all --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --"
-    git config --global push.default simple
-    git config --global pull.rebase false
-    git config --global core.excludesfile ~/dotfiles/git/.gitignore # global gitignore
-}
-
-function setup_GitHub_SSH_Key()
-{
-    echo "Setup GitHub SSH Key..."
-    if [ -e "$HomeDirectory/.ssh" ]; then
-        if [ ! -d "$HomeDirectory/.ssh" ];then
-            echo ".ssh exist in HOME directory but not a directory!"
-            echo "GitHub SSH Key setup failed!"
-            exit 1
-        fi
-    else
-        mkdir "$HomeDirectory/.ssh"
-    fi
-#    if [ -e "$HomeDirectory/.ssh/GitHub" ]; then
-#        echo "$HomeDirectory/.ssh/GitHub exist"
-#        echo "GitHub SSH Key setup failed!"
-#        exit 1
-#    fi
-
-    ssh-keygen -t rsa -C $git_email -f "$HomeDirectory/.ssh/GitHub" -b 2048 -q -N ""
-    #-q Silence ssh-keygen -N new_passphrase
-
-    eval $(ssh-agent)
-    ssh-add $HomeDirectory/.ssh/GitHub
-
-    echo "Success!! please paste the public key to GitHub."
-    echo "+------------------------------------------------+"
-    cat $HomeDirectory/.ssh/GitHub.pub
-    echo "+------------------------------------------------+"
-    echo "After pasted the public key. Use \"ssh -T git@github.com\" to test if setup success."
-    echo "If it is not working. Just command \"ssh-add $HomeDirectory/.ssh/GitHub\" manually."
 }
 
 echo ""
@@ -185,31 +125,14 @@ echo "Cloning submodule..."
 git submodule init
 git submodule update
 
-# clone some custom plugin
-git clone https://github.com/zsh-users/zsh-autosuggestions $ScriptLocation/oh-my-zsh/custom/plugins/zsh-autosuggestions
-git clone https://github.com/zsh-users/zsh-syntax-highlighting.git $ScriptLocation/oh-my-zsh/custom/plugins/zsh-syntax-highlighting
-
-#set git and GitHub SSH Key
-set_git_environment_settings
-setup_GitHub_SSH_Key
-
-#install files and folders
-for file in ${files[@]}; do
-    install_file $file
-done
 install_dotfiles_folder
-ln -s $ScriptLocation/ssh-config $HomeDirectory/.ssh/config
 
-#install vim plugins
-echo "Install vim plugins"
-vim +qall
-
-#switch to zsh
-echo "change default shell to zsh"
-chsh -s /bin/zsh $CurrentUser
+# run setups
+for subfolder in ${subfolders[@]}; do
+    $ScriptLocation/$subfolder/setup.sh $CurrentUser $HomeDirectory $ScriptLocation
+done
 
 # make workplace dir
 echo "create workplace directory"
-#su $CurrentUser ./make_my_workplace_dir.sh
-./make_my_workplace_dir.sh
+$ScriptLocation/Misc/make_my_workplace_dir.sh
 

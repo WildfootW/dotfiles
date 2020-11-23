@@ -1,7 +1,6 @@
-[submodule "oh-my-zsh"]
-	path = oh-my-zsh
-	url = https://github.com/robbyrussell/oh-my-zsh.git
-	branch = master
-[submodule "oh-my-tmux"]
-	path = oh-my-tmux
-	url = https://github.com/WildfootW/oh-my-tmux.git
+[submodule "Zshell/ohmyzsh"]
+	path = Zshell/ohmyzsh
+	url = https://github.com/ohmyzsh/ohmyzsh.git
+[submodule "Tmux/oh-my-tmux"]
+	path = Tmux/oh-my-tmux
+	url = git@github.com:WildfootW/oh-my-tmux.git
