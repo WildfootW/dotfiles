@@ -78,7 +78,7 @@ filetype plugin indent on
 set tabstop=4 softtabstop=4 shiftwidth=4 expandtab smarttab autoindent
 set incsearch ignorecase smartcase hlsearch
 set ruler laststatus=2 showcmd showmode
-set list listchars=trail:»,tab:»-
+set list listchars=tab:>-,trail:-
 set fillchars+=vert:\ 
 set wrap breakindent
 set encoding=utf-8
@@ -126,7 +126,7 @@ xmap ga <Plug>(EasyAlign)
 nmap ga <Plug>(EasyAlign)
 
 " indentLine
-let g:indentLine_char = '▏'
+let g:indentLine_char = '┊'
 let g:indentLine_color_gui = '#363949'
 
 " TagBar
