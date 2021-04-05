@@ -1,5 +1,9 @@
 # dotfiles
 
+## Todoist
+* add update_from_upstream.sh
+* fix permission problem
+
 ## Useage
 change the "$git_name" and "$git_email" in install.sh
 

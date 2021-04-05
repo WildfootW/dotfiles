@@ -15,7 +15,7 @@ alias nmap-scan-snmp="nmap -sU -n -p 161 -sC -oN nmap.snmp.log"
 alias nmap-scan-udp="nmap -sU -oN nmap.udp.log"
 
 ## Other
-alias v="vim"
+alias v="nvim"
 alias checkport="sudo lsof -n -i | grep LISTEN"
 alias docker-pid="sudo docker ps -q | sudo xargs docker inspect --format 'Pid:{{.State.Pid}} ID:{{.ID}} | {{.Config.Hostname}}'"
 alias docker-attach="sudo env SHELL='/bin/bash' nsenter --mount --uts --ipc --net --pid --target"

@@ -17,7 +17,7 @@ source ./check_distribution.sh
 echo "your distribution is $distribution $distribution_version"
 
 #softwares=(git zsh vim tmux) # fonts-powerline
-subfolders=(Git SecureShell Tmux Vim Zshell)
+subfolders=(Git SecureShell Tmux Neovim Zshell)
 
 function initial()
 {

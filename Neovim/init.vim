@@ -48,6 +48,7 @@ Plug 'SirVer/ultisnips'
 Plug 'honza/vim-snippets'
 Plug 'metakirby5/codi.vim'
 Plug 'dkarter/bullets.vim'
+Plug 'aperezdc/vim-template'
 
 " Entertainment
 "Plug 'ryanss/vim-hackernews'
@@ -55,7 +56,7 @@ Plug 'dkarter/bullets.vim'
 call plug#end()
 
 """ Python3 VirtualEnv
-let g:python3_host_prog = expand('~/.config/nvim/env/bin/python')
+let g:python3_host_prog = expand('~/.config/nvim/venv/bin/python')
 
 """ Coloring
 syntax on
@@ -110,7 +111,7 @@ let g:deoplete#enable_at_startup = 1
 set completeopt-=preview
 
 " vim-pydocstring
-let g:pydocstring_doq_path = '~/.config/nvim/env/bin/doq'
+let g:pydocstring_doq_path = '~/.config/nvim/venv/bin/doq'
 
 " Supertab
 let g:SuperTabDefaultCompletionType = "<C-n>"
@@ -232,9 +233,13 @@ nmap <leader>j :set filetype=journal<CR>
 nmap <leader>k :ColorToggle<CR>
 nmap <leader>l :Limelight!!<CR>
 xmap <leader>l :Limelight!!<CR>
-autocmd FileType python nmap <leader>x :0,$!~/.config/nvim/env/bin/python -m yapf<CR>
+autocmd FileType python nmap <leader>x :0,$!~/.config/nvim/venv/bin/python -m yapf<CR>
 "nmap <leader>n :HackerNews best<CR>J
 nmap <silent> <leader><leader> :noh<CR>
 nmap <Tab> :bnext<CR>
 nmap <S-Tab> :bprevious<CR>
+
+" Template
+let g:templates_directory = ['~/dotfile/Templates']
+let g:email = "wildfootw@wildfoo.tw"
 
