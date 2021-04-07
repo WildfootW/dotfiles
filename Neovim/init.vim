@@ -14,6 +14,7 @@ Plug 'junegunn/vim-journal'
 Plug 'junegunn/rainbow_parentheses.vim'
 Plug 'nightsense/forgotten'
 Plug 'zaki/zazen'
+"Plug 'airblade/vim-gitgutter'
 
 " Aethetics - Additional
 Plug 'nightsense/nemo'
@@ -22,6 +23,7 @@ Plug 'chriskempson/tomorrow-theme', { 'rtp': 'vim' }
 Plug 'rhysd/vim-color-spring-night'
 
 " Functionalities
+"" git branch status line
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-sensible'
 Plug 'tpope/vim-surround'
@@ -241,3 +243,8 @@ nmap <S-Tab> :bprevious<CR>
 let g:templates_directory = ['~/dotfile/Templates']
 let g:email = "wildfootw@wildfoo.tw"
 
+" gitgutter
+let g:gitgutter_sign_added = '+'
+let g:gitgutter_sign_modified = '◉'
+let g:gitgutter_sign_removed = '◉-'
+let g:gitgutter_sign_modified_removed = '-'
