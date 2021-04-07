@@ -7,7 +7,6 @@ call plug#begin()
 Plug 'dracula/vim', { 'commit': '147f389f4275cec4ef43ebc25e2011c57b45cc00' }
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
-Plug 'ryanoasis/vim-devicons'
 Plug 'junegunn/goyo.vim'
 Plug 'junegunn/limelight.vim'
 Plug 'junegunn/seoul256.vim'
@@ -94,7 +93,6 @@ let g:NERDTreeDirArrowCollapsible = '↡'
 
 " Airline
 let g:airline_powerline_fonts = 1
-let g:airline_section_z = ' %{strftime("%-I:%M %p")}'
 let g:airline_section_warning = ''
 "let g:airline#extensions#tabline#enabled = 1
 
@@ -214,7 +212,7 @@ nmap <leader>q :NERDTreeToggle<CR>
 nmap \ <leader>q
 nmap <leader>w :TagbarToggle<CR>
 nmap <leader>ee :Colors<CR>
-nmap <leader>ea :AirlineTheme 
+nmap <leader>ea :AirlineTheme
 nmap <leader>e1 :call ColorDracula()<CR>
 nmap <leader>e2 :call ColorSeoul256()<CR>
 nmap <leader>e3 :call ColorForgotten()<CR>
