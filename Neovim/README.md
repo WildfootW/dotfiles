@@ -17,7 +17,7 @@ Multi-windowed editing with NerdTree and TagBar sidebars.
 ```
 sudo add-apt-repository ppa:neovim-ppa/stable
 sudo apt-get update
-sudo apt install neovim python3 python3-pip git curl exuberant-ctags -y
+sudo apt install neovim python3 python3-pip python3-venv git curl exuberant-ctags -y
 ```
 
 ## Update
