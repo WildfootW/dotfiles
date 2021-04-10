@@ -5,7 +5,7 @@
 * fix permission problem
 
 ## Useage
-change the "$git_name" and "$git_email" in install.sh
+change the "$git_name" and "$git_email" in install.sh (and more)
 
 ```
 cd ~
@@ -17,14 +17,21 @@ cd ./dotfiles
 git remote set-url origin git@github.com:WildfootW/dotfiles.git
 ```
 
-### required
-[Powerline fonts](https://github.com/powerline/fonts)
-for the correct theme th display in terminal
+## required
+[Powerline fonts](https://github.com/powerline/fonts) for the correct theme th display in terminal
 * git
 * zsh
 * vim
 * tmux
+* nvim
+### Neovim
+```
+sudo add-apt-repository ppa:neovim-ppa/stable
+sudo apt-get update
+sudo apt install neovim python3 python3-pip git curl exuberant-ctags -y
+```
 
+## Other
 ### theme
 #### theme
 * Nordic-darker
