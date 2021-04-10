@@ -205,6 +205,6 @@ cab Qa qa
 cab Set set
 
 " Template
-let g:templates_directory = ['~/dotfile/Templates']
+let g:templates_directory = ['~/dotfiles/Templates']
 let g:email = "wildfootw@wildfoo.tw"
 

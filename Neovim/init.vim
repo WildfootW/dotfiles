@@ -1,9 +1,9 @@
-""" Optixal's Neovim Init.vim
+" Optixal's Neovim Init.vim
 
-""" Vim-Plug
+" Vim-Plug
 call plug#begin()
 
-" Aesthetics - Main
+"" Aesthetics - Main
 Plug 'dracula/vim', { 'commit': '147f389f4275cec4ef43ebc25e2011c57b45cc00' }
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
@@ -16,20 +16,20 @@ Plug 'nightsense/forgotten'
 Plug 'zaki/zazen'
 "Plug 'airblade/vim-gitgutter'
 
-" Aethetics - Additional
+"" Aethetics - Additional
 Plug 'nightsense/nemo'
 Plug 'yuttie/hydrangea-vim'
 Plug 'chriskempson/tomorrow-theme', { 'rtp': 'vim' }
 Plug 'rhysd/vim-color-spring-night'
 
-" Functionalities
-"" git branch status line
+"" Functionalities
+""" git branch status line
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-sensible'
 Plug 'tpope/vim-surround'
 Plug 'majutsushi/tagbar'
-Plug 'scrooloose/nerdtree'
-Plug 'scrooloose/nerdcommenter'
+Plug 'preservim/nerdtree'
+Plug 'preservim/nerdcommenter'
 Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 Plug 'deoplete-plugins/deoplete-jedi'
 Plug 'ervandew/supertab'
@@ -51,15 +51,15 @@ Plug 'metakirby5/codi.vim'
 Plug 'dkarter/bullets.vim'
 Plug 'aperezdc/vim-template'
 
-" Entertainment
+"" Entertainment
 "Plug 'ryanss/vim-hackernews'
 
 call plug#end()
 
-""" Python3 VirtualEnv
+" Python3 VirtualEnv
 let g:python3_host_prog = expand('~/.config/nvim/venv/bin/python')
 
-""" Coloring
+" Coloring
 syntax on
 color dracula
 highlight Pmenu guibg=white guifg=black gui=bold
@@ -67,14 +67,14 @@ highlight Comment gui=bold
 highlight Normal gui=none
 highlight NonText guibg=none
 
-" Opaque Background (Comment out to use terminal's profile)
+""" Opaque Background (Comment out to use terminal's profile)
 set termguicolors
 
-" Transparent Background (For i3 and compton)
+""" Transparent Background (For i3 and compton)
 highlight Normal guibg=NONE ctermbg=NONE
 highlight LineNr guibg=NONE ctermbg=NONE
 
-""" Other Configurations
+" Other Configurations
 filetype plugin indent on
 set tabstop=4 softtabstop=4 shiftwidth=4 expandtab smarttab autoindent
 set incsearch ignorecase smartcase hlsearch
@@ -86,54 +86,64 @@ set encoding=utf-8
 set number
 set title
 
-""" Plugin Configurations
+" Plugin Configurations
 
-" NERDTree
+""" NERDTree
 let NERDTreeShowHidden=1
 let g:NERDTreeDirArrowExpandable = '↠'
 let g:NERDTreeDirArrowCollapsible = '↡'
 
-" Airline
+""" Airline
 let g:airline_powerline_fonts = 1
 let g:airline_section_warning = ''
 "let g:airline#extensions#tabline#enabled = 1
 
-" Neovim :Terminal
+""" Neovim :Terminal
 tmap <Esc> <C-\><C-n>
 tmap <C-w> <Esc><C-w>
 "tmap <C-d> <Esc>:q<CR>
 autocmd BufWinEnter,WinEnter term://* startinsert
 autocmd BufLeave term://* stopinsert
 
-" Deoplete
+""" Deoplete
 let g:deoplete#enable_at_startup = 1
 " Disable documentation window
 set completeopt-=preview
 
-" vim-pydocstring
+""" vim-pydocstring
 let g:pydocstring_doq_path = '~/.config/nvim/venv/bin/doq'
 
-" Supertab
+""" Supertab
 let g:SuperTabDefaultCompletionType = "<C-n>"
 
-" Ultisnips
+""" Ultisnips
 let g:UltiSnipsExpandTrigger="<C-Space>"
 let g:UltiSnipsJumpForwardTrigger="<Tab>"
 let g:UltiSnipsJumpBackwardTrigger="<C-x>"
 
-" EasyAlign
+""" EasyAlign
 xmap ga <Plug>(EasyAlign)
 nmap ga <Plug>(EasyAlign)
 
-" indentLine
+""" indentLine
 let g:indentLine_char = '┊'
 let g:indentLine_color_gui = '#363949'
 
-" TagBar
+""" TagBar
 let g:tagbar_width = 30
 let g:tagbar_iconchars = ['↠', '↡']
 
-" fzf-vim
+""" Template
+let g:templates_directory = ['~/dotfiles/Templates']
+let g:email = "wildfootw@wildfoo.tw"
+
+""" gitgutter
+let g:gitgutter_sign_added = '+'
+let g:gitgutter_sign_modified = '◉'
+let g:gitgutter_sign_removed = '◉-'
+let g:gitgutter_sign_modified_removed = '-'
+
+""" fzf-vim
 let g:fzf_action = {
   \ 'ctrl-t': 'tab split',
   \ 'ctrl-s': 'split',
@@ -153,45 +163,45 @@ let g:fzf_colors =
   \ 'spinner': ['fg', 'Label'],
   \ 'header':  ['fg', 'Comment'] }
 
-""" Filetype-Specific Configurations
+" Filetype-Specific Configurations
 
-" HTML, XML, Jinja
-autocmd FileType html setlocal shiftwidth=2 tabstop=2 softtabstop=2
-autocmd FileType css setlocal shiftwidth=2 tabstop=2 softtabstop=2
-autocmd FileType xml setlocal shiftwidth=2 tabstop=2 softtabstop=2
+""" HTML, XML, Jinja
+autocmd FileType html       setlocal shiftwidth=2 tabstop=2 softtabstop=2
+autocmd FileType css        setlocal shiftwidth=2 tabstop=2 softtabstop=2
+autocmd FileType xml        setlocal shiftwidth=2 tabstop=2 softtabstop=2
 autocmd FileType htmldjango setlocal shiftwidth=2 tabstop=2 softtabstop=2
 autocmd FileType htmldjango inoremap {{ {{  }}<left><left><left>
 autocmd FileType htmldjango inoremap {% {%  %}<left><left><left>
 autocmd FileType htmldjango inoremap {# {#  #}<left><left><left>
 
-" Markdown and Journal
-autocmd FileType markdown setlocal shiftwidth=2 tabstop=2 softtabstop=2
-autocmd FileType journal setlocal shiftwidth=2 tabstop=2 softtabstop=2
+""" Markdown and Journal
+autocmd FileType markdown   setlocal shiftwidth=4 tabstop=4 softtabstop=4
+autocmd FileType journal    setlocal shiftwidth=2 tabstop=2 softtabstop=2
 
-""" Custom Functions
+" Custom Functions
 
-" Trim Whitespaces
+""" Trim Whitespaces
 function! TrimWhitespace()
     let l:save = winsaveview()
     %s/\\\@<!\s\+$//e
     call winrestview(l:save)
 endfunction
 
-" Dracula Mode (Dark)
+""" Dracula Mode (Dark)
 function! ColorDracula()
     let g:airline_theme=''
     color dracula
     IndentLinesEnable
 endfunction
 
-" Seoul256 Mode (Dark & Light)
+""" Seoul256 Mode (Dark & Light)
 function! ColorSeoul256()
     let g:airline_theme='silver'
     color seoul256
     IndentLinesDisable
 endfunction
 
-" Forgotten Mode (Light)
+""" Forgotten Mode (Light)
 function! ColorForgotten()
     " Light airline themes: tomorrow, silver, alduin
     " Light colors: forgotten-light, nemo-light
@@ -200,19 +210,19 @@ function! ColorForgotten()
     IndentLinesDisable
 endfunction
 
-" Zazen Mode (Black & White)
+""" Zazen Mode (Black & White)
 function! ColorZazen()
     let g:airline_theme='badcat'
     color zazen
     IndentLinesEnable
 endfunction
 
-""" Custom Mappings
+" Custom Mappings
 
 let mapleader=","
 nmap <leader>q :NERDTreeToggle<CR>
-nmap \ <leader>q
 nmap <leader>w :TagbarToggle<CR>
+nmap \ <leader>w <leader>q
 nmap <leader>ee :Colors<CR>
 nmap <leader>ea :AirlineTheme
 nmap <leader>e1 :call ColorDracula()<CR>
@@ -223,8 +233,8 @@ nmap <leader>r :so ~/.config/nvim/init.vim<CR>
 nmap <leader>t :call TrimWhitespace()<CR>
 xmap <leader>a gaip*
 nmap <leader>a gaip*
-nmap <leader>s <C-w>s<C-w>j:terminal<CR>
-nmap <leader>vs <C-w>v<C-w>l:terminal<CR>
+"nmap <leader>s <C-w>s<C-w>j:terminal<CR>
+"nmap <leader>vs <C-w>v<C-w>l:terminal<CR>
 nmap <leader>d <Plug>(pydocstring)
 nmap <leader>f :Files<CR>
 nmap <leader>g :Goyo<CR>
@@ -239,12 +249,3 @@ nmap <silent> <leader><leader> :noh<CR>
 nmap <Tab> :bnext<CR>
 nmap <S-Tab> :bprevious<CR>
 
-" Template
-let g:templates_directory = ['~/dotfile/Templates']
-let g:email = "wildfootw@wildfoo.tw"
-
-" gitgutter
-let g:gitgutter_sign_added = '+'
-let g:gitgutter_sign_modified = '◉'
-let g:gitgutter_sign_removed = '◉-'
-let g:gitgutter_sign_modified_removed = '-'

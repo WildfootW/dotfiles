@@ -1,4 +1,5 @@
-# Optixal's Neovim init.vim
+# Neovim init.vim
+* Fork from Optixal
 
 Normal usage.
 
@@ -12,20 +13,14 @@ Multi-windowed editing with NerdTree and TagBar sidebars.
 
 ![Multi-Window Example](https://user-images.githubusercontent.com/19287477/62753315-b8870900-ba9d-11e9-9276-705c3ab76eba.png)
 
-## Installing and Updating
-
-### Install
-
-#### Automated Installation
-
-Run `./install.sh`
-
+## Install Requirement
 ```
 sudo add-apt-repository ppa:neovim-ppa/stable
 sudo apt-get update
+sudo apt install neovim python3 python3-pip git curl exuberant-ctags -y
 ```
 
-### Update
+## Update
 
 Update plugins (super simple)
 
@@ -46,13 +41,6 @@ nvim
 ```
 nvim
 :PlugUpgrade
-```
-
-(Optional) Pull my updates if you want my new modifications
-
-```sh
-git pull
-cp init.vim ~/.config/nvim/
 ```
 
 ## Note
@@ -79,8 +67,6 @@ Most custom commands expand off my map leader, keeping nvim as vanilla as possib
 * `,r` - Refresh/source ~/.config/nvim/init.vim
 * `,t` - Trim all trailing whitespaces
 * `,a` - Auto align variables (vim-easy-align), eg. do `,a=` while your cursor is on a bunch of variables to align their equal signs
-* `,s` - New terminal in horizontal split
-* `,vs` - New terminal in vertical split
 * `,d` - Automatically generate Python docstrings while cursor is hovering above a function or class
 * `,f` - Fuzzy find a file (fzf)
 * `,g` - Toggle Goyo mode (Goyo), super clean and minimalistic viewing mode
@@ -92,6 +78,4 @@ Most custom commands expand off my map leader, keeping nvim as vanilla as possib
 * `<Alt-r>` - Toggle RGB color picker
 * `<Tab>` - Next buffer
 * `<Shift-Tab>` - Previous buffer
-
-More commmands at https://github.com/Optixal/.vim/blob/master/reference/commands_vim.txt
 
