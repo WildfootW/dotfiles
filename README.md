@@ -72,6 +72,5 @@ git remote set-url origin git@github.com:WildfootW/dotfiles.git
 # Troubleshooting
 ## Manually install ssh key of GitHub
 ```
-eval $(ssh-agent)
-ssh-add ~/.ssh/GitHub
+eval $(ssh-agent); ssh-add ~/.ssh/GitHub
 ```
