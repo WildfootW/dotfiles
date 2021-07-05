@@ -4,7 +4,21 @@
 * add update_from_upstream.sh
 * fix permission problem
 
-## Useage
+## Usage
+### required
+[Powerline fonts](https://github.com/powerline/fonts) for the correct theme th display in terminal
+```
+sudo apt install git zsh vim tmux
+```
+
+### Neovim
+```
+sudo add-apt-repository ppa:neovim-ppa/stable
+sudo apt-get update
+sudo apt install neovim python3 python3-pip python3-venv git curl exuberant-ctags -y
+```
+
+### Git Clone
 change the "$git_name" and "$git_email" in install.sh (and more)
 
 ```
@@ -13,22 +27,8 @@ mkdir Programfile
 cd ./Programfile
 git clone https://github.com/WildfootW/dotfiles.git
 cd ./dotfiles
-./install.sh
+./setup.sh
 git remote set-url origin git@github.com:WildfootW/dotfiles.git
-```
-
-## required
-[Powerline fonts](https://github.com/powerline/fonts) for the correct theme th display in terminal
-* git
-* zsh
-* vim
-* tmux
-* nvim
-### Neovim
-```
-sudo add-apt-repository ppa:neovim-ppa/stable
-sudo apt-get update
-sudo apt install neovim python3 python3-pip python3-venv git curl exuberant-ctags -y
 ```
 
 ## Other
