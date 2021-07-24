@@ -13,7 +13,7 @@ ScriptLocation=$(dirname "$SCRIPT")
 CurrentUser=$USER
 HomeDirectory=$HOME
 
-source ./check_distribution.sh
+source ./Misc/check_distribution.sh
 echo "your distribution is $distribution $distribution_version"
 
 #softwares=(git zsh vim tmux) # fonts-powerline
