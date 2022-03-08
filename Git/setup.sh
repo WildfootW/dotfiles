@@ -27,7 +27,7 @@ git config --global user.name $git_name
 git config --global color.ui true
 git config --global core.editor vim 
 git config --global alias.co commit
-git config --global alias.lg "log --color --graph --all --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --"
+git config --global alias.lg "log --color --graph --all --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit"
 git config --global push.default simple
 git config --global pull.rebase false
 git config --global core.excludesfile ~/dotfiles/Git/gitignore # global gitignore
