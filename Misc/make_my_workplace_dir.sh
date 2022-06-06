@@ -6,7 +6,7 @@
 #
 
 mkdir -p ~/Workplace
-mkdir -p ~/Workplace/project
+mkdir -p ~/Workplace/projects
 mkdir -p ~/Workplace/cybersecurity
 mkdir -p ~/Workplace/embedded
 mkdir -p ~/Workplace/temporary
