@@ -2,11 +2,11 @@
 #   Version 
 #   Author: WildfootW
 #   GitHub: github.com/Wildfoot
-#   Copyright (C) 2018 WildfootW All rights reserved.
+#   Copyleft (C) 2018-2022 WildfootW All rights reversed.
 #
 
 mkdir -p ~/Workplace
-mkdir -p ~/Workplace/misc-project
+mkdir -p ~/Workplace/project
 mkdir -p ~/Workplace/cybersecurity
 mkdir -p ~/Workplace/embedded
 mkdir -p ~/Workplace/temporary
