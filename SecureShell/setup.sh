@@ -39,7 +39,7 @@ function setup_GitHub_SSH_Key()
 #        exit 1
 #    fi
 
-    ssh-keygen -t rsa -C $git_email -f "$HomeDirectory/.ssh/GitHub" -b 2048 -q -N ""
+    ssh-keygen -t ed25519 -C $git_email -f "$HomeDirectory/.ssh/GitHub" -q -N ""
     #-q Silence ssh-keygen -N new_passphrase
 
     eval $(ssh-agent)
