@@ -61,3 +61,8 @@ ZSH_TMUX_AUTOSTART=true
 ZSH_TMUX_AUTOQUIT=false
 plugins=(tmux $plugins)
 
+# GitHub key
+if [[ -f ~/.ssh/GitHub ]]; then
+    eval $(ssh-agent)
+    ssh-add ~/.ssh/GitHub
+fi
