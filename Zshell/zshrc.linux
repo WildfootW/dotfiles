@@ -63,6 +63,6 @@ plugins=(tmux $plugins)
 
 # GitHub key
 if [[ -f ~/.ssh/GitHub ]]; then
-    eval $(ssh-agent)
-    ssh-add ~/.ssh/GitHub
+    eval $(ssh-agent) > /dev/null
+    ssh-add ~/.ssh/GitHub > /dev/null
 fi
