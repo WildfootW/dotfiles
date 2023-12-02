@@ -50,6 +50,7 @@ Plug 'honza/vim-snippets'
 Plug 'metakirby5/codi.vim'
 Plug 'dkarter/bullets.vim'
 Plug 'aperezdc/vim-template'
+Plug 'github/copilot.vim'
 
 "" Entertainment
 "Plug 'ryanss/vim-hackernews'
