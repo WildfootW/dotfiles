@@ -25,6 +25,11 @@ alias pip3-install="python3 -m pip install --user"
 alias open_folder='nautilus $PWD'
 alias get_log='tail -f /var/log/syslog'
 alias weather='curl wttr.in'
+alias docker-compose='docker compose'
+function rebuild_service() {
+    docker-compose build "$1" && docker-compose up "$1"
+}
+
 
 # add PATH
 export PATH=$PATH:~/Workplace/cybersecurity/Tools/bin
