@@ -3,4 +3,8 @@
 	url = https://github.com/ohmyzsh/ohmyzsh.git
 [submodule "Tmux/oh-my-tmux"]
 	path = Tmux/oh-my-tmux
+	# WildfootW's fork = upstream gpakosz/.tmux + file rename (no leading dot) +
+	# personal customizations in tmux.conf.local. Do NOT point at upstream:
+	# the pinned commit is fork-only and upstream's dotfile naming breaks the
+	# Tmux/tmux.conf symlinks.
 	url = https://github.com/WildfootW/oh-my-tmux.git

@@ -1,0 +1,81 @@
+# WildfootW's starship prompt - Tokyo Night, powerline.
+# Powerline glyphs (E0A0/E0B0/E0B1) render via the terminal's Nerd Font (or a
+# "Symbols Nerd Font Mono" fallback). Ambiguous-width chars are kept ASCII
+# (prompt ">", git status, no ellipsis) so the cursor never ghosts.
+
+format = """
+$username\
+[](fg:blue bg:slate)\
+$directory\
+$git_branch\
+$git_status\
+$nodejs$python$rust$golang$c\
+[](fg:slate)\
+$line_break\
+$character"""
+
+palette = "tokyonight"
+
+[palettes.tokyonight]
+base  = "#1a1b26"
+slate = "#292e42"
+muted = "#565f89"
+fg    = "#c0caf5"
+blue  = "#7aa2f7"
+cyan  = "#7dcfff"
+green = "#9ece6a"
+red   = "#f7768e"
+
+[username]
+show_always = true
+style_user = "bg:blue fg:base"
+style_root = "bg:red fg:base"
+format = "[ $user ]($style)"
+
+[directory]
+style = "bg:slate fg:blue"
+format = "[ $path ]($style)"
+truncate_to_repo = false
+truncation_length = 4
+truncation_symbol = ""
+
+[git_branch]
+symbol = ""
+format = "[  ](fg:muted bg:slate)[$symbol $branch ](bg:slate fg:green)"
+
+[git_status]
+format = "[$all_status$ahead_behind ](bg:slate fg:red)"
+conflicted = "="
+ahead = ">"
+behind = "<"
+diverged = "<>"
+untracked = "?"
+stashed = "*"
+modified = "!"
+staged = "+"
+renamed = "r"
+deleted = "x"
+
+[nodejs]
+symbol = "node "
+format = "[  ](fg:muted bg:slate)[$symbol$version ](bg:slate fg:cyan)"
+
+[python]
+symbol = "py "
+format = "[  ](fg:muted bg:slate)[$symbol$version ](bg:slate fg:cyan)"
+
+[rust]
+symbol = "rs "
+format = "[  ](fg:muted bg:slate)[$symbol$version ](bg:slate fg:cyan)"
+
+[golang]
+symbol = "go "
+format = "[  ](fg:muted bg:slate)[$symbol$version ](bg:slate fg:cyan)"
+
+[c]
+symbol = "c "
+format = "[  ](fg:muted bg:slate)[$symbol$version ](bg:slate fg:cyan)"
+
+[character]
+success_symbol = "[>](bold green)"
+error_symbol = "[>](bold red)"

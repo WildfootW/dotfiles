@@ -1,16 +1,24 @@
-#Host github.com
-#    User wildfootw
-#    HostName github.com
-#    IdentityFile ~/.ssh/GitHub
+# WildfootW's ssh client config.
+#
+# One key for everything: the default name ~/.ssh/id_ed25519, which ssh tries
+# automatically. `AddKeysToAgent yes` loads it into the agent on first use, so
+# no `ssh-add` is needed in the shell rc.
+
+Host *
+    AddKeysToAgent yes
+    IdentitiesOnly yes
+    IdentityFile ~/.ssh/id_ed25519
+
+Host github.com
+    HostName github.com
+    User git
+
 Host wildfoo.tw
     HostName wildfoo.tw
     Port 29777
     User wildfootw
-    IdentitiesOnly yes
-    IdentityFile ~/.ssh/wildfootw@wildfoo.tw
+
 Host common.wildfoo.tw
     HostName wildfoo.tw
     Port 29777
     User common
-    IdentitiesOnly yes
-    IdentityFile ~/.ssh/common@wildfoo.tw
