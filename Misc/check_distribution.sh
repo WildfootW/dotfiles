@@ -21,10 +21,12 @@ elif [ -f /etc/debian_version ]; then
     distribution_version=$(cat /etc/debian_version)
 elif [ -f /etc/SuSe-release ]; then
     # Older SuSE/etc.
-    ...
+    distribution=SuSE
+    distribution_version=$(cat /etc/SuSe-release)
 elif [ -f /etc/redhat-release ]; then
     # Older Red Hat, CentOS, etc.
-    ...
+    distribution=$(cat /etc/redhat-release)
+    distribution_version=$distribution
 else
     # Fall back to uname, e.g. "Linux <version>", also works for BSD, etc.
     distribution=$(uname -s)

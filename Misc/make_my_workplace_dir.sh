@@ -5,12 +5,7 @@
 #   Copyleft (C) 2018-2022 WildfootW All rights reversed.
 #
 
-mkdir -p ~/Workplace
-mkdir -p ~/Workplace/projects
-mkdir -p ~/Workplace/cybersecurity
-mkdir -p ~/Workplace/embedded
-mkdir -p ~/Workplace/temporary
-mkdir -p ~/Workplace/data
-mkdir -p ~/Programfile
-mkdir -p ~/Programfile/bin
-mkdir -p ~/Programfile/service
+# Flat structure — years of use showed only these are actually needed.
+mkdir -p ~/Workplace        # general projects / work
+mkdir -p ~/Cybersecurity    # CTF / pentest
+mkdir -p ~/.local/bin       # user binaries (on PATH)
