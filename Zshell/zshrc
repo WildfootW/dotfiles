@@ -26,12 +26,14 @@ plugins=(tmux $plugins)
 source $DOTFILES/Misc/environment_variable.sh
 setopt correct
 
-export PATH="/usr/local/bin:/usr/local/sbin:/usr/bin:/bin:/usr/sbin:/sbin"
-# ~/.local/bin must come FIRST so user-installed tools (nvim tarball, fnm, uv,
-# starship) win over older distro packages (e.g. apt's neovim 0.9.5).
-export PATH="$HOME/.local/bin:$PATH"
-# snap binaries (Ubuntu) — the hardcoded PATH above drops the default /snap/bin.
-[ -d /snap/bin ] && export PATH="$PATH:/snap/bin"
+# Prepend ~/.local/bin so user-installed tools (nvim tarball, fnm, uv, starship)
+# win over distro packages. Do NOT reset PATH from scratch: login already set it
+# up, and WSL / Docker Desktop / snap inject paths (e.g. the docker credential
+# helper, /snap/bin) that we must keep. `typeset -U` de-dupes; the trailing
+# standard dirs are a fallback for the rare minimal-PATH shell.
+typeset -U path
+path=("$HOME/.local/bin" $path /usr/local/bin /usr/local/sbin /usr/bin /bin /usr/sbin /sbin)
+export PATH
 
 source $ZSH/oh-my-zsh.sh
 
