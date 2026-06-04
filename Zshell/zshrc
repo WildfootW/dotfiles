@@ -30,6 +30,8 @@ export PATH="/usr/local/bin:/usr/local/sbin:/usr/bin:/bin:/usr/sbin:/sbin"
 # ~/.local/bin must come FIRST so user-installed tools (nvim tarball, fnm, uv,
 # starship) win over older distro packages (e.g. apt's neovim 0.9.5).
 export PATH="$HOME/.local/bin:$PATH"
+# snap binaries (Ubuntu) — the hardcoded PATH above drops the default /snap/bin.
+[ -d /snap/bin ] && export PATH="$PATH:/snap/bin"
 
 source $ZSH/oh-my-zsh.sh
 
